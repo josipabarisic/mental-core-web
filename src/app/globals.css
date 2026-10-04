@@ -1,0 +1,132 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+/*
+  Palette measured directly from the client's existing identity files
+  (internal/sources/vizualni-identitet/). Values and contrast ratios are
+  documented in docs/plan-web-mental-core.md, section 6.4.
+*/
+@theme {
+  --color-brand: #424e4f;
+  --color-brand-deep: #2d3839;
+  --color-slate-blue: #46525f;
+  --color-surface: #fbf8f1;
+  --color-surface-alt: #e5e3dc;
+  --color-line: #d3c8bb;
+  --color-ink: #2d3839;
+  --color-ink-muted: #5d6664;
+  --color-accent-clay: #84593c;
+  --color-accent-clay-dark: #6f4a32;
+  --color-accent-clay-soft: #e8b199;
+  --color-olive: #78785d;
+  --color-olive-text: #5e6046;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+}
+
+:root {
+  --background: #fbf8f1;
+  --foreground: #2d3839;
+  --card: #ffffff;
+  --card-foreground: #2d3839;
+  --popover: #fbf8f1;
+  --popover-foreground: #2d3839;
+  --primary: #84593c;
+  --primary-foreground: #ffffff;
+  --secondary: #e5e3dc;
+  --secondary-foreground: #2d3839;
+  --muted: #e5e3dc;
+  --muted-foreground: #5d6664;
+  --accent: #e5e3dc;
+  --accent-foreground: #2d3839;
+  --destructive: #9b3a2c;
+  --border: #d3c8bb;
+  --input: #d3c8bb;
+  --ring: #46525f;
+  --radius: 0.25rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  /* The header is sticky and the review bar is fixed to the bottom, so both
+     anchor jumps and keyboard focus would otherwise land underneath them.
+     Header is 69px tall at its largest. */
+  html {
+    scroll-padding-top: 5.5rem;
+    scroll-padding-bottom: calc(var(--review-bar-h, 0px) + 1.5rem);
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "cv05" 1;
+  }
+
+  /* Visible keyboard focus is required: the contact form must be usable
+     without a mouse. Ring colour is checked against both surfaces. */
+  :focus-visible {
+    outline: 2px solid var(--color-slate-blue);
+    outline-offset: 2px;
+  }
+
+  .on-dark :focus-visible {
+    outline-color: var(--color-surface);
+  }
+
+  /* Target of the skip link. An outline around the whole page reads as a bug. */
+  main:focus-visible {
+    outline: none;
+  }
+
+  ::selection {
+    background: var(--color-accent-clay);
+    color: #ffffff;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@utility eyebrow {
+  @apply text-xs font-semibold uppercase tracking-[0.18em];
+}
+
+@utility rule-top {
+  @apply border-t border-line pt-4;
+}
