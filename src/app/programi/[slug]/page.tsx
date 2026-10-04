@@ -112,7 +112,7 @@ export default async function ProgramStranica({
               <Foto
                 foto={p.foto}
                 pozicija="center 40%"
-                className="mt-10 aspect-[4/3]"
+                className="mt-10 max-w-md"
               />
             )}
           </div>

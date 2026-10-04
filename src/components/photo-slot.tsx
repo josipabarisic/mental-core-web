@@ -33,7 +33,7 @@ export function Foto({
 }) {
   const f = FOTO[foto];
   return (
-    <div className={cn("relative overflow-hidden bg-surface-alt", className)}>
+    <div className={cn("relative aspect-[3/4] overflow-hidden bg-surface-alt", className)}>
       <Image
         src={`${BASE}/foto/${f.src}`}
         alt={f.alt}

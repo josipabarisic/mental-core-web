@@ -106,7 +106,7 @@ export default function ONama() {
 
         <div className="mt-12 grid gap-10 lg:grid-cols-2 lg:gap-14">
           <article className="border-t border-line pt-8">
-            <Foto foto="helena" pozicija="center 30%" className="aspect-[4/5]" />
+            <Foto foto="helena" pozicija="center 30%" />
             <h3 className="mt-7 text-2xl font-bold text-brand-deep">Helena</h3>
             <p className="mt-1.5 text-sm font-medium text-accent-clay-dark">
               Psihologinja i coach
@@ -129,7 +129,7 @@ export default function ONama() {
           </article>
 
           <article className="border-t border-line pt-8">
-            <Foto foto="dinko" pozicija="center 30%" className="aspect-[4/5]" />
+            <Foto foto="dinko" pozicija="center 30%" />
             <h3 className="mt-7 text-2xl font-bold text-brand-deep">Dinko</h3>
             <p className="mt-1.5 text-sm font-medium text-accent-clay-dark">
               Vojni instruktor i operativni analitičar
@@ -157,19 +157,21 @@ export default function ONama() {
             Realan stres, sigurno okruženje
           </SectionTitle>
         </div>
-        <Foto
-          foto="dvorana"
-          sizes="(min-width: 1152px) 1100px, 100vw"
-          className="mt-12 aspect-[3/2] sm:aspect-[2/1]"
-          pozicija="center 80%"
-        />
-        <div className="mt-12 grid gap-x-14 gap-y-10 sm:grid-cols-2">
-          {METODA.map((m) => (
-            <div key={m.naslov} className="border-t border-line pt-6">
-              <h3 className="text-lg font-bold text-brand-deep">{m.naslov}</h3>
-              <p className="mt-2.5 leading-relaxed text-ink-muted">{m.tekst}</p>
-            </div>
-          ))}
+        <div className="mt-12 grid gap-12 lg:grid-cols-[1fr_1.4fr] lg:gap-16">
+          <Foto
+            foto="dvorana"
+            sizes="(min-width: 1024px) 440px, 100vw"
+            className="mx-auto w-full max-w-md lg:max-w-none"
+            pozicija="center center"
+          />
+          <div className="grid content-start gap-x-12 gap-y-10 sm:grid-cols-2">
+            {METODA.map((m) => (
+              <div key={m.naslov} className="border-t border-line pt-6">
+                <h3 className="text-lg font-bold text-brand-deep">{m.naslov}</h3>
+                <p className="mt-2.5 leading-relaxed text-ink-muted">{m.tekst}</p>
+              </div>
+            ))}
+          </div>
         </div>
         <p className="mt-12 max-w-3xl border-l-2 border-accent-clay pl-6 text-lg leading-relaxed text-brand-deep">
           Nitko se ne prisiljava i nitko se ne izlaže pred grupom. Intenzitet

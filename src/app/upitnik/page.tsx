@@ -50,7 +50,7 @@ export default function Upitnik() {
               foto="upitnik"
               sizes="(min-width: 1024px) 380px, 100vw"
               pozicija="center 35%"
-              className="mt-10 hidden aspect-[4/5] lg:block"
+              className="mt-10 hidden lg:block"
             />
           </div>
         </div>
