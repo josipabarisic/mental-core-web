@@ -12,25 +12,18 @@ export default function Icon() {
           width: "100%",
           height: "100%",
           display: "flex",
+          flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
           background: "#424E4F",
+          color: "#FBF8F1",
         }}
       >
-        {/* Bracket pair, the current recommendation. Swap the paths if the
-            client picks another symbol in the sketch's review bar. */}
-        <svg
-          width="44"
-          height="44"
-          viewBox="0 0 32 32"
-          fill="none"
-          stroke="#FBF8F1"
-          strokeWidth={4.5}
-          strokeLinecap="butt"
-        >
-          <path d="M11 4.5H4.75v23H11" />
-          <path d="M21 4.5h6.25v23H21" />
-        </svg>
+        {/* Letter M with the rule from the wordmark underneath. */}
+        <div style={{ fontSize: 40, fontWeight: 700, lineHeight: 1 }}>M</div>
+        <div
+          style={{ marginTop: 4, width: 26, height: 4, background: "#FBF8F1" }}
+        />
       </div>
     ),
     size,

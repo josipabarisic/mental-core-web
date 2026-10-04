@@ -3,12 +3,12 @@ import { mkdir, readFile } from "node:fs/promises";
 import { createRequire } from "node:module";
 
 const BASE = process.env.BASE ?? "http://127.0.0.1:43917";
-const OUT = "/workspace/.review-screenshots";
+const OUT = ".review-screenshots";
 const AXE = await readFile(
   createRequire(import.meta.url).resolve("axe-core/axe.min.js"),
   "utf8",
 );
-const STRANICE = ["/", "/o-nama", "/kontakt"];
+const STRANICE = ["/", "/programi", "/programi/standard", "/upitnik", "/o-nama", "/kontakt"];
 
 const results = [];
 const errors = [];
@@ -43,68 +43,10 @@ await mkdir(OUT, { recursive: true });
   const { ctx, page } = await newPage({ width: 1440, height: 900 });
   await page.goto(BASE, { waitUntil: "networkidle" });
 
-  // Hydration actually completed?
-  const hydrated = await page
-    .locator("button:has-text('Sakrij')")
-    .isVisible()
-    .catch(() => false);
-  check("skica traka je vidljiva", hydrated);
-
-  // --- Logo variant toggle ---
-  await page.getByRole("radio", { name: "A. Postojeći" }).click();
-  await page.waitForTimeout(350);
-  const markVisibleA = await page
-    .locator("header img")
-    .first()
-    .isVisible()
-    .catch(() => false);
-  const descA = await page.locator("header").innerText();
-  check("varijanta A prikazuje znak", markVisibleA);
-  check("varijanta A ima TEAMBUILDING", descA.includes("TEAMBUILDING"), descA.split("\n")[1]);
-  await page.screenshot({ path: `${OUT}/01-hero-varijanta-a.png`, clip: { x: 0, y: 0, width: 1440, height: 760 } });
-
-  await page.getByRole("radio", { name: "B. Prijedlog" }).click();
-  await page.waitForTimeout(350);
-  const markCountB = await page.locator("header img").count();
-  const descB = await page.locator("header").innerText();
-  check("varijanta B nema znak", markCountB === 0, `img count = ${markCountB}`);
-  check(
-    "varijanta B ima RAZVOJ TIMOVA I LIDERA",
-    descB.includes("RAZVOJ TIMOVA I LIDERA"),
-  );
-  await page.screenshot({ path: `${OUT}/02-hero-varijanta-b.png`, clip: { x: 0, y: 0, width: 1440, height: 760 } });
-
-  // --- Symbol switcher ---
-  const znak = page.getByRole("radio", { name: "Zagrade" });
-  check("prekidač za znak postoji", await znak.isVisible());
-  await znak.click();
-  await page.waitForTimeout(250);
-  check(
-    "odabrani znak je označen",
-    (await znak.getAttribute("aria-checked")) === "true",
-  );
-
-  // --- Radiogroup keyboard pattern ---
-  await znak.focus();
-  await page.keyboard.press("ArrowRight");
-  await page.waitForTimeout(250);
-  const strelica = await page.evaluate(() => {
-    const el = document.activeElement;
-    return {
-      ime: el?.getAttribute("aria-label"),
-      oznaceno: el?.getAttribute("aria-checked") === "true",
-      jedanUlaz:
-        [...el.parentElement.children].filter((b) => b.tabIndex === 0).length === 1,
-    };
-  });
-  check(
-    "strelica pomiče odabir znaka i fokus",
-    strelica.ime === "Jezgra" && strelica.oznaceno,
-    `${strelica.ime}, označeno: ${strelica.oznaceno}`,
-  );
-  check("grupa znakova je jedna Tab postaja", strelica.jedanUlaz);
-  await page.getByRole("radio", { name: "Zagrade" }).click();
-  await page.waitForTimeout(200);
+  const desc = await page.locator("header").innerText();
+  check("logotip ima RAZVOJ TIMOVA I LIDERA", desc.includes("RAZVOJ TIMOVA I LIDERA"));
+  check("logotip nema sliku znaka", (await page.locator("header img").count()) === 0);
+  check("ponuda ima šest programa", (await page.locator("#ponuda article").count()) === 6);
 
   // --- FAQ accordion ---
   const q = page.getByRole("button", { name: /Koliko ljudi može sudjelovati/ });
@@ -112,7 +54,7 @@ await mkdir(OUT, { recursive: true });
   await q.click();
   await page.waitForTimeout(500);
   const faqOpen = await page
-    .getByText(/Radimo s timovima od 6 do 30 ljudi/)
+    .getByText(/Analiza tima radi se za 3 do 15 osoba/)
     .isVisible()
     .catch(() => false);
   check("FAQ se otvara", faqOpen);
@@ -121,40 +63,12 @@ await mkdir(OUT, { recursive: true });
   await q2.click();
   await page.waitForTimeout(500);
   const firstStillOpen = await page
-    .getByText(/Radimo s timovima od 6 do 30 ljudi/)
+    .getByText(/Analiza tima radi se za 3 do 15 osoba/)
     .isVisible()
     .catch(() => false);
   check("FAQ drži samo jedno otvoreno", !firstStillOpen);
 
-  // --- Sakrij ---
-  await page.locator("button:has-text('Sakrij')").click();
-  await page.waitForTimeout(300);
-  const collapsed = await page
-    .locator("button:has-text('Usporedi logotip')")
-    .isVisible();
-  check("Sakrij sklapa traku", collapsed);
-  await page.locator("button:has-text('Usporedi logotip')").click();
-  await page.waitForTimeout(300);
-  check(
-    "traka se vraća",
-    await page.locator("button:has-text('Sakrij')").isVisible(),
-  );
-
-  // --- Footer not covered ---
-  await page.keyboard.press("End");
-  await page.waitForTimeout(700);
-  const contentBottom = await page
-    .locator("footer p:has-text('Skica za internu raspravu')")
-    .evaluate((el) => el.getBoundingClientRect().bottom);
-  const barTop = await page
-    .locator("[data-skica-traka]")
-    .evaluate((el) => el.getBoundingClientRect().top);
-  check(
-    "podnožje nije prekriveno trakom",
-    contentBottom <= barTop,
-    `zadnji redak ${Math.round(contentBottom)}, traka ${Math.round(barTop)}`,
-  );
-
+  await page.screenshot({ path: `${OUT}/01-pocetna.png`, clip: { x: 0, y: 0, width: 1440, height: 900 } });
   await ctx.close();
 }
 
@@ -181,9 +95,9 @@ await mkdir(OUT, { recursive: true });
     .catch(() => false);
   check("napomena o poslovnom e-mailu", hint);
 
-  await page.locator("button:has-text('10 do 25 ljudi')").click();
+  await page.locator("button:has-text('11 do 20 osoba')").click();
   const chipSelected = await page
-    .locator("button:has-text('10 do 25 ljudi')")
+    .locator("button:has-text('11 do 20 osoba')")
     .getAttribute("aria-pressed");
   check("odabrana veličina tima je označena", chipSelected === "true");
 
@@ -219,7 +133,7 @@ await mkdir(OUT, { recursive: true });
     .getByRole("link", { name: "O nama", exact: true });
   check("mobilni izbornik se otvara", await menuLink.isVisible());
   await menuLink.click();
-  await page.waitForURL("**/o-nama");
+  await page.waitForURL(/\/o-nama\/?$/);
   await page.waitForTimeout(400);
   check("mobilni izbornik navigira i zatvara se", page.url().includes("/o-nama"));
 
@@ -325,7 +239,7 @@ const KONTRAST = `(() => {
 {
   const { ctx, page } = await newPage({ width: 1280, height: 900 });
 
-  // The 404 page carries the same header, footer and review bar, so it gets
+  // The 404 page carries the same header and footer, so it gets
   // the same treatment as the three real pages.
   for (const path of [...STRANICE, "/nepostojeca-stranica"]) {
     ocekujemo404 = path === "/nepostojeca-stranica";
@@ -395,7 +309,7 @@ const KONTRAST = `(() => {
     const bezOznake = [];
     const prekriveni = [];
     let zamka = false;
-    for (let i = 0; i < 60; i++) {
+    for (let i = 0; i < 120; i++) {
       await page.keyboard.press("Tab");
       const info = await page.evaluate(() => {
         const el = document.activeElement;
@@ -408,13 +322,14 @@ const KONTRAST = `(() => {
           oznaka:
             (cs.outlineStyle !== "none" && parseFloat(cs.outlineWidth) >= 1) ||
             cs.boxShadow !== "none",
-          prekriven: r.top < hr.bottom && r.bottom > hr.top && el.closest("header") === null,
+          // The skip link is fixed above the header on purpose.
+          prekriven: r.top < hr.bottom && r.bottom > hr.top && el.closest("header") === null && el.getAttribute("href") !== "#sadrzaj",
         };
       });
       if (!info) break;
       if (!info.oznaka) bezOznake.push(info.text);
       if (info.prekriven) prekriveni.push(info.text);
-      if (i === 59) zamka = true;
+      if (i === 119) zamka = true;
     }
     check(`svaka Tab meta ima vidljiv fokus ${path}`, bezOznake.length === 0, bezOznake.join(", "));
     check(
@@ -455,14 +370,14 @@ const KONTRAST = `(() => {
 
   // --- Anchor link clears the sticky header ---
   await page.goto(BASE, { waitUntil: "networkidle" });
-  await page.click("a[href='#paketi']");
+  await page.click("a[href='#ponuda']");
   await page.waitForTimeout(800);
   const sidro = await page.evaluate(() => {
-    const t = document.querySelector("#paketi").getBoundingClientRect();
+    const t = document.querySelector("#ponuda").getBoundingClientRect();
     const h = document.querySelector("header").getBoundingClientRect();
     return Math.round(t.top - h.bottom);
   });
-  check("sidro #paketi ne završi ispod zaglavlja", sidro >= 0, `razmak ${sidro}px`);
+  check("sidro #ponuda ne završi ispod zaglavlja", sidro >= 0, `razmak ${sidro}px`);
 
   await ctx.close();
 }
@@ -503,7 +418,7 @@ const KONTRAST = `(() => {
     }),
   );
 
-  await page.locator("button:has-text('10 do 25 ljudi')").click();
+  await page.locator("button:has-text('11 do 20 osoba')").click();
   await page.locator("#izazov").fill("Tim dobro radi dok je mirno, a pod rokom komunikacija stane.");
   await page.locator("button:has-text('Pošaljite upit')").click();
   await page.waitForTimeout(1400);

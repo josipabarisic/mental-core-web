@@ -60,7 +60,7 @@ export default function OpengraphImage() {
             funkcioniranja tima.
           </div>
           <div style={{ marginTop: 26, fontSize: 26, color: "#D3C8BB" }}>
-            Ne gradimo timove za idealne uvjete.
+            Gradimo timove koji vjeruju jedni drugima.
           </div>
         </div>
       </div>

@@ -7,7 +7,8 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Eyebrow, Section, SectionTitle } from "@/components/section";
-import { PhotoSlot } from "@/components/photo-slot";
+import { Foto } from "@/components/photo-slot";
+import { ProgramKartice } from "@/components/program-kartice";
 
 const SIMPTOMI = [
   "Tim dobro radi dok je mirno, a pod rokom se raspada.",
@@ -20,7 +21,7 @@ const STUPOVI = [
   {
     naslov: "Autentično iskustvo",
     tekst:
-      "Stvarni vojni i psihološki kontekst. Bez glume i bez folklora oko logorske vatre.",
+      "Realni psihološki i vojni kontekst u svim smjerovima. Nema pretvaranja i nema motiviranja lažnim floskulama.",
   },
   {
     naslov: "Struktura i psihologija",
@@ -28,9 +29,9 @@ const STUPOVI = [
       "Otvorena komunikacija, jasne uloge, odgovornost i povjerenje pod pritiskom.",
   },
   {
-    naslov: "Primjenjivo odmah",
+    naslov: "Produktivni rezultat",
     tekst:
-      "Vođena refleksija i alati koji se u ponedjeljak koriste na sastanku, ne ostaju na terenu.",
+      "Vođena refleksija i alati koje s teambuildinga odmah, već prvog radnog dana, možete koristiti u poslu.",
   },
 ];
 
@@ -55,39 +56,6 @@ const KORACI = [
   },
 ];
 
-const PAKETI = [
-  {
-    oznaka: "Paket 1",
-    naslov: "Analiza tima i radionice",
-    detalji: ["U vašem prostoru", "Za vrijeme radnog vremena", "Cijela godina"],
-    tekst: "Rješavanje konkretnih internih izazova, bez izlaska iz ureda.",
-  },
-  {
-    oznaka: "Paket 2",
-    naslov: "Kratki intenzivni trening",
-    detalji: ["Izvan ureda", "2 do 5 sati", "Uz coaching lidera"],
-    tekst: "Analiza tima i teambuilding u poludnevnom formatu.",
-  },
-  {
-    oznaka: "Paket 3",
-    naslov: "Jednodnevni trening",
-    detalji: ["Izvan ureda", "Jedan dan", "Uz coaching lidera"],
-    tekst: "Cjelodnevni program s dubljom refleksijom i više prostora za rad na ulogama.",
-  },
-  {
-    oznaka: "Paket 4",
-    naslov: "Dvodnevni program",
-    detalji: ["Izvan ureda", "Dva dana", "Opcija: obitelj i prijatelji"],
-    tekst: "Najdublji format. Za timove koji ulaze u veću promjenu ili spajanje.",
-  },
-  {
-    oznaka: "Po mjeri",
-    naslov: "Personalizirani paket",
-    detalji: ["Prema dogovoru", "S upravom ili voditeljem odjela"],
-    tekst: "Program složen oko konkretnog problema koji već znate imenovati.",
-  },
-];
-
 const POKAZATELJI = [
   {
     naslov: "Upitnik prije i poslije",
@@ -109,7 +77,11 @@ const POKAZATELJI = [
 const PITANJA = [
   {
     q: "Koliko ljudi može sudjelovati?",
-    a: "Radimo s timovima od 6 do 30 ljudi. Za veće organizacije program dijelimo po odjelima, jer iznad 30 sudionika refleksija gubi dubinu.",
+    a: "Ovisi o programu. Analiza tima radi se za 3 do 15 osoba, Mental Core MINI za do 20 osoba, a STANDARD i MAXI za do 40 osoba. Više timova možemo obuhvatiti u dva ili više različitih termina.",
+  },
+  {
+    q: "Jesu li cijene s PDV-om?",
+    a: "Da. Sve cijene na stranici uključuju PDV. Hranu, piće, najam prostora i prijevoz moguće je dodati u ponudu uz dodatnu naknadu.",
   },
   {
     q: "Je li program fizički zahtjevan?",
@@ -117,11 +89,11 @@ const PITANJA = [
   },
   {
     q: "Što ako u timu postoji otvoren konflikt?",
-    a: "To nam recite unaprijed. Otvoren konflikt ne znači da program nije moguć, ali mijenja pristup. U tom slučaju obično počinjemo Paketom 1, u vašem prostoru, prije nego što izlazimo van.",
+    a: "To nam recite unaprijed. Otvoren konflikt ne znači da program nije moguć, ali mijenja pristup. U tom slučaju obično počinjemo analizom tima i radionicom, u vašem prostoru, prije nego što izlazimo van.",
   },
   {
     q: "Radite li i zimi?",
-    a: "Da. Paket 1 se održava u vašem prostoru i dostupan je cijelu godinu. Za zimske mjesece imamo i dvoranske simulacije odlučivanja pod pritiskom.",
+    a: "Da. Analiza tima i radionice održavaju se u vašem prostoru i dostupne su cijele godine. Za zimske mjesece imamo i dvoranske simulacije odlučivanja pod pritiskom.",
   },
   {
     q: "Koliko traje od prvog razgovora do programa?",
@@ -140,34 +112,38 @@ export default function Pocetna() {
       <section className="on-dark bg-brand">
         <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 sm:py-20 lg:grid-cols-[1.15fr_1fr] lg:items-center lg:gap-16 lg:px-8 lg:py-28">
           <div>
-            <Eyebrow tone="dark">Programi za tvrtke</Eyebrow>
+            <Eyebrow tone="dark">Programi za poslovne subjekte</Eyebrow>
             <h1 className="mt-5 text-balance text-4xl leading-[1.08] font-bold tracking-[-0.02em] text-surface sm:text-5xl lg:text-6xl">
               Uspjeh je rezultat uspješnog funkcioniranja tima.
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-line">
-              Ne gradimo timove za idealne uvjete. Gradimo ih za stvarne
-              poslovne izazove: pritisak, umor i nepredvidivost.
+              Vrijeme je da vaš tim postane više od grupe ljudi koji rade
+              zajedno. Gradimo timove koji vjeruju jedni drugima, surađuju i
+              zajedno stvaraju rezultate. Jer tim je jak onoliko koliko su jake
+              njegove veze.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
               <Link
-                href="/kontakt"
+                href="/upitnik"
                 className="inline-flex items-center justify-center gap-2 bg-surface px-6 py-3.5 text-sm font-semibold text-brand-deep transition-colors hover:bg-white"
               >
-                Provjerite gdje vaš tim stvarno stoji
+                Provjerite gdje vaš tim stoji
                 <ArrowRight size={16} />
               </Link>
               <a
-                href="#paketi"
+                href="#ponuda"
                 className="inline-flex items-center justify-center px-2 py-3.5 text-sm font-medium text-line underline underline-offset-4 hover:text-surface"
               >
-                Pogledajte pakete
+                Pogledajte ponudu
               </a>
             </div>
           </div>
 
-          <PhotoSlot
-            label="Dokumentarna fotografija Helene i Dinka, poslovno i terensko izdanje. Bez stocka."
-            className="min-h-64 lg:min-h-96"
+          <Foto
+            foto="flipchart"
+            priority
+            pozicija="45% center"
+            className="aspect-[4/3] lg:aspect-[4/5]"
           />
         </div>
 
@@ -225,11 +201,57 @@ export default function Pocetna() {
         </div>
       </Section>
 
+      {/* Jak tim */}
+      <Section tone="dark">
+        <div className="grid gap-12 lg:grid-cols-[1.2fr_1fr] lg:items-center lg:gap-20">
+          <div>
+            <Eyebrow tone="dark">Tim</Eyebrow>
+            <SectionTitle tone="dark" className="mt-5">
+              Jak tim ne nastaje slučajno. Gradi se.
+            </SectionTitle>
+            <div className="mt-7 space-y-4 text-lg leading-relaxed text-line">
+              <p>
+                Tim nije samo skup pojedinaca. Tim čine odnosi, povjerenje,
+                komunikacija i sposobnost da ljudi djeluju zajedno, čak i onda
+                kada se ne slažu. Uspješni rezultati nisu posljedica samo
+                individualnog talenta. Oni su rezultat dobrog funkcioniranja
+                cijelog tima.
+              </p>
+              <p>
+                Snaga tima mjeri se kvalitetom odnosa među njegovim članovima.
+                Kada postoje povjerenje, otvorena komunikacija i spremnost na
+                suradnju, tim ne samo da bolje funkcionira. On napreduje.
+              </p>
+              <p className="font-medium text-surface">
+                Zato teambuilding nije samo druženje izvan ureda.
+              </p>
+              <p>
+                To je prilika da se članovi tima bolje upoznaju i povežu, nauče
+                slušati jedni druge, prepoznaju svoje različitosti i zajedno
+                pronađu način da ih pretvore u snagu.
+              </p>
+              <p>
+                <span className="font-medium text-surface">
+                  A konflikti? I oni su dio svakog tima.
+                </span>{" "}
+                Ne moraju biti problem. Mogu biti prilika za učenje, razvoj i
+                napredak.
+              </p>
+            </div>
+          </div>
+          <Foto
+            foto="suradnja"
+            pozicija="center 30%"
+            className="aspect-[4/5]"
+          />
+        </div>
+      </Section>
+
       {/* Tri stupa */}
       <Section tone="alt">
         <Eyebrow>Diferencijacija</Eyebrow>
         <SectionTitle className="mt-5 max-w-2xl">
-          Zašto ovo nije klasičan teambuilding
+          Zašto ovo nije klasičan teambuilding?
         </SectionTitle>
         <div className="mt-12 grid gap-10 md:grid-cols-3 md:gap-8">
           {STUPOVI.map((s) => (
@@ -266,45 +288,26 @@ export default function Pocetna() {
         </div>
       </Section>
 
-      {/* Paketi */}
-      <Section tone="alt" id="paketi">
-        <div className="max-w-2xl">
-          <Eyebrow>Ponuda</Eyebrow>
-          <SectionTitle className="mt-5">Pet načina da počnemo</SectionTitle>
-        </div>
-        <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {PAKETI.map((p) => (
-            <div
-              key={p.oznaka}
-              className="flex flex-col border border-line bg-surface p-7"
-            >
-              <span className="eyebrow text-accent-clay">{p.oznaka}</span>
-              <h3 className="mt-3 text-xl font-bold text-brand-deep">
-                {p.naslov}
-              </h3>
-              <p className="mt-3 flex-1 leading-relaxed text-ink-muted">
-                {p.tekst}
-              </p>
-              <ul className="mt-6 space-y-1.5 border-t border-line pt-5 text-sm text-ink-muted">
-                {p.detalji.map((d) => (
-                  <li key={d}>{d}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
-          <div className="flex flex-col justify-center border border-dashed border-line p-7">
-            <p className="leading-relaxed text-ink">
-              Niste sigurni koji paket? Recite nam gdje tim zapinje i predložit
-              ćemo.
+      {/* Ponuda */}
+      <Section tone="alt" id="ponuda">
+        <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+          <div className="max-w-2xl">
+            <Eyebrow>Ponuda</Eyebrow>
+            <SectionTitle className="mt-5">Šest načina za naš početak</SectionTitle>
+            <p className="mt-5 text-lg leading-relaxed text-ink-muted">
+              Sve cijene uključuju PDV. Kliknite na program za opis i cjenik.
             </p>
-            <Link
-              href="/kontakt"
-              className="mt-5 inline-flex items-center gap-2 self-start text-sm font-semibold text-accent-clay-dark underline underline-offset-4"
-            >
-              Opišite situaciju
-              <ArrowRight size={15} />
-            </Link>
           </div>
+          <Link
+            href="/upitnik"
+            className="inline-flex shrink-0 items-center gap-2 self-start text-sm font-semibold text-accent-clay-dark underline underline-offset-4 sm:self-auto"
+          >
+            Niste sigurni? Ispunite upitnik
+            <ArrowRight size={15} />
+          </Link>
+        </div>
+        <div className="mt-12">
+          <ProgramKartice />
         </div>
       </Section>
 
@@ -381,10 +384,10 @@ export default function Pocetna() {
               <ArrowRight size={15} />
             </Link>
           </div>
-          <PhotoSlot
-            tone="light"
-            label="Portreti Helene i Dinka. Isti kadar, ista obrada, bez postavljenih osmijeha."
-            className="min-h-72"
+          <Foto
+            foto="portretZajedno"
+            pozicija="center 25%"
+            className="aspect-[4/5] lg:aspect-auto lg:min-h-full"
           />
         </div>
       </Section>

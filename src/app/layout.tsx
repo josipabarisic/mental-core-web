@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { LogoVariantProvider } from "@/components/brand/logo-variant";
-import { ReviewBar } from "@/components/brand/review-bar";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 
@@ -31,20 +29,17 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="hr" className={`${inter.variable} h-full`}>
       <body className="flex min-h-full flex-col bg-surface">
-        <LogoVariantProvider>
-          <a
-            href="#sadrzaj"
-            className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:bg-brand-deep focus:px-4 focus:py-2.5 focus:text-sm focus:font-semibold focus:text-surface"
-          >
-            Preskoči na sadržaj
-          </a>
-          <SiteHeader />
-          <main id="sadrzaj" tabIndex={-1} className="flex-1">
-            {children}
-          </main>
-          <SiteFooter />
-          <ReviewBar />
-        </LogoVariantProvider>
+        <a
+          href="#sadrzaj"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:bg-brand-deep focus:px-4 focus:py-2.5 focus:text-sm focus:font-semibold focus:text-surface"
+        >
+          Preskoči na sadržaj
+        </a>
+        <SiteHeader />
+        <main id="sadrzaj" tabIndex={-1} className="flex-1">
+          {children}
+        </main>
+        <SiteFooter />
       </body>
     </html>
   );

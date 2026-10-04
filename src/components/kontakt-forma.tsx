@@ -9,10 +9,10 @@ type Greske = Partial<Record<Polje, string>>;
 type Stanje = "unos" | "salje" | "uspjeh" | "greska";
 
 const VELICINE = [
-  "do 10 ljudi",
-  "10 do 25 ljudi",
-  "25 do 50 ljudi",
-  "više od 50 ljudi",
+  "3 do 10 osoba",
+  "11 do 20 osoba",
+  "21 do 40 osoba",
+  "više od 40 osoba",
 ];
 
 const BESPLATNE_DOMENE = [

@@ -1,8 +1,8 @@
 # Mental Core, skica weba
 
-Skica web stranice za Mental Core, B2B brend za razvoj timova i lidera na hrvatskom tržištu. Tri stranice: Početna, O nama, Kontakt.
+Skica web stranice za Mental Core, B2B brend za razvoj timova i lidera na hrvatskom tržištu. Stranice: Početna, Programi sa stranicom za svaki program, Upitnik o timu, O nama i Kontakt.
 
-Ovo je skica za internu raspravu s klijenticom, ne završna stranica. Fotografije, podaci tvrtke i kontakti su rezervirana mjesta.
+Objavljeno na https://mentalcoreteam.com. Podaci tvrtke i kontakti su još rezervirana mjesta.
 
 ## Na čemu se temelji
 
@@ -11,14 +11,17 @@ Sadržaj i struktura slijede plan u Agent Store-u projekta:
 
 Paleta je izmjerena izravno iz klijentičinih datoteka vizualnog identiteta i zapisana kao dizajn tokeni u `src/app/globals.css`. Omjeri kontrasta za svaki par boja navedeni su u planu, poglavlje 6.4.
 
-## Usporedba logotipa
+## Logotip i znak
 
-Stranica ima traku za pregled na dnu ekrana s dvije varijante logotipa:
+Odabran je logotip B: MENTAL CORE s deskriptorom RAZVOJ TIMOVA I LIDERA, bez slikovnog znaka. Znak za favicon je slovo M s crticom ispod, u `src/app/icon.tsx`.
 
-- **A. Postojeći**, znak s tri figure i deskriptor TEAMBUILDING
-- **B. Prijedlog**, bez znaka, deskriptor RAZVOJ TIMOVA I LIDERA
+## Programi i cijene
 
-Odabir se pamti u pregledniku. Traka je alat za pregled i uklanja se prije objave, zajedno s `src/components/brand/review-bar.tsx` i kontekstom u `src/components/brand/logo-variant.tsx`.
+Svi programi, opisi i cijene su na jednom mjestu, u `src/lib/programi.ts`. Početna, stranica Programi i stranica svakog programa čitaju odatle, pa se cijena mijenja samo ondje.
+
+## Fotografije
+
+Odabrane fotografije su u `public/foto/`, smanjene za web. Popis i opisi za čitače zaslona su u `src/components/photo-slot.tsx`.
 
 ## Pokretanje
 
@@ -39,18 +42,18 @@ Stranica je na `http://localhost:43917`.
 ## Struktura
 
 ```
-src/app/            tri stranice, favicon i Open Graph slika
-src/app/api/upit/   endpoint za kontakt formu
+src/app/            stranice, favicon i Open Graph slika
+src/app/api/        endpointi za kontakt formu i upitnik
 src/components/     zaglavlje, podnožje, sekcije, forma
-src/components/brand/  logotip, varijante, traka za pregled
-public/brand/       znak izvučen iz klijentičinih datoteka identiteta
+src/components/brand/  logotip
+src/lib/programi.ts programi, opisi i cijene
+public/foto/        fotografije
 ```
 
 ## Što nedostaje prije objave
 
-- Fotografije. Sva mjesta za fotografije su označena u sučelju.
-- Logotip u vektoru i izvorno pismo s licencom za web.
+- Izvorno pismo s licencom za web.
 - Podaci tvrtke: naziv, OIB, sjedište. Trenutno su rezervirano mjesto u podnožju.
 - Stvarni e-mail i telefon.
-- Kontakt forma trenutno samo zapisuje upit u konzolu. Prije objave ide Resend ili Formspree, plus zaštita od neželjene pošte.
+- Kontakt forma i upitnik trenutno ne šalju ništa. Prije objave ide Resend ili Formspree, plus zaštita od neželjene pošte.
 - Pravila privatnosti i mjerenje (Plausible i LinkedIn Insight Tag).

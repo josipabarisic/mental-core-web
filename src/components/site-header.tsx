@@ -9,6 +9,7 @@ import { Logo } from "@/components/brand/logo";
 
 const NAV = [
   { href: "/", label: "Početna" },
+  { href: "/programi", label: "Programi" },
   { href: "/o-nama", label: "O nama" },
   { href: "/kontakt", label: "Kontakt" },
 ];
@@ -33,8 +34,6 @@ export function SiteHeader() {
   }, [open]);
 
   return (
-    // Fully opaque on purpose: the extracted logo mark is a PNG with a baked
-    // in surface-coloured background, so any translucency here shows its edges.
     <header className="sticky top-0 z-40 border-b border-line bg-surface">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3.5 lg:px-8">
         <Link href="/" aria-label="Mental Core, početna stranica">

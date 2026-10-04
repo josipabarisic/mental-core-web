@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Eyebrow, Section, SectionTitle } from "@/components/section";
-import { PhotoSlot } from "@/components/photo-slot";
+import { Foto } from "@/components/photo-slot";
 
 export const metadata: Metadata = {
   title: "O nama",
@@ -106,11 +106,7 @@ export default function ONama() {
 
         <div className="mt-12 grid gap-10 lg:grid-cols-2 lg:gap-14">
           <article className="border-t border-line pt-8">
-            <PhotoSlot
-              tone="light"
-              label="Helena. Portret u poslovnom i terenskom izdanju, isti kadar za oboje."
-              className="min-h-60 bg-surface"
-            />
+            <Foto foto="helena" pozicija="center 30%" className="aspect-[4/5]" />
             <h3 className="mt-7 text-2xl font-bold text-brand-deep">Helena</h3>
             <p className="mt-1.5 text-sm font-medium text-accent-clay-dark">
               Psihologinja i coach
@@ -133,11 +129,7 @@ export default function ONama() {
           </article>
 
           <article className="border-t border-line pt-8">
-            <PhotoSlot
-              tone="light"
-              label="Dinko. Portret u poslovnom i terenskom izdanju, isti kadar za oboje."
-              className="min-h-60 bg-surface"
-            />
+            <Foto foto="dinko" pozicija="center 30%" className="aspect-[4/5]" />
             <h3 className="mt-7 text-2xl font-bold text-brand-deep">Dinko</h3>
             <p className="mt-1.5 text-sm font-medium text-accent-clay-dark">
               Vojni instruktor i operativni analitičar
@@ -165,6 +157,12 @@ export default function ONama() {
             Realan stres, sigurno okruženje
           </SectionTitle>
         </div>
+        <Foto
+          foto="dvorana"
+          sizes="(min-width: 1152px) 1100px, 100vw"
+          className="mt-12 aspect-[3/2] sm:aspect-[2/1]"
+          pozicija="center 80%"
+        />
         <div className="mt-12 grid gap-x-14 gap-y-10 sm:grid-cols-2">
           {METODA.map((m) => (
             <div key={m.naslov} className="border-t border-line pt-6">

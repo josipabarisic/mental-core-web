@@ -82,7 +82,7 @@
      Header is 69px tall at its largest. */
   html {
     scroll-padding-top: 5.5rem;
-    scroll-padding-bottom: calc(var(--review-bar-h, 0px) + 1.5rem);
+    scroll-padding-bottom: 1.5rem;
   }
 
   body {
