@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 // Set when building the static bundle that gets published to GitHub Pages.
-// Pages serves project sites from /<repo>, so assets need that prefix.
+// Without a custom domain Pages serves from /<repo>, so assets need that prefix.
 const staticExport = process.env.STATIC_EXPORT === "1";
 const basePath = process.env.BASE_PATH ?? "";
 

@@ -28,8 +28,8 @@ jobs:
       - run: npm ci
 
       - name: Static export
-        # Project sites live under /<repo>, so the asset prefix has to match.
-        run: BASE_PATH="/${GITHUB_REPOSITORY#*/}" npm run build:static
+        # Served from the root of mentalcoreteam.com, so no base path.
+        run: npm run build:static
 
       - uses: actions/configure-pages@v5
 

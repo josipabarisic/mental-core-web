@@ -13,7 +13,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://mentalcore.hr"),
+  metadataBase: new URL("https://mentalcoreteam.com"),
   title: {
     default: "Mental Core, razvoj timova i lidera",
     template: "%s | Mental Core",
