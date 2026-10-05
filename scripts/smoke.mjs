@@ -77,7 +77,7 @@ await mkdir(OUT, { recursive: true });
   const { ctx, page } = await newPage({ width: 1440, height: 900 });
   await page.goto(`${BASE}/kontakt`, { waitUntil: "networkidle" });
 
-  await page.locator("button:has-text('Pošaljite upit')").click();
+  await page.locator("button:has-text('Pošaljite')").click();
   await page.waitForTimeout(400);
   const err = await page.getByText("Upišite ime i prezime.").isVisible();
   check("prazna forma pokazuje greške", err);
@@ -104,7 +104,7 @@ await mkdir(OUT, { recursive: true });
   await page
     .locator("#izazov")
     .fill("Tim dobro radi dok je mirno, a pod rokom komunikacija stane.");
-  await page.locator("button:has-text('Pošaljite upit')").click();
+  await page.locator("button:has-text('Pošaljite')").click();
   await page.waitForTimeout(1200);
   const success = await page.getByText("Upit je zaprimljen.").isVisible();
   check("uspješno slanje forme", success);
@@ -387,7 +387,7 @@ const KONTRAST = `(() => {
   const { ctx, page } = await newPage({ width: 1280, height: 900 });
   await page.goto(`${BASE}/kontakt`, { waitUntil: "networkidle" });
 
-  await page.locator("button:has-text('Pošaljite upit')").click();
+  await page.locator("button:has-text('Pošaljite')").click();
   await page.waitForTimeout(400);
   check(
     "greška u formi pomiče fokus na prvo polje",
@@ -420,7 +420,7 @@ const KONTRAST = `(() => {
 
   await page.locator("button:has-text('11 do 20 osoba')").click();
   await page.locator("#izazov").fill("Tim dobro radi dok je mirno, a pod rokom komunikacija stane.");
-  await page.locator("button:has-text('Pošaljite upit')").click();
+  await page.locator("button:has-text('Pošaljite')").click();
   await page.waitForTimeout(1400);
   check(
     "potvrda preuzima fokus i najavljuje se",
