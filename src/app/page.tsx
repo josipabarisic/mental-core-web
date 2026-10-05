@@ -436,7 +436,7 @@ export default function Pocetna() {
             href="/kontakt"
             className="mt-9 inline-flex items-center gap-2 bg-accent-clay px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-accent-clay-dark"
           >
-            Zatražite program prilagođen vašoj organizaciji
+            Zatražite razgovor
             <ArrowRight size={16} />
           </Link>
         </div>
