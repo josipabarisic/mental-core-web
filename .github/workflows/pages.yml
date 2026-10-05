@@ -29,6 +29,8 @@ jobs:
 
       - name: Static export
         # Served from the root of mentalcoreteam.com, so no base path.
+        env:
+          NEXT_PUBLIC_MAIL_ENDPOINT: ${{ vars.MAIL_ENDPOINT }}
         run: npm run build:static
 
       - uses: actions/configure-pages@v5

@@ -46,3 +46,4 @@ next-env.d.ts
 # Static export
 out/
 .api-parked/
+.venv-fonts/

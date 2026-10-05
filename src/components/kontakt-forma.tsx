@@ -3,6 +3,8 @@
 import { useCallback, useState } from "react";
 import { ArrowRight, CircleAlert, CircleCheck, Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { KONTAKT_MAIL } from "@/lib/kontakt";
+import { mailEndpoint } from "@/lib/mail-endpoint";
 
 type Polje = "ime" | "tvrtka" | "email" | "velicinaTima" | "izazov";
 type Greske = Partial<Record<Polje, string>>;
@@ -24,9 +26,9 @@ const BESPLATNE_DOMENE = [
   "inet.hr",
 ];
 
-const KONTAKT_MAIL = "info@mentalcore.hr";
-
-const DEMO = process.env.NEXT_PUBLIC_STATIC_DEMO === "1";
+const DEMO =
+  process.env.NEXT_PUBLIC_STATIC_DEMO === "1" &&
+  !process.env.NEXT_PUBLIC_MAIL_ENDPOINT;
 
 function provjeri(data: Record<Polje, string>): Greske {
   const g: Greske = {};
@@ -67,6 +69,7 @@ export function KontaktForma() {
   const [data, setData] = useState(PRAZNO);
   const [greske, setGreske] = useState<Greske>({});
   const [stanje, setStanje] = useState<Stanje>("unos");
+  const [med, setMed] = useState("");
 
   // The form is replaced by the confirmation, so focus would fall back to the
   // body. Move it onto the confirmation and scroll it clear of the sticky header.
@@ -111,10 +114,10 @@ export function KontaktForma() {
     }
 
     try {
-      const res = await fetch("/api/upit", {
+      const res = await fetch(mailEndpoint("/api/upit"), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, med }),
       });
       if (!res.ok) throw new Error("neuspjelo");
       setStanje("uspjeh");
@@ -164,11 +167,21 @@ export function KontaktForma() {
       onSubmit={posalji}
       noValidate
       aria-labelledby="forma-naslov"
-      className="border border-line bg-surface p-6 sm:p-9"
+      className="relative border border-line bg-surface p-6 sm:p-9"
     >
       <h2 id="forma-naslov" className="sr-only">
         Obrazac za upit
       </h2>
+      <input
+        type="text"
+        name="med"
+        tabIndex={-1}
+        autoComplete="off"
+        value={med}
+        onChange={(e) => setMed(e.target.value)}
+        className="absolute -left-[9999px] h-px w-px overflow-hidden"
+        aria-hidden="true"
+      />
       <div className="grid gap-5 sm:grid-cols-2">
         <Polje
           id="ime"

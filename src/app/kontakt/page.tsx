@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Linkedin, Mail, MapPin, Phone } from "lucide-react";
 import { Eyebrow, Section, SectionTitle } from "@/components/section";
 import { KontaktForma } from "@/components/kontakt-forma";
+import { KONTAKT_MAIL } from "@/lib/kontakt";
 
 export const metadata: Metadata = {
   title: "Kontakt",
@@ -78,10 +79,10 @@ export default function Kontakt() {
                 <li className="flex items-center gap-3">
                   <Mail size={17} className="shrink-0 text-ink-muted" />
                   <a
-                    href="mailto:info@mentalcore.hr"
+                    href={`mailto:${KONTAKT_MAIL}`}
                     className="text-ink underline underline-offset-4"
                   >
-                    info@mentalcore.hr
+                    {KONTAKT_MAIL}
                   </a>
                 </li>
                 <li className="flex items-center gap-3">
@@ -99,11 +100,18 @@ export default function Kontakt() {
                     Radimo na području cijele Hrvatske
                   </span>
                 </li>
+                <li className="flex items-center gap-3">
+                  <Linkedin size={17} className="shrink-0 text-ink" />
+                  <a
+                    href="https://www.linkedin.com/in/helena-i-dinko-maru%C5%A1%C4%8Dak-45b915440/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-ink underline underline-offset-4"
+                  >
+                    Helena i Dinko na LinkedInu
+                  </a>
+                </li>
               </ul>
-              <p className="mt-5 text-sm text-ink-muted">
-                LinkedIn profili Helene i Dinka dolaze ovdje. LinkedIn je
-                primarni kanal, pa profili moraju biti vidljivi.
-              </p>
             </div>
           </div>
         </div>

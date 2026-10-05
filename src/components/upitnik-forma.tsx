@@ -4,6 +4,8 @@ import { useCallback, useState } from "react";
 import { ArrowRight, CircleAlert, CircleCheck, Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { PROGRAMI } from "@/lib/programi";
+import { KONTAKT_MAIL } from "@/lib/kontakt";
+import { mailEndpoint } from "@/lib/mail-endpoint";
 
 const TVRDNJE = [
   "Članovi tima otvoreno govore o problemima, i kad je neugodno.",
@@ -28,9 +30,9 @@ const ULOGE = ["Direktor ili uprava", "Voditelj tima", "HR", "Član tima"];
 
 const VELICINE = ["3 do 10 osoba", "11 do 20 osoba", "21 do 40 osoba", "više od 40 osoba"];
 
-const KONTAKT_MAIL = "info@mentalcore.hr";
-
-const DEMO = process.env.NEXT_PUBLIC_STATIC_DEMO === "1";
+const DEMO =
+  process.env.NEXT_PUBLIC_STATIC_DEMO === "1" &&
+  !process.env.NEXT_PUBLIC_MAIL_ENDPOINT;
 
 type Podaci = {
   ime: string;
@@ -84,6 +86,7 @@ export function UpitnikForma() {
   const [d, setD] = useState<Podaci>(PRAZNO);
   const [greske, setGreske] = useState<Greske>({});
   const [stanje, setStanje] = useState<"unos" | "salje" | "uspjeh" | "greska">("unos");
+  const [med, setMed] = useState("");
 
   const otkrijPotvrdu = useCallback((el: HTMLDivElement | null) => {
     if (!el) return;
@@ -124,12 +127,13 @@ export function UpitnikForma() {
     }
 
     try {
-      const res = await fetch("/api/upitnik", {
+      const res = await fetch(mailEndpoint("/api/upitnik"), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...d,
           odgovori: TVRDNJE.map((t, i) => ({ tvrdnja: t, ocjena: d.odgovori[i] })),
+          med,
         }),
       });
       if (!res.ok) throw new Error("neuspjelo");
@@ -169,8 +173,18 @@ export function UpitnikForma() {
       onSubmit={posalji}
       noValidate
       aria-label="Upitnik o timu"
-      className="border border-line bg-surface p-6 sm:p-9"
+      className="relative border border-line bg-surface p-6 sm:p-9"
     >
+      <input
+        type="text"
+        name="med"
+        tabIndex={-1}
+        autoComplete="off"
+        value={med}
+        onChange={(e) => setMed(e.target.value)}
+        className="absolute -left-[9999px] h-px w-px overflow-hidden"
+        aria-hidden="true"
+      />
       <h2 className="text-xl font-bold text-brand-deep">O vama</h2>
       <div className="mt-5 grid gap-5 sm:grid-cols-2">
         <Unos id="u-ime" label="Ime i prezime" value={d.ime} onChange={(v) => set("ime", v)} error={greske.ime} autoComplete="name" />

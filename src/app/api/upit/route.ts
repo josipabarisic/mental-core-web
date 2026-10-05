@@ -1,10 +1,6 @@
 import { NextResponse } from "next/server";
+import { posaljiUpit } from "@/lib/mail";
 
-/**
- * Sketch endpoint. No mail provider is wired up yet, so the enquiry is only
- * validated and logged. Swapping this for Resend is a single call once the
- * client has a domain and an inbox.
- */
 export async function POST(request: Request) {
   const data = await request.json().catch(() => null);
 
@@ -12,10 +8,14 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Neispravan zahtjev." }, { status: 400 });
   }
 
-  const { ime, tvrtka, email, velicinaTima, izazov } = data as Record<
+  const { ime, tvrtka, email, velicinaTima, izazov, med } = data as Record<
     string,
     unknown
   >;
+
+  if (typeof med === "string" && med.trim() !== "") {
+    return NextResponse.json({ ok: true });
+  }
 
   const missing = [ime, tvrtka, email, velicinaTima, izazov].some(
     (v) => typeof v !== "string" || v.trim() === "",
@@ -28,7 +28,20 @@ export async function POST(request: Request) {
     );
   }
 
-  console.info("[upit]", { ime, tvrtka, email, velicinaTima, izazov });
-
-  return NextResponse.json({ ok: true });
+  try {
+    await posaljiUpit({
+      ime: String(ime).trim(),
+      tvrtka: String(tvrtka).trim(),
+      email: String(email).trim(),
+      velicinaTima: String(velicinaTima).trim(),
+      izazov: String(izazov).trim(),
+    });
+    return NextResponse.json({ ok: true });
+  } catch (error) {
+    console.error("[upit]", error);
+    return NextResponse.json(
+      { error: "Slanje nije uspjelo." },
+      { status: 502 },
+    );
+  }
 }

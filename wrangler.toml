@@ -1,0 +1,6 @@
+name = "mental-core-mail"
+main = "worker/mail.ts"
+compatibility_date = "2026-10-05"
+
+[vars]
+MAIL_TO = "info@mentalcoreteam.com"

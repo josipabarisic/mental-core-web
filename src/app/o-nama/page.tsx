@@ -148,6 +148,16 @@ export default function ONama() {
             </blockquote>
           </article>
         </div>
+        <p className="mt-10">
+          <a
+            href="https://www.linkedin.com/in/helena-i-dinko-maru%C5%A1%C4%8Dak-45b915440/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm font-semibold text-accent-clay-dark underline underline-offset-4"
+          >
+            Helena i Dinko na LinkedInu
+          </a>
+        </p>
       </Section>
 
       {/* Kako radimo */}

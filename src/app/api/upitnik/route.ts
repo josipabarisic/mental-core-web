@@ -1,9 +1,6 @@
 import { NextResponse } from "next/server";
+import { posaljiUpitnik } from "@/lib/mail";
 
-/**
- * Sketch endpoint, like /api/upit. Answers are validated and logged until a
- * mail provider is wired up.
- */
 export async function POST(request: Request) {
   const data = await request.json().catch(() => null);
 
@@ -11,7 +8,12 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Neispravan zahtjev." }, { status: 400 });
   }
 
-  const { ime, tvrtka, email, odgovori } = data as Record<string, unknown>;
+  const { ime, tvrtka, email, uloga, velicinaTima, program, komentar, odgovori, med } =
+    data as Record<string, unknown>;
+
+  if (typeof med === "string" && med.trim() !== "") {
+    return NextResponse.json({ ok: true });
+  }
 
   const missing =
     [ime, tvrtka, email].some((v) => typeof v !== "string" || v.trim() === "") ||
@@ -24,7 +26,31 @@ export async function POST(request: Request) {
     );
   }
 
-  console.info("[upitnik]", data);
+  const ocjene = (odgovori as unknown[]).filter(
+    (o): o is { tvrdnja: string; ocjena: string } =>
+      Boolean(o) &&
+      typeof o === "object" &&
+      typeof (o as { tvrdnja?: unknown }).tvrdnja === "string" &&
+      typeof (o as { ocjena?: unknown }).ocjena === "string",
+  );
 
-  return NextResponse.json({ ok: true });
+  try {
+    await posaljiUpitnik({
+      ime: String(ime).trim(),
+      tvrtka: String(tvrtka).trim(),
+      email: String(email).trim(),
+      uloga: typeof uloga === "string" ? uloga : undefined,
+      velicinaTima: typeof velicinaTima === "string" ? velicinaTima : undefined,
+      program: typeof program === "string" ? program : undefined,
+      komentar: typeof komentar === "string" ? komentar : undefined,
+      odgovori: ocjene,
+    });
+    return NextResponse.json({ ok: true });
+  } catch (error) {
+    console.error("[upitnik]", error);
+    return NextResponse.json(
+      { error: "Slanje nije uspjelo." },
+      { status: 502 },
+    );
+  }
 }

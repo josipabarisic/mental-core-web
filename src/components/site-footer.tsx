@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Logo } from "@/components/brand/logo";
+import { KONTAKT_MAIL, OIB, SJEDISTE, TVRTKA } from "@/lib/kontakt";
 
 export function SiteFooter() {
   return (
@@ -49,8 +50,8 @@ export function SiteFooter() {
             <h2 className="eyebrow text-white">Kontakt</h2>
             <ul className="mt-4 space-y-2.5 text-sm">
               <li>
-                <a href="mailto:info@mentalcore.hr" className="hover:text-white">
-                  info@mentalcore.hr
+                <a href={`mailto:${KONTAKT_MAIL}`} className="hover:text-white">
+                  {KONTAKT_MAIL}
                 </a>
               </li>
               <li>
@@ -58,15 +59,26 @@ export function SiteFooter() {
                   +385 00 000 0000
                 </a>
               </li>
-              <li>LinkedIn: Helena i Dinko</li>
+              <li>
+                <a
+                  href="https://www.linkedin.com/in/helena-i-dinko-maru%C5%A1%C4%8Dak-45b915440/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline underline-offset-4 hover:text-white"
+                >
+                  LinkedIn: Helena i Dinko
+                </a>
+              </li>
               <li className="pt-1">Radimo na području cijele Hrvatske</li>
             </ul>
           </div>
         </div>
 
         <div className="mt-12 flex flex-col gap-2 border-t border-white/15 pt-6 text-xs sm:flex-row sm:items-center sm:justify-between">
-          <p>Mental Core. Naziv tvrtke, OIB i sjedište dolaze prije objave.</p>
-          <p>Skica za internu raspravu, podaci i fotografije nisu konačni.</p>
+          <p>
+            {TVRTKA}, {SJEDISTE}. OIB: {OIB}.
+          </p>
+          <p>Mental Core. Razvoj timova i lidera.</p>
         </div>
       </div>
     </footer>

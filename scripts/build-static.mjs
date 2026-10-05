@@ -23,10 +23,13 @@ const result = spawnSync("npx", ["next", "build"], {
   stdio: "inherit",
   env: {
     ...process.env,
-    STATIC_EXPORT: "1",
+        STATIC_EXPORT: "1",
     BASE_PATH: basePath,
     NEXT_PUBLIC_BASE_PATH: basePath,
-    NEXT_PUBLIC_STATIC_DEMO: "1",
+    NEXT_PUBLIC_MAIL_ENDPOINT: process.env.NEXT_PUBLIC_MAIL_ENDPOINT ?? "",
+    NEXT_PUBLIC_STATIC_DEMO: process.env.NEXT_PUBLIC_MAIL_ENDPOINT
+      ? "0"
+      : "1",
   },
 });
 
