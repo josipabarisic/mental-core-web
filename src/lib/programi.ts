@@ -197,6 +197,11 @@ export function eur(iznos: number) {
   return `${String(iznos).replace(/\B(?=(\d{3})+(?!\d))/g, ".")} €`;
 }
 
+export function oznakaPrograma(p: Program) {
+  if (p.cijenaOd) return `${p.naziv} (${p.detalji[0]}, od ${eur(p.cijenaOd)})`;
+  return `${p.naziv} (${p.detalji[0].toLowerCase()})`;
+}
+
 export function programPoSlugu(slug: string) {
   return PROGRAMI.find((p) => p.slug === slug && !p.bezStranice);
 }

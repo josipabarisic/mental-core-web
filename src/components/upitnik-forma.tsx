@@ -5,6 +5,7 @@ import { ArrowRight, CircleAlert, CircleCheck, Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { KONTAKT_MAIL } from "@/lib/kontakt";
 import { mailEndpoint } from "@/lib/mail-endpoint";
+import { PROGRAMI, oznakaPrograma } from "@/lib/programi";
 
 const TVRDNJE = [
   "U timu se otvoreno govori o problemima.",
@@ -33,6 +34,7 @@ type Podaci = {
   tvrtka: string;
   email: string;
   velicinaTima: string;
+  program: string;
   odgovori: Record<number, string>;
   komentar: string;
 };
@@ -44,6 +46,7 @@ const PRAZNO: Podaci = {
   tvrtka: "",
   email: "",
   velicinaTima: "",
+  program: "",
   odgovori: {},
   komentar: "",
 };
@@ -252,6 +255,24 @@ export function UpitnikForma() {
       {greske.tvrdnje && <Greska id="tvrdnje-greska" poruka={greske.tvrdnje} />}
 
       <div className="mt-10">
+        <label htmlFor="u-program" className="text-sm text-ink">
+          Program koji vas zanima
+        </label>
+        <select
+          id="u-program"
+          value={d.program}
+          onChange={(e) => set("program", e.target.value)}
+          className="mt-2 w-full border border-line bg-white px-3.5 py-2.5 text-[0.95rem] text-ink"
+        >
+          <option value="">Još ne znam, predložite</option>
+          {PROGRAMI.map((p) => (
+            <option key={p.slug} value={p.naziv}>
+              {oznakaPrograma(p)}
+            </option>
+          ))}
+        </select>
+      </div>
+      <div className="mt-5">
         <label htmlFor="u-komentar" className="text-sm text-ink">
           Što biste najviše željeli promijeniti u timu?{" "}
           <span className="text-ink/60">(nije obavezno)</span>
@@ -269,7 +290,7 @@ export function UpitnikForma() {
         <button
           type="submit"
           disabled={stanje === "salje"}
-          className="inline-flex items-center justify-center gap-2 bg-accent-clay px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-accent-clay-dark disabled:opacity-70"
+          className="inline-flex shrink-0 items-center justify-center gap-2 whitespace-nowrap bg-accent-clay px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-accent-clay-dark disabled:opacity-70"
         >
           {stanje === "salje" ? (
             <>
@@ -278,7 +299,7 @@ export function UpitnikForma() {
             </>
           ) : (
             <>
-              Pošaljite upitnik
+              Pošaljite
               <ArrowRight size={16} />
             </>
           )}

@@ -285,7 +285,7 @@ export function KontaktForma() {
             </>
           ) : (
             <>
-              Pošaljite upit
+              Pošaljite
               <ArrowRight size={16} />
             </>
           )}
