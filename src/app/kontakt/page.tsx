@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Linkedin, Mail, MapPin } from "lucide-react";
+import { ExternalLink, Mail, MapPin } from "lucide-react";
 import { Eyebrow, Koraci, Section, SectionTitle } from "@/components/section";
 import { KontaktForma } from "@/components/kontakt-forma";
 import { KONTAKT_MAIL } from "@/lib/kontakt";
@@ -83,7 +83,7 @@ export default function Kontakt() {
                   </span>
                 </li>
                 <li className="flex items-center gap-3">
-                  <Linkedin size={17} className="shrink-0 text-ink" />
+                  <ExternalLink size={17} className="shrink-0 text-ink" />
                   <a
                     href="https://www.linkedin.com/in/helena-i-dinko-maru%C5%A1%C4%8Dak-45b915440/"
                     target="_blank"

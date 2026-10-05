@@ -22,7 +22,7 @@
   --color-olive: #78785d;
   --color-olive-text: #5e6046;
 
-  --font-sans: var(--font-open-sauce), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-open-sauce), ui-sans-serif, system-ui, sans-serif;
 }
 

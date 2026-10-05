@@ -32,12 +32,25 @@ npm run dev -- --port 43917
 
 Stranica je na `http://localhost:43917`.
 
+## E-mailovi
+
+Server-side API i Cloudflare Worker šalju poruke putem Resenda. Pošiljatelj je
+`Mental Core <info@mentalcoreteam.com>`, a interne upite primaju na adresu
+postavljenu u `CONTACT_EMAIL` (trenutačno `mentalcoreteam@gmail.com`).
+Adresa pošiljatelja mora biti verificirana u Resendu.
+
+Za lokalni Next.js poslužitelj kopirajte `env.example` u `.env.local` i unesite
+`RESEND_API_KEY` iz Resenda. Za Cloudflare Worker postavite API ključ naredbom
+`wrangler secret put RESEND_API_KEY`; adresu primatelja postavite u
+`wrangler.toml` ili odgovarajuće Cloudflare okruženje. Za GitHub Pages postavite
+GitHub Actions varijablu `MAIL_ENDPOINT` na URL objavljenog Workera.
+
 ## Stack
 
 - Next.js 16 s App Routerom i TypeScriptom
 - Tailwind CSS 4, dizajn tokeni u `src/app/globals.css`
 - shadcn/ui za primitivne komponente
-- Inter kao web pismo, dok ne dobijemo izvorno pismo iz logotipa
+- Open Sauce One za naslove i Inter za tekst tijela (uključujući latin-ext)
 
 ## Struktura
 
@@ -50,10 +63,8 @@ src/lib/programi.ts programi, opisi i cijene
 public/foto/        fotografije
 ```
 
-## Što nedostaje prije objave
+## Podaci za dopunu prije objave
 
-- Izvorno pismo s licencom za web.
-- Podaci tvrtke: naziv, OIB, sjedište. Trenutno su rezervirano mjesto u podnožju.
-- Stvarni e-mail i telefon.
-- Kontakt forma i upitnik trenutno ne šalju ništa. Prije objave ide Resend ili Formspree, plus zaštita od neželjene pošte.
+- Nadležni trgovački sud i telefon mogu se dodati na Impressum kad budu potvrđeni.
+- Postavite `RESEND_API_KEY` u okruženju aplikacije ili Workera.
 - Pravila privatnosti i mjerenje (Plausible i LinkedIn Insight Tag).

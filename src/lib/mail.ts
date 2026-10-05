@@ -1,8 +1,7 @@
 import { Resend } from "resend";
 import { KONTAKT_MAIL } from "@/lib/kontakt";
 
-const FROM = process.env.MAIL_FROM ?? `Mental Core <${KONTAKT_MAIL}>`;
-const TO = process.env.MAIL_TO ?? KONTAKT_MAIL;
+const FROM = `Mental Core <${KONTAKT_MAIL}>`;
 
 export type Upit = {
   ime: string;
@@ -28,7 +27,9 @@ export type Upitnik = {
 function resend() {
   const key = process.env.RESEND_API_KEY;
   if (!key) throw new Error("Nedostaje RESEND_API_KEY.");
-  return new Resend(key);
+  const contactEmail = process.env.CONTACT_EMAIL?.trim();
+  if (!contactEmail) throw new Error("Nedostaje CONTACT_EMAIL.");
+  return { client: new Resend(key), contactEmail };
 }
 
 function escapeHtml(value: string) {
@@ -53,7 +54,7 @@ function wrap(naslov: string, tijelo: string) {
 }
 
 export async function posaljiUpit(data: Upit) {
-  const client = resend();
+  const { client, contactEmail } = resend();
   const redovi = [
     ["Ime", data.ime],
     ["Tvrtka", data.tvrtka],
@@ -69,7 +70,7 @@ export async function posaljiUpit(data: Upit) {
 
   const interni = await client.emails.send({
     from: FROM,
-    to: TO,
+    to: contactEmail,
     replyTo: data.email,
     subject: `Novi upit: ${data.tvrtka}`,
     html: wrap("Novi upit s weba", redovi),
@@ -92,7 +93,7 @@ export async function posaljiUpit(data: Upit) {
 }
 
 export async function posaljiUpitnik(data: Upitnik) {
-  const client = resend();
+  const { client, contactEmail } = resend();
   const meta = [
     ["Ime", data.ime],
     ["Tvrtka", data.tvrtka],
@@ -121,7 +122,7 @@ export async function posaljiUpitnik(data: Upitnik) {
 
   const interni = await client.emails.send({
     from: FROM,
-    to: TO,
+    to: contactEmail,
     replyTo: data.email,
     subject: `Upitnik: ${data.tvrtka}`,
     html: wrap("Novi upitnik s weba", `${meta}${ocjene}${komentar}`),
