@@ -3,19 +3,15 @@
 import { useCallback, useState } from "react";
 import { ArrowRight, CircleAlert, CircleCheck, Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { PROGRAMI } from "@/lib/programi";
 import { KONTAKT_MAIL } from "@/lib/kontakt";
 import { mailEndpoint } from "@/lib/mail-endpoint";
 
 const TVRDNJE = [
-  "Članovi tima otvoreno govore o problemima, i kad je neugodno.",
-  "Svatko u timu zna za što je odgovoran.",
-  "Ciljevi tima jasni su svim članovima.",
+  "U timu se otvoreno govori o problemima.",
+  "Svatko zna za što je odgovoran.",
+  "Ciljevi su jasni svim članovima.",
   "Članovi tima vjeruju jedni drugima.",
-  "Neslaganja rješavamo, ne zaobilazimo ih.",
   "Pod pritiskom roka tim ostaje usklađen.",
-  "Informacije na vrijeme stižu do onih kojima trebaju.",
-  "Voditelj ima jasnu sliku o tome kako tim funkcionira.",
 ];
 
 const LJESTVICA = [
@@ -25,8 +21,6 @@ const LJESTVICA = [
   { vrijednost: "4", oznaka: "Slažem se" },
   { vrijednost: "5", oznaka: "Potpuno se slažem" },
 ];
-
-const ULOGE = ["Direktor ili uprava", "Voditelj tima", "HR", "Član tima"];
 
 const VELICINE = ["3 do 10 osoba", "11 do 20 osoba", "21 do 40 osoba", "više od 40 osoba"];
 
@@ -38,22 +32,18 @@ type Podaci = {
   ime: string;
   tvrtka: string;
   email: string;
-  uloga: string;
   velicinaTima: string;
-  program: string;
   odgovori: Record<number, string>;
   komentar: string;
 };
 
-type Greske = Partial<Record<"ime" | "tvrtka" | "email" | "uloga" | "velicinaTima" | "tvrdnje", string>>;
+type Greske = Partial<Record<"ime" | "tvrtka" | "email" | "velicinaTima" | "tvrdnje", string>>;
 
 const PRAZNO: Podaci = {
   ime: "",
   tvrtka: "",
   email: "",
-  uloga: "",
   velicinaTima: "",
-  program: "",
   odgovori: {},
   komentar: "",
 };
@@ -65,7 +55,6 @@ function provjeri(d: Podaci): Greske {
   if (!d.email.trim()) g.email = "Upišite e-mail adresu, na nju šaljemo feedback.";
   else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(d.email.trim()))
     g.email = "Provjerite e-mail adresu.";
-  if (!d.uloga) g.uloga = "Odaberite svoju ulogu.";
   if (!d.velicinaTima) g.velicinaTima = "Odaberite veličinu tima.";
   const bez = TVRDNJE.length - Object.keys(d.odgovori).length;
   if (bez > 0)
@@ -77,7 +66,6 @@ const FOKUS: Record<keyof Greske, string> = {
   ime: "u-ime",
   tvrtka: "u-tvrtka",
   email: "u-email",
-  uloga: "u-uloga-0",
   velicinaTima: "u-velicina-0",
   tvrdnje: "tvrdnje",
 };
@@ -185,23 +173,13 @@ export function UpitnikForma() {
         className="absolute -left-[9999px] h-px w-px overflow-hidden"
         aria-hidden="true"
       />
-      <h2 className="text-xl font-bold text-brand-deep">O vama</h2>
-      <div className="mt-5 grid gap-5 sm:grid-cols-2">
+      <div className="grid gap-5 sm:grid-cols-2">
         <Unos id="u-ime" label="Ime i prezime" value={d.ime} onChange={(v) => set("ime", v)} error={greske.ime} autoComplete="name" />
         <Unos id="u-tvrtka" label="Tvrtka" value={d.tvrtka} onChange={(v) => set("tvrtka", v)} error={greske.tvrtka} autoComplete="organization" />
       </div>
       <div className="mt-5">
-        <Unos id="u-email" label="E-mail za feedback i ponudu" type="email" value={d.email} onChange={(v) => set("email", v)} error={greske.email} autoComplete="email" />
+        <Unos id="u-email" label="E-mail" type="email" value={d.email} onChange={(v) => set("email", v)} error={greske.email} autoComplete="email" />
       </div>
-
-      <Izbor
-        idPrefix="u-uloga"
-        legenda="Vaša uloga"
-        opcije={ULOGE}
-        odabrano={d.uloga}
-        onChange={(v) => set("uloga", v)}
-        error={greske.uloga}
-      />
       <Izbor
         idPrefix="u-velicina"
         legenda="Veličina tima"
@@ -211,12 +189,8 @@ export function UpitnikForma() {
         error={greske.velicinaTima}
       />
 
-      <h2 className="mt-12 border-t border-line pt-8 text-xl font-bold text-brand-deep">
-        Kako vaš tim funkcionira
-      </h2>
-      <p id="tvrdnje-uputa" className="mt-2 text-sm leading-relaxed text-ink-muted">
-        Za svaku tvrdnju odaberite koliko se odnosi na vaš tim danas. Nema
-        točnih ni pogrešnih odgovora.
+      <p id="tvrdnje-uputa" className="mt-10 text-sm leading-relaxed text-ink">
+        Koliko se svaka tvrdnja odnosi na vaš tim danas. 1 ne slažem se, 5 slažem se.
       </p>
       <div
         id="tvrdnje"
@@ -235,8 +209,8 @@ export function UpitnikForma() {
                 neodgovoreno ? "border-destructive" : "border-line",
               )}
             >
-              <legend className="font-semibold text-brand-deep">
-                <span className="mr-2 text-sm text-accent-clay-dark tabular-nums">
+              <legend className="text-ink">
+                <span className="mr-2 text-sm tabular-nums text-accent-clay">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 {t}
@@ -249,11 +223,11 @@ export function UpitnikForma() {
                     <label
                       key={o.vrijednost}
                       htmlFor={id}
-                      className={cn(
-                        "flex cursor-pointer flex-col items-center gap-1 border px-1 py-2.5 text-center transition-colors has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-brand",
+                        className={cn(
+                        "flex cursor-pointer items-center justify-center border px-1 py-2.5 text-center transition-colors has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-brand",
                         odabran
-                          ? "border-brand bg-brand text-surface"
-                          : "border-line text-ink-muted hover:border-brand hover:text-brand-deep",
+                          ? "border-brand bg-brand text-white"
+                          : "border-line text-ink hover:border-brand",
                       )}
                     >
                       <input
@@ -265,11 +239,8 @@ export function UpitnikForma() {
                         onChange={() => odgovori(i, o.vrijednost)}
                         className="sr-only"
                       />
-                      <span className="text-base font-bold">{o.vrijednost}</span>
-                      <span className="hidden text-[0.7rem] leading-tight sm:block">
-                        {o.oznaka}
-                      </span>
-                      <span className="sr-only sm:hidden">{o.oznaka}</span>
+                      <span>{o.vrijednost}</span>
+                      <span className="sr-only">{o.oznaka}</span>
                     </label>
                   );
                 })}
@@ -278,36 +249,12 @@ export function UpitnikForma() {
           );
         })}
       </div>
-      <p className="mt-3 text-xs text-ink-muted sm:hidden">
-        1 znači uopće se ne slažem, 5 potpuno se slažem.
-      </p>
       {greske.tvrdnje && <Greska id="tvrdnje-greska" poruka={greske.tvrdnje} />}
 
-      <h2 className="mt-12 border-t border-line pt-8 text-xl font-bold text-brand-deep">
-        Što vas zanima
-      </h2>
-      <div className="mt-5">
-        <label htmlFor="u-program" className="text-sm font-semibold text-brand-deep">
-          Program koji vas zanima
-        </label>
-        <select
-          id="u-program"
-          value={d.program}
-          onChange={(e) => set("program", e.target.value)}
-          className="mt-2 w-full border border-line bg-white px-3.5 py-2.5 text-[0.95rem] text-ink"
-        >
-          <option value="">Još ne znam, predložite</option>
-          {PROGRAMI.map((p) => (
-            <option key={p.slug} value={p.naziv}>
-              {p.naziv}
-            </option>
-          ))}
-        </select>
-      </div>
-      <div className="mt-5">
-        <label htmlFor="u-komentar" className="text-sm font-semibold text-brand-deep">
+      <div className="mt-10">
+        <label htmlFor="u-komentar" className="text-sm text-ink">
           Što biste najviše željeli promijeniti u timu?{" "}
-          <span className="font-normal text-ink-muted">(nije obavezno)</span>
+          <span className="text-ink/60">(nije obavezno)</span>
         </label>
         <textarea
           id="u-komentar"
@@ -380,7 +327,7 @@ function Izbor({
       className="mt-6"
       aria-describedby={error ? `${idPrefix}-greska` : undefined}
     >
-      <legend className="text-sm font-semibold text-brand-deep">{legenda}</legend>
+      <legend className="text-sm text-ink">{legenda}</legend>
       <div className="mt-3 flex flex-wrap gap-2">
         {opcije.map((o, i) => (
           <button
@@ -424,7 +371,7 @@ function Unos({
 }) {
   return (
     <div>
-      <label htmlFor={id} className="text-sm font-semibold text-brand-deep">
+      <label htmlFor={id} className="text-sm text-ink">
         {label}
       </label>
       <input

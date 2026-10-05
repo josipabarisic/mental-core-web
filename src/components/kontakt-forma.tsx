@@ -140,7 +140,7 @@ export function KontaktForma() {
         </h2>
         <p className="mt-3 leading-relaxed text-ink-muted">
           Javljamo se na {data.email} u roku od jednog radnog dana. Ako vam
-          treba brže, nazovite.
+          treba brže, odgovorite na mail.
         </p>
         {DEMO && (
           <p className="mt-4 border-l-2 border-line pl-4 text-sm text-ink-muted">
@@ -222,7 +222,7 @@ export function KontaktForma() {
         className="mt-6"
         aria-describedby={greske.velicinaTima ? "velicina-greska" : undefined}
       >
-        <legend className="text-sm font-semibold text-brand-deep">
+        <legend className="text-sm text-ink">
           Veličina tima
         </legend>
         <div className="mt-3 flex flex-wrap gap-2">
@@ -252,7 +252,7 @@ export function KontaktForma() {
       <div className="mt-6">
         <label
           htmlFor="izazov"
-          className="text-sm font-semibold text-brand-deep"
+          className="text-sm text-ink"
         >
           Najveći izazov tima trenutno
         </label>
@@ -335,7 +335,7 @@ function Polje({
 }) {
   return (
     <div>
-      <label htmlFor={id} className="text-sm font-semibold text-brand-deep">
+      <label htmlFor={id} className="text-sm text-ink">
         {label}
       </label>
       <input

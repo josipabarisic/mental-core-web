@@ -55,11 +55,6 @@ export function SiteFooter() {
                 </a>
               </li>
               <li>
-                <a href="tel:+385000000000" className="hover:text-white">
-                  +385 00 000 0000
-                </a>
-              </li>
-              <li>
                 <a
                   href="https://www.linkedin.com/in/helena-i-dinko-maru%C5%A1%C4%8Dak-45b915440/"
                   target="_blank"

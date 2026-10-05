@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { Linkedin, Mail, MapPin, Phone } from "lucide-react";
-import { Eyebrow, Section, SectionTitle } from "@/components/section";
+import { Linkedin, Mail, MapPin } from "lucide-react";
+import { Eyebrow, Koraci, Section, SectionTitle } from "@/components/section";
 import { KontaktForma } from "@/components/kontakt-forma";
 import { KONTAKT_MAIL } from "@/lib/kontakt";
 
@@ -61,16 +61,7 @@ export default function Kontakt() {
           <div className="space-y-10">
             <div>
               <h2 className="eyebrow text-accent-clay">Kako izgleda dalje</h2>
-              <ol className="mt-5 space-y-5">
-                {KORACI.map((k) => (
-                  <li key={k.broj} className="flex gap-4">
-                    <span className="text-sm font-bold tracking-[0.1em] text-accent-clay">
-                      {k.broj}
-                    </span>
-                    <span className="leading-relaxed text-ink">{k.tekst}</span>
-                  </li>
-                ))}
-              </ol>
+              <Koraci stavke={KORACI} />
             </div>
 
             <div className="border-t border-line pt-8">
@@ -83,15 +74,6 @@ export default function Kontakt() {
                     className="text-ink underline underline-offset-4"
                   >
                     {KONTAKT_MAIL}
-                  </a>
-                </li>
-                <li className="flex items-center gap-3">
-                  <Phone size={17} className="shrink-0 text-ink-muted" />
-                  <a
-                    href="tel:+385000000000"
-                    className="text-ink underline underline-offset-4"
-                  >
-                    +385 00 000 0000
                   </a>
                 </li>
                 <li className="flex items-start gap-3">

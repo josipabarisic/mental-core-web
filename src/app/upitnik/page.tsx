@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Eyebrow, Section } from "@/components/section";
+import { Eyebrow, Koraci, Section } from "@/components/section";
 import { UpitnikForma } from "@/components/upitnik-forma";
 import { Foto } from "@/components/photo-slot";
 
@@ -36,16 +36,7 @@ export default function Upitnik() {
           <UpitnikForma />
           <div>
             <h2 className="eyebrow text-accent-clay">Kako izgleda dalje</h2>
-            <ol className="mt-5 space-y-5">
-              {KORACI.map((k) => (
-                <li key={k.broj} className="flex gap-4">
-                  <span className="text-sm font-bold tracking-[0.1em] text-accent-clay">
-                    {k.broj}
-                  </span>
-                  <span className="leading-relaxed text-ink">{k.tekst}</span>
-                </li>
-              ))}
-            </ol>
+            <Koraci stavke={KORACI} />
             <Foto
               foto="upitnik"
               sizes="(min-width: 1024px) 380px, 100vw"

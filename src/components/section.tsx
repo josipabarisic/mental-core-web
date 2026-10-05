@@ -47,6 +47,25 @@ export function Eyebrow({
   );
 }
 
+export function Koraci({
+  stavke,
+}: {
+  stavke: { broj: string; tekst: string }[];
+}) {
+  return (
+    <ol className="mt-5 grid grid-cols-[1.75rem_minmax(0,1fr)] items-start gap-x-4 gap-y-5">
+      {stavke.map((k) => (
+        <li key={k.broj} className="contents">
+          <span className="pt-0.5 text-sm tabular-nums text-accent-clay">
+            {k.broj}
+          </span>
+          <span className="leading-relaxed text-ink">{k.tekst}</span>
+        </li>
+      ))}
+    </ol>
+  );
+}
+
 export function SectionTitle({
   children,
   className,
