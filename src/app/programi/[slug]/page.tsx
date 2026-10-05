@@ -22,7 +22,9 @@ export function generateStaticParams() {
 
 export async function generateMetadata({
   params,
-}: PageProps<"/programi/[slug]">): Promise<Metadata> {
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
   const { slug } = await params;
   const p = programPoSlugu(slug);
   if (!p) return {};
@@ -54,7 +56,9 @@ function Cijene({ stavke, naslov }: { stavke: Stavka[]; naslov?: string }) {
 
 export default async function ProgramStranica({
   params,
-}: PageProps<"/programi/[slug]">) {
+}: {
+  params: Promise<{ slug: string }>;
+}) {
   const { slug } = await params;
   const p = programPoSlugu(slug);
   if (!p) notFound();

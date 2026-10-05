@@ -43,6 +43,11 @@ export function SiteFooter() {
                   Kontakt
                 </Link>
               </li>
+              <li>
+                <Link href="/impressum" className="hover:text-white">
+                  Impressum
+                </Link>
+              </li>
             </ul>
           </div>
 

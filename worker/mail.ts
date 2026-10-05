@@ -1,6 +1,6 @@
 /**
  * Cloudflare Worker: primi POST s weba i pošalji mail preko Resenda.
- * Tajna: wrangler secret put RESEND_API_KEY
+ * Postavite API ključ kao Cloudflare Worker secret prije objave.
  */
 const FROM = "Mental Core <info@mentalcoreteam.com>";
 const DOZVOLJENO = [
@@ -60,12 +60,24 @@ async function posalji(
   }
 }
 
-export default {
+type MailEnv = {
+  RESEND_API_KEY?: string;
+  CONTACT_EMAIL?: string;
+};
+
+function konfiguracija(env: MailEnv) {
+  const apiKey = env.RESEND_API_KEY;
+  const contactEmail = env.CONTACT_EMAIL?.trim();
+  if (!apiKey) throw new Error("Nedostaje RESEND_API_KEY.");
+  if (!contactEmail) throw new Error("Nedostaje CONTACT_EMAIL.");
+  return { apiKey, contactEmail };
+}
+
+const mailWorker = {
   async fetch(
     request: Request,
-    env: { RESEND_API_KEY: string; MAIL_TO?: string },
+    env: MailEnv,
   ) {
-    const TO = env.MAIL_TO || "info@mentalcoreteam.com";
     const origin = request.headers.get("Origin");
     const headers = cors(origin);
 
@@ -87,6 +99,7 @@ export default {
 
     try {
       if (url.pathname.endsWith("/api/upit")) {
+        const { apiKey, contactEmail } = konfiguracija(env);
         const ime = String(data.ime ?? "").trim();
         const tvrtka = String(data.tvrtka ?? "").trim();
         const email = String(data.email ?? "").trim();
@@ -104,13 +117,13 @@ export default {
         ]
           .map(([k, v]) => `<p style="margin:0 0 12px;"><strong>${k}</strong><br>${escapeHtml(v)}</p>`)
           .join("");
-        await posalji(env.RESEND_API_KEY, {
-          to: TO,
+        await posalji(apiKey, {
+          to: contactEmail,
           replyTo: email,
           subject: `Novi upit: ${tvrtka}`,
           html: wrap("Novi upit s weba", redovi),
         });
-        await posalji(env.RESEND_API_KEY, {
+        await posalji(apiKey, {
           to: email,
           replyTo: "info@mentalcoreteam.com",
           subject: "Primili smo vaš upit. Mental Core",
@@ -123,6 +136,7 @@ export default {
       }
 
       if (url.pathname.endsWith("/api/upitnik")) {
+        const { apiKey, contactEmail } = konfiguracija(env);
         const ime = String(data.ime ?? "").trim();
         const tvrtka = String(data.tvrtka ?? "").trim();
         const email = String(data.email ?? "").trim();
@@ -150,13 +164,13 @@ export default {
         const komentar = String(data.komentar ?? "").trim()
           ? `<p style="margin:16px 0 0;"><strong>Komentar</strong><br>${escapeHtml(String(data.komentar))}</p>`
           : "";
-        await posalji(env.RESEND_API_KEY, {
-          to: TO,
+        await posalji(apiKey, {
+          to: contactEmail,
           replyTo: email,
           subject: `Upitnik: ${tvrtka}`,
           html: wrap("Novi upitnik s weba", `${meta}${ocjene}${komentar}`),
         });
-        await posalji(env.RESEND_API_KEY, {
+        await posalji(apiKey, {
           to: email,
           replyTo: "info@mentalcoreteam.com",
           subject: "Primili smo upitnik. Mental Core",
@@ -175,3 +189,5 @@ export default {
     }
   },
 };
+
+export default mailWorker;
