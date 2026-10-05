@@ -89,11 +89,7 @@ const PITANJA = [
   },
   {
     q: "Što ako u timu postoji otvoren konflikt?",
-    a: "To nam recite unaprijed. Otvoren konflikt ne znači da program nije moguć, ali mijenja pristup. U tom slučaju obično počinjemo analizom tima i radionicom, u vašem prostoru, prije nego što izlazimo van.",
-  },
-  {
-    q: "Radite li i zimi?",
-    a: "Da. Analiza tima i radionice održavaju se u vašem prostoru i dostupne su cijele godine. Za zimske mjesece imamo i dvoranske simulacije odlučivanja pod pritiskom.",
+    a: "To nam recite unaprijed. Otvoren konflikt ne znači da program nije moguć, ali utječe na pristup. Predložit ćemo format i način provedbe prema potrebama tima i našoj procjeni.",
   },
   {
     q: "Koliko traje od prvog razgovora do programa?",
@@ -295,7 +291,9 @@ export default function Pocetna() {
             <Eyebrow>Ponuda</Eyebrow>
             <SectionTitle className="mt-5">Programi za vaš tim</SectionTitle>
             <p className="mt-5 text-lg leading-relaxed text-ink-muted">
-              Sve cijene uključuju PDV. Kliknite na program za opis i cjenik.
+              Sadržaj, lokaciju i način provedbe dogovaramo prema potrebama
+              vašeg tima i našoj procjeni. Sve cijene uključuju PDV. Kliknite
+              na program za opis i cjenik.
             </p>
           </div>
           <Link

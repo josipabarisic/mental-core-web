@@ -11,15 +11,17 @@ export const metadata: Metadata = {
 };
 
 const KORACI = [
-  { broj: "01", tekst: "Javljamo se u roku od jednog radnog dana." },
+  {
+    broj: "01",
+    tekst: "Ispunite upitnik. Traje oko pet minuta.",
+  },
   {
     broj: "02",
-    tekst: "Petnaest minuta razgovora o tome što se u timu stvarno događa.",
+    tekst: "Pregledavamo vaše odgovore i pripremamo feedback.",
   },
   {
     broj: "03",
-    tekst:
-      "Ako ima smisla, šaljemo prijedlog programa i okvirnu cijenu. Ako nema, reći ćemo vam.",
+    tekst: "Na e-mail dobivate naš feedback i ponudu za vaš tim.",
   },
 ];
 
@@ -30,7 +32,7 @@ const LOGISTIKA = [
   },
   {
     q: "Radite li izvan Zagreba?",
-    a: "Da, radimo na području cijele Hrvatske. Dolazimo u vaš prostor ili organiziramo lokaciju.",
+    a: "Da, radimo na području cijele Hrvatske. Lokaciju, termin i način provedbe dogovaramo prema potrebama vašeg tima i našoj procjeni.",
   },
   {
     q: "Možete li program prilagoditi smjenskom ili hibridnom timu?",

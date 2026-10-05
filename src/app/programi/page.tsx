@@ -20,8 +20,8 @@ export default function Programi() {
             Programi za vaš tim
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white">
-            Od analize tima u vašem prostoru do dvodnevnog programa na terenu.
-            Sve cijene uključuju PDV.
+            Sadržaj, lokaciju i način provedbe dogovaramo prema potrebama vašeg
+            tima i našoj procjeni. Sve cijene uključuju PDV.
           </p>
         </div>
       </section>

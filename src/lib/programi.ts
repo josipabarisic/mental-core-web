@@ -47,13 +47,13 @@ export const PROGRAMI: Program[] = [
     naziv: "Analiza tima i radionice",
     podnaslov: "Za timove od 3 do 15 osoba",
     sazetak:
-      "Uvid u to kako vaš tim stvarno funkcionira, uz radionicu u vašem prostoru i radnom vremenu.",
-    detalji: ["3 do 15 osoba", "U vašem prostoru", "Cijele godine"],
+      "Uvid u to kako vaš tim stvarno funkcionira, uz radionicu prilagođenu vašim potrebama.",
+    detalji: ["3 do 15 osoba", "Lokacija po dogovoru", "Termin po dogovoru"],
     cijenaOd: 500,
     opis: [
       "Analiza tima od 3 do 15 osoba. Moguće je obuhvatiti i više timova, u dva ili više različitih termina. Pod nazivom tim podrazumijeva se svaka organizacijska jedinica unutar vašeg poslovanja, a može uključivati i cijeli radni kolektiv ako se radi o manjem poslovnom subjektu.",
       "Analizom tima dobivamo uvid u pozicioniranje osoba unutar radne jedinice. Prepoznajemo pojedince koji se ističu, u pozitivnom ili negativnom smjeru, i koji su skloni povesti ostatak članova. Provjeravamo i jasnoću radnih ciljeva unutar jedinice, koje definiraju voditelji ili poslovođe.",
-      "Na temelju analize i razgovora s nadređenima predlažemo radionicu, koja se organizira u vašem poslovnom prostoru, unutar radnog vremena. U dogovoru s nadređenima radionica se može održati i izvan radnog mjesta i radnog vremena.",
+      "Na temelju analize i razgovora s nadređenima predlažemo radionicu. Lokaciju, termin i način provedbe dogovaramo prema potrebama tima i našoj procjeni.",
     ],
     napomena: "Cijena ovisi o broju sudionika.",
     foto: "biljeske",
