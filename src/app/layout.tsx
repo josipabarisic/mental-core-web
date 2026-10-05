@@ -1,27 +1,11 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 
-const openSauce = localFont({
-  src: [
-    {
-      path: "../fonts/OpenSauceOne-Regular.ttf",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "../fonts/OpenSauceOne-Medium.ttf",
-      weight: "500",
-      style: "normal",
-    },
-    {
-      path: "../fonts/OpenSauceOne-Bold.ttf",
-      weight: "700",
-      style: "normal",
-    },
-  ],
+const openSauce = Inter({
+  subsets: ["latin", "latin-ext"],
   variable: "--font-open-sauce",
   display: "swap",
 });
@@ -41,7 +25,11 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="hr" className={`${openSauce.variable} h-full`}>
       <body className="flex min-h-full flex-col bg-surface">
