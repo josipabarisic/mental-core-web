@@ -34,7 +34,7 @@ const LOGISTIKA = [
   },
   {
     q: "Možete li program prilagoditi smjenskom ili hibridnom timu?",
-    a: "Možemo. Analiza tima i radionice održavaju se u vašem prostoru, unutar radnog vremena, pa se najlakše uklapaju u smjene.",
+    a: "Možemo. Sadržaj, termin i način provedbe programa dogovaramo zajedno, prema potrebama vašeg tima.",
   },
 ];
 
