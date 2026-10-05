@@ -1,4 +1,4 @@
-export const KONTAKT_MAIL = "info@mentalcoreteam.com";
+export const KONTAKT_MAIL = "mentalcoreteam@gmail.com";
 
 export const LINKEDIN_URL =
   "https://www.linkedin.com/in/helena-i-dinko-maru%C5%A1%C4%8Dak-45b915440/";

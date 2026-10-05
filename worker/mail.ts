@@ -125,7 +125,7 @@ const mailWorker = {
         });
         await posalji(apiKey, {
           to: email,
-          replyTo: "info@mentalcoreteam.com",
+          replyTo: contactEmail,
           subject: "Primili smo vaš upit. Mental Core",
           html: wrap(
             "Upit je zaprimljen.",
@@ -172,7 +172,7 @@ const mailWorker = {
         });
         await posalji(apiKey, {
           to: email,
-          replyTo: "info@mentalcoreteam.com",
+          replyTo: contactEmail,
           subject: "Primili smo upitnik. Mental Core",
           html: wrap(
             "Hvala, upitnik je zaprimljen.",

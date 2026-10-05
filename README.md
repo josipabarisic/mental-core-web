@@ -35,8 +35,9 @@ Stranica je na `http://localhost:43917`.
 ## E-mailovi
 
 Server-side API i Cloudflare Worker šalju poruke putem Resenda. Pošiljatelj je
-`Mental Core <info@mentalcoreteam.com>`, a interne upite primaju na adresu
-postavljenu u `CONTACT_EMAIL` (trenutačno `mentalcoreteam@gmail.com`).
+`Mental Core <info@mentalcoreteam.com>`. Privremena javna kontakt-adresa i
+primatelj upita su `mentalcoreteam@gmail.com`; primatelj se postavlja u
+`CONTACT_EMAIL`.
 Adresa pošiljatelja mora biti verificirana u Resendu.
 
 Za lokalni Next.js poslužitelj kopirajte `env.example` u `.env.local` i unesite

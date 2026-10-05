@@ -1,7 +1,7 @@
 import { Resend } from "resend";
 import { KONTAKT_MAIL } from "@/lib/kontakt";
 
-const FROM = `Mental Core <${KONTAKT_MAIL}>`;
+const FROM = "Mental Core <info@mentalcoreteam.com>";
 
 export type Upit = {
   ime: string;
