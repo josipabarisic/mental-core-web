@@ -1,3 +1,5 @@
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 import { ImageResponse } from "next/og";
 
 export const size = { width: 1200, height: 630 };
@@ -7,7 +9,11 @@ export const dynamic = "force-static";
 export const alt =
   "Mental Core. Uspjeh je rezultat uspješnog funkcioniranja tima.";
 
-export default function OpengraphImage() {
+export default async function OpengraphImage() {
+  const font = await readFile(
+    join(process.cwd(), "src/fonts/OpenSauceOne-Bold.ttf"),
+  );
+
   return new ImageResponse(
     (
       <div
@@ -20,6 +26,7 @@ export default function OpengraphImage() {
           background: "#424E4F",
           color: "#FBF8F1",
           padding: "72px 80px",
+          fontFamily: "Open Sauce One",
         }}
       >
         <div style={{ display: "flex", flexDirection: "column" }}>
@@ -53,10 +60,24 @@ export default function OpengraphImage() {
         </div>
 
         <div style={{ display: "flex", flexDirection: "column" }}>
-          <div style={{ fontSize: 62, fontWeight: 700, lineHeight: 1.1 }}>
+          <div
+            style={{
+              fontSize: 62,
+              fontWeight: 700,
+              lineHeight: 1.18,
+              letterSpacing: "0.01em",
+            }}
+          >
             Uspjeh je rezultat uspješnog
           </div>
-          <div style={{ fontSize: 62, fontWeight: 700, lineHeight: 1.1 }}>
+          <div
+            style={{
+              fontSize: 62,
+              fontWeight: 700,
+              lineHeight: 1.18,
+              letterSpacing: "0.01em",
+            }}
+          >
             funkcioniranja tima.
           </div>
           <div style={{ marginTop: 26, fontSize: 26, color: "#D3C8BB" }}>
@@ -65,6 +86,16 @@ export default function OpengraphImage() {
         </div>
       </div>
     ),
-    size,
+    {
+      ...size,
+      fonts: [
+        {
+          name: "Open Sauce One",
+          data: font,
+          style: "normal",
+          weight: 700,
+        },
+      ],
+    },
   );
 }

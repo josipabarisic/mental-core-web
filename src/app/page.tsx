@@ -113,10 +113,10 @@ export default function Pocetna() {
         <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 sm:py-20 lg:grid-cols-[1.15fr_1fr] lg:items-center lg:gap-16 lg:px-8 lg:py-28">
           <div>
             <Eyebrow tone="dark">Programi za poslovne subjekte</Eyebrow>
-            <h1 className="mt-5 text-balance text-4xl leading-[1.08] font-bold tracking-[-0.02em] text-surface sm:text-5xl lg:text-6xl">
+            <h1 className="font-display mt-5 text-balance text-4xl leading-[1.18] font-bold tracking-[0.01em] text-white sm:text-5xl lg:text-6xl">
               Uspjeh je rezultat uspješnog funkcioniranja tima.
             </h1>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-line">
+            <p className="mt-6 max-w-xl text-lg leading-relaxed text-white">
               Vrijeme je da vaš tim postane više od grupe ljudi koji rade
               zajedno. Gradimo timove koji vjeruju jedni drugima, surađuju i
               zajedno stvaraju rezultate. Jer tim je jak onoliko koliko su jake
@@ -132,7 +132,7 @@ export default function Pocetna() {
               </Link>
               <a
                 href="#ponuda"
-                className="inline-flex items-center justify-center px-2 py-3.5 text-sm font-medium text-line underline underline-offset-4 hover:text-surface"
+                className="inline-flex items-center justify-center px-2 py-3.5 text-sm font-medium text-white underline underline-offset-4 hover:text-white"
               >
                 Pogledajte ponudu
               </a>
@@ -157,7 +157,7 @@ export default function Pocetna() {
             ].map((item) => (
               <p
                 key={item}
-                className="border-white/12 py-4 text-sm font-medium text-line not-last:border-b sm:border-b-0! sm:py-6 sm:not-last:border-r sm:not-last:pr-6 sm:[&:not(:first-child)]:pl-6"
+                className="border-white/12 py-4 text-sm font-medium text-white not-last:border-b sm:border-b-0! sm:py-6 sm:not-last:border-r sm:not-last:pr-6 sm:[&:not(:first-child)]:pl-6"
               >
                 {item}
               </p>
@@ -209,7 +209,7 @@ export default function Pocetna() {
             <SectionTitle tone="dark" className="mt-5">
               Jak tim ne nastaje slučajno. Gradi se.
             </SectionTitle>
-            <div className="mt-7 space-y-4 text-lg leading-relaxed text-line">
+            <div className="mt-7 space-y-4 text-lg leading-relaxed text-white">
               <p>
                 Tim nije samo skup pojedinaca. Tim čine odnosi, povjerenje,
                 komunikacija i sposobnost da ljudi djeluju zajedno, čak i onda
@@ -222,7 +222,7 @@ export default function Pocetna() {
                 Kada postoje povjerenje, otvorena komunikacija i spremnost na
                 suradnju, tim ne samo da bolje funkcionira. On napreduje.
               </p>
-              <p className="font-medium text-surface">
+              <p className="font-medium text-white">
                 Zato teambuilding nije samo druženje izvan ureda.
               </p>
               <p>
@@ -231,7 +231,7 @@ export default function Pocetna() {
                 pronađu način da ih pretvore u snagu.
               </p>
               <p>
-                <span className="font-medium text-surface">
+                <span className="font-medium text-white">
                   A konflikti? I oni su dio svakog tima.
                 </span>{" "}
                 Ne moraju biti problem. Mogu biti prilika za učenje, razvoj i
@@ -319,31 +319,22 @@ export default function Pocetna() {
             <SectionTitle tone="dark" className="mt-5">
               Kako znate da je vrijedilo
             </SectionTitle>
-            <p className="mt-6 text-lg leading-relaxed text-line">
+            <p className="mt-6 text-lg leading-relaxed text-white">
               Zamjena jednog stručnog zaposlenika košta tvrtku između 50 i 200
               posto njegove godišnje plaće. Ako program zadrži jednu osobu,
               platio se sam.
             </p>
-            <p className="mt-4 text-lg leading-relaxed text-line">
+            <p className="mt-4 text-lg leading-relaxed text-white">
               Zato ne prodajemo dojam, nego mjerimo.
             </p>
           </div>
           <div className="space-y-px">
             {POKAZATELJI.map((p) => (
               <div key={p.naslov} className="border-t border-white/15 py-6">
-                <h3 className="text-lg font-bold text-surface">{p.naslov}</h3>
-                <p className="mt-2 leading-relaxed text-line">{p.tekst}</p>
+                <h3 className="text-lg font-bold text-white">{p.naslov}</h3>
+                <p className="mt-2 leading-relaxed text-white">{p.tekst}</p>
               </div>
             ))}
-            <div className="border-t border-white/15 pt-8">
-              <Link
-                href="/kontakt"
-                className="inline-flex items-center gap-2 bg-surface px-6 py-3.5 text-sm font-semibold text-brand-deep transition-colors hover:bg-white"
-              >
-                Preuzmite vodič za budžet i mjerenje učinka
-                <ArrowRight size={16} />
-              </Link>
-            </div>
           </div>
         </div>
       </Section>
@@ -360,16 +351,17 @@ export default function Pocetna() {
               <div className="border-l-2 border-accent-clay pl-5">
                 <h3 className="font-bold text-brand-deep">Helena</h3>
                 <p className="mt-1.5 leading-relaxed text-ink-muted">
-                  Psihologinja, NLP trenerica, buduća gestalt psihoterapeutkinja.
-                  Kao časnica Hrvatske vojske u obavještajnom sektoru kreirala i
-                  vodila treninge komunikacijskih vještina.
+                  Psihologinja i coach. Bivša časnica OSRH. Pomaže timovima i
+                  liderima izgraditi psihološku otpornost i otvorenu
+                  komunikaciju pod pritiskom.
                 </p>
               </div>
               <div className="border-l-2 border-accent-clay pl-5">
                 <h3 className="font-bold text-brand-deep">Dinko</h3>
                 <p className="mt-1.5 leading-relaxed text-ink-muted">
-                  Bivši obavještajni dočasnik Hrvatske vojske i instruktor
-                  središta za razvoj vođa.
+                  Bivši dočasnik i vojni instruktor u OSRH. Prenosi operativnu
+                  strukturu, disciplinu i vođenje pod kriznim pritiskom u
+                  poslovne timove.
                 </p>
               </div>
             </div>
@@ -438,7 +430,7 @@ export default function Pocetna() {
       <Section tone="dark">
         <div className="max-w-2xl">
           <SectionTitle tone="dark">Recite nam gdje tim zapinje</SectionTitle>
-          <p className="mt-6 text-lg leading-relaxed text-line">
+          <p className="mt-6 text-lg leading-relaxed text-white">
             Petnaest minuta razgovora, bez obveze. Ako procijenimo da vam ne
             možemo pomoći, reći ćemo vam.
           </p>

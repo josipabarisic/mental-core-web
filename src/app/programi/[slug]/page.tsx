@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, Check } from "lucide-react";
-import { Eyebrow, Section, SectionTitle } from "@/components/section";
+import { Eyebrow, Section } from "@/components/section";
 import { Foto } from "@/components/photo-slot";
 import {
   DODATNE_USLUGE,
@@ -65,15 +65,15 @@ export default async function ProgramStranica({
         <div className="mx-auto max-w-6xl px-5 py-16 sm:py-20 lg:px-8">
           <Link
             href="/programi"
-            className="inline-flex items-center gap-1.5 text-sm font-medium text-line underline underline-offset-4 hover:text-surface"
+            className="inline-flex items-center gap-1.5 text-sm font-medium text-white underline underline-offset-4 hover:text-white"
           >
             <ArrowLeft size={15} />
             Svi programi
           </Link>
-          <h1 className="mt-6 max-w-3xl text-balance text-4xl leading-[1.1] font-bold tracking-[-0.02em] text-surface sm:text-5xl">
+          <h1 className="font-display mt-6 max-w-3xl text-balance text-4xl leading-[1.18] font-bold tracking-[0.01em] text-white sm:text-5xl">
             {p.naziv}
           </h1>
-          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-line">
+          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-white">
             {p.podnaslov}
           </p>
         </div>
@@ -133,6 +133,23 @@ export default async function ProgramStranica({
                       <Cijene key={c.naslov ?? i} {...c} />
                     ))}
                   </div>
+                  {p.dodatneUsluge && (
+                    <div className="mt-10">
+                      <h2 className="mb-2 text-base font-bold text-brand-deep">
+                        Dodatne usluge
+                      </h2>
+                      <Cijene stavke={DODATNE_USLUGE} />
+                      <div className="mt-6 space-y-3 text-sm leading-relaxed text-ink-muted">
+                        <p>
+                          <span className="font-semibold text-brand-deep">
+                            Napomena:
+                          </span>{" "}
+                          {NAPOMENA_LOGISTIKA}
+                        </p>
+                        <p>{NAPOMENA_LOKACIJA}</p>
+                      </div>
+                    </div>
+                  )}
                 </>
               ) : (
                 <p className="mt-3 leading-relaxed text-ink-muted">
@@ -159,28 +176,6 @@ export default async function ProgramStranica({
           </aside>
         </div>
       </Section>
-
-      {p.dodatneUsluge && (
-        <Section tone="alt">
-          <div className="grid gap-10 lg:grid-cols-[1fr_1.3fr] lg:gap-20">
-            <div>
-              <Eyebrow>Uz program</Eyebrow>
-              <SectionTitle className="mt-5">Dodatne usluge</SectionTitle>
-            </div>
-            <div>
-              <Cijene stavke={DODATNE_USLUGE} />
-              <div className="mt-8 space-y-4 text-ink-muted">
-                <p className="border-l-2 border-accent-clay pl-5 leading-relaxed">
-                  {NAPOMENA_LOGISTIKA}
-                </p>
-                <p className="border-l-2 border-accent-clay pl-5 leading-relaxed">
-                  {NAPOMENA_LOKACIJA}
-                </p>
-              </div>
-            </div>
-          </div>
-        </Section>
-      )}
     </>
   );
 }

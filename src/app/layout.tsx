@@ -1,12 +1,28 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin", "latin-ext"],
+const openSauce = localFont({
+  src: [
+    {
+      path: "../fonts/OpenSauceOne-Regular.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../fonts/OpenSauceOne-Medium.ttf",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../fonts/OpenSauceOne-Bold.ttf",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+  variable: "--font-open-sauce",
   display: "swap",
 });
 
@@ -27,7 +43,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="hr" className={`${inter.variable} h-full`}>
+    <html lang="hr" className={`${openSauce.variable} h-full`}>
       <body className="flex min-h-full flex-col bg-surface">
         <a
           href="#sadrzaj"

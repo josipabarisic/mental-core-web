@@ -16,10 +16,10 @@ export default function Programi() {
       <section className="on-dark bg-brand">
         <div className="mx-auto max-w-6xl px-5 py-16 sm:py-20 lg:px-8">
           <Eyebrow tone="dark">Ponuda</Eyebrow>
-          <h1 className="mt-5 max-w-3xl text-balance text-4xl leading-[1.1] font-bold tracking-[-0.02em] text-surface sm:text-5xl">
+          <h1 className="font-display mt-5 max-w-3xl text-balance text-4xl leading-[1.18] font-bold tracking-[0.01em] text-white sm:text-5xl">
             Šest načina za naš početak
           </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-line">
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white">
             Od analize tima u vašem prostoru do dvodnevnog programa na terenu.
             Sve cijene uključuju PDV.
           </p>

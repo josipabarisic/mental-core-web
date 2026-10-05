@@ -252,7 +252,7 @@ export function KontaktForma() {
           aria-describedby={greske.izazov ? "izazov-greska" : undefined}
           placeholder="Na primjer: tim dobro radi dok je mirno, a pod rokom komunikacija stane."
           className={cn(
-            "mt-2 w-full resize-y border bg-white px-3.5 py-3 text-[0.95rem] text-ink placeholder:text-ink-muted/90",
+            "mt-2 w-full resize-y border bg-white px-3.5 py-3 text-[0.95rem] text-ink placeholder:text-ink/40",
             greske.izazov ? "border-destructive" : "border-line",
           )}
         />

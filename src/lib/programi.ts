@@ -29,21 +29,16 @@ export const DODATNE_USLUGE: Stavka[] = [
 ];
 
 export const NAPOMENA_LOGISTIKA =
-  "Hranu, piće, najam prostora i organizirani prijevoz moguće je uključiti u ponudu uz dodatnu naknadu.";
+  "Hranu, piće, najam prostora i organizirani prijevoz moguće je uključiti u ponudu uz dodatnu naknadu za usluge.";
 
 export const NAPOMENA_LOKACIJA =
   "Lokaciju teambuildinga može odabrati Mental Core ili je birate vi.";
 
-const UKLJUCENO_TERENSKI = [
-  "Priprema i razgovor s voditeljem organizacijske jedinice",
-  "Razgovori sa svim članovima organizacijske jedinice",
-  "Dizajn programa prema potrebama tima",
-  "Posebne terenske i timske vježbe za članove i voditelje",
-  "Analiza i raščlamba provedenih vježbi",
-  "Feedback sudionicima o odrađenim vježbama",
-  "Vrijeme za druženje i opuštanje svih sudionika",
-  "Stručno pisano izvješće o svim aktivnostima tijekom teambuildinga",
-];
+const UKLJUCUJE_TERENSKI =
+  "Uključuje razgovor s voditeljem organizacijske jedinice, razgovor sa svim članovima organizacijske jedinice, posebne vježbe na terenu za članove i voditelje organizacijske jedinice, analizu i raščlambu provedenih vježbi te feedback o odrađenim vježbama. Uz sve navedeno uključeno je vrijeme za opuštanje i zabavu svih sudionika teambuildinga. Uključuje i stručno pisano izvješće o svim provedenim aktivnostima tijekom teambuildinga.";
+
+const DODATNO_ANALIZA_COACHING =
+  "Uz dodatnu naknadu moguće je uključiti analizu tima i coaching lidera.";
 
 export const PROGRAMI: Program[] = [
   {
@@ -119,10 +114,21 @@ export const PROGRAMI: Program[] = [
     detalji: ["8 do 10 sati", "Do 40 osoba", "Opcija: analiza i coaching"],
     cijenaOd: 1800,
     opis: [
-      "Jednodnevni trening u trajanju od 8 do 10 sati. Uz rad na terenu uključeno je i vrijeme za opuštanje i zabavu svih sudionika teambuildinga.",
-      "Uz dodatnu naknadu moguće je uključiti analizu tima i coaching lidera.",
+      "Jednodnevni trening u trajanju od 8 do 10 sati.",
+      UKLJUCUJE_TERENSKI,
+      DODATNO_ANALIZA_COACHING,
     ],
-    ukljuceno: UKLJUCENO_TERENSKI,
+    ukljuceno: [
+      "Priprema i razgovor s voditeljem",
+      "Razgovori s članovima tima",
+      "Dizajn programa prema potrebama tima",
+      "8 do 10 sati provedbe",
+      "Terenske i timske vježbe",
+      "Analiza i raščlamba vježbi",
+      "Feedback sudionicima",
+      "Vrijeme za druženje i opuštanje",
+      "Stručno pisano izvješće",
+    ],
     cjenik: [
       {
         stavke: [
@@ -145,11 +151,11 @@ export const PROGRAMI: Program[] = [
     detalji: ["Dva dana", "Do 40 osoba", "Opcija: dodatne osobe"],
     cijenaOd: 3500,
     opis: [
-      "Dvodnevni program za timove koji žele veću promjenu i više zabave. Uz rad na terenu uključeno je i vrijeme za opuštanje i zabavu svih sudionika teambuildinga.",
+      "Dvodnevni program za timove koji žele veću promjenu i više zabave.",
+      UKLJUCUJE_TERENSKI,
       "U ovu ponudu moguće je uključiti i dodatne osobe izvan organizacijske cjeline.",
-      "Uz dodatnu naknadu moguće je uključiti analizu tima i coaching lidera.",
+      DODATNO_ANALIZA_COACHING,
     ],
-    ukljuceno: UKLJUCENO_TERENSKI,
     cjenik: [
       {
         stavke: [

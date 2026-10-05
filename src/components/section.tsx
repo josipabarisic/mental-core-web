@@ -5,7 +5,7 @@ type Tone = "surface" | "alt" | "dark";
 const TONE: Record<Tone, string> = {
   surface: "bg-surface text-ink",
   alt: "bg-surface-alt text-ink",
-  dark: "on-dark bg-brand text-line",
+  dark: "on-dark bg-brand text-white",
 };
 
 export function Section({
@@ -39,7 +39,7 @@ export function Eyebrow({
     <p
       className={cn(
         "eyebrow",
-        tone === "light" ? "text-accent-clay" : "text-accent-clay-soft",
+        tone === "light" ? "text-accent-clay" : "text-white",
       )}
     >
       {children}
@@ -59,8 +59,8 @@ export function SectionTitle({
   return (
     <h2
       className={cn(
-        "text-balance text-3xl leading-[1.12] font-bold tracking-[-0.015em] sm:text-4xl lg:text-[2.75rem]",
-        tone === "light" ? "text-brand-deep" : "text-surface",
+        "font-display text-balance text-3xl leading-[1.18] font-bold tracking-[0.01em] sm:text-4xl lg:text-[2.75rem]",
+        tone === "light" ? "text-brand-deep" : "text-white",
         className,
       )}
     >

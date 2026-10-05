@@ -46,10 +46,10 @@ export function SiteHeader() {
               key={item.href}
               href={item.href}
               className={cn(
-                "py-2 text-sm font-medium transition-colors hover:text-brand-deep",
+                "py-2 text-sm font-medium transition-colors hover:text-accent-clay",
                 pathname === item.href
-                  ? "text-brand-deep"
-                  : "text-ink-muted",
+                  ? "text-accent-clay"
+                  : "text-ink",
               )}
             >
               {item.label}
@@ -89,7 +89,7 @@ export function SiteHeader() {
                 onClick={close}
                 className={cn(
                   "border-b border-line/60 py-3.5 text-base font-medium",
-                  pathname === item.href ? "text-brand-deep" : "text-ink-muted",
+                  pathname === item.href ? "text-accent-clay" : "text-ink",
                 )}
               >
                 {item.label}

@@ -63,10 +63,10 @@ export default function ONama() {
       <section className="on-dark bg-brand">
         <div className="mx-auto max-w-6xl px-5 py-16 sm:py-20 lg:px-8 lg:py-24">
           <Eyebrow tone="dark">O nama</Eyebrow>
-          <h1 className="mt-5 max-w-3xl text-balance text-4xl leading-[1.1] font-bold tracking-[-0.02em] text-surface sm:text-5xl">
+          <h1 className="font-display mt-5 max-w-3xl text-balance text-4xl leading-[1.18] font-bold tracking-[0.01em] text-white sm:text-5xl">
             Mi smo ovo prošli.
           </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-line">
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white">
             Mental Core vode psihologinja i vojni instruktor. Naš sustav nije
             nastao u učionici, nego u uvjetima gdje greška ima posljedice.
           </p>
@@ -109,7 +109,7 @@ export default function ONama() {
             <Foto foto="helena" pozicija="center 30%" />
             <h3 className="mt-7 text-2xl font-bold text-brand-deep">Helena</h3>
             <p className="mt-1.5 text-sm font-medium text-accent-clay-dark">
-              Psihologinja i coach
+              Osnivačica. Psihologinja i coach. Bivša časnica OSRH.
             </p>
             <ul className="mt-5 space-y-2 text-[0.95rem] leading-relaxed text-ink-muted">
               <li>NLP trenerica, buduća gestalt psihoterapeutkinja.</li>
@@ -123,8 +123,8 @@ export default function ONama() {
               </li>
             </ul>
             <blockquote className="mt-6 border-l-2 border-accent-clay pl-5 text-lg leading-snug text-brand-deep">
-              Mjesto za Heleninu rečenicu o tome što se o čovjeku sazna tek pod
-              pritiskom.
+              Pomažem timovima i liderima izgraditi psihološku otpornost i
+              otvorenu komunikaciju pod pritiskom.
             </blockquote>
           </article>
 
@@ -132,7 +132,7 @@ export default function ONama() {
             <Foto foto="dinko" pozicija="center 30%" />
             <h3 className="mt-7 text-2xl font-bold text-brand-deep">Dinko</h3>
             <p className="mt-1.5 text-sm font-medium text-accent-clay-dark">
-              Vojni instruktor i operativni analitičar
+              Osnivač. Bivši dočasnik i vojni instruktor u OSRH.
             </p>
             <ul className="mt-5 space-y-2 text-[0.95rem] leading-relaxed text-ink-muted">
               <li>Bivši obavještajni dočasnik Hrvatske vojske.</li>
@@ -143,7 +143,8 @@ export default function ONama() {
               </li>
             </ul>
             <blockquote className="mt-6 border-l-2 border-accent-clay pl-5 text-lg leading-snug text-brand-deep">
-              Mjesto za Dinkovu rečenicu o odlučivanju kad nema svih informacija.
+              Prenosim operativnu strukturu, disciplinu i vođenje pod kriznim
+              pritiskom u poslovne timove.
             </blockquote>
           </article>
         </div>
@@ -220,7 +221,7 @@ export default function ONama() {
           <SectionTitle tone="dark">
             Razgovarajmo o izazovima vašeg tima
           </SectionTitle>
-          <p className="mt-6 text-lg leading-relaxed text-line">
+          <p className="mt-6 text-lg leading-relaxed text-white">
             Petnaest minuta, bez obveze. Recite nam što se događa i predložit
             ćemo format koji ima smisla.
           </p>

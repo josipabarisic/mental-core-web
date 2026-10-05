@@ -15,14 +15,15 @@
   --color-surface-alt: #e5e3dc;
   --color-line: #d3c8bb;
   --color-ink: #2d3839;
-  --color-ink-muted: #5d6664;
+  --color-ink-muted: #2d3839;
   --color-accent-clay: #84593c;
   --color-accent-clay-dark: #6f4a32;
   --color-accent-clay-soft: #e8b199;
   --color-olive: #78785d;
   --color-olive-text: #5e6046;
 
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-open-sauce), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-open-sauce), ui-sans-serif, system-ui, sans-serif;
 }
 
 @theme inline {
@@ -62,7 +63,7 @@
   --secondary: #e5e3dc;
   --secondary-foreground: #2d3839;
   --muted: #e5e3dc;
-  --muted-foreground: #5d6664;
+  --muted-foreground: #2d3839;
   --accent: #e5e3dc;
   --accent-foreground: #2d3839;
   --destructive: #9b3a2c;
@@ -86,8 +87,20 @@
   }
 
   body {
-    @apply bg-background text-foreground antialiased;
-    font-feature-settings: "cv05" 1;
+    @apply bg-background font-sans text-foreground antialiased;
+  }
+
+  /* Open Sauce Bold, razmak kao na Canva objavi: otprilike 0.01em. */
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 700;
+  }
+
+  h1,
+  h2 {
+    letter-spacing: 0.01em;
   }
 
   /* Visible keyboard focus is required: the contact form must be usable
@@ -124,7 +137,7 @@
 }
 
 @utility eyebrow {
-  @apply text-xs font-semibold uppercase tracking-[0.18em];
+  @apply font-display text-[0.7rem] font-bold uppercase tracking-[0.24em];
 }
 
 @utility rule-top {

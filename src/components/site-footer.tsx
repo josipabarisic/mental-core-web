@@ -3,7 +3,7 @@ import { Logo } from "@/components/brand/logo";
 
 export function SiteFooter() {
   return (
-    <footer className="on-dark bg-brand text-line">
+    <footer className="on-dark bg-brand text-white">
       <div className="mx-auto max-w-6xl px-5 py-14 lg:px-8">
         <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr]">
           <div>
@@ -15,30 +15,30 @@ export function SiteFooter() {
           </div>
 
           <div>
-            <h2 className="eyebrow text-surface">Stranice</h2>
+            <h2 className="eyebrow text-white">Stranice</h2>
             <ul className="mt-4 space-y-2.5 text-sm">
               <li>
-                <Link href="/" className="hover:text-surface">
+                <Link href="/" className="hover:text-white">
                   Početna
                 </Link>
               </li>
               <li>
-                <Link href="/programi" className="hover:text-surface">
+                <Link href="/programi" className="hover:text-white">
                   Programi
                 </Link>
               </li>
               <li>
-                <Link href="/upitnik" className="hover:text-surface">
+                <Link href="/upitnik" className="hover:text-white">
                   Upitnik o timu
                 </Link>
               </li>
               <li>
-                <Link href="/o-nama" className="hover:text-surface">
+                <Link href="/o-nama" className="hover:text-white">
                   O nama
                 </Link>
               </li>
               <li>
-                <Link href="/kontakt" className="hover:text-surface">
+                <Link href="/kontakt" className="hover:text-white">
                   Kontakt
                 </Link>
               </li>
@@ -46,15 +46,15 @@ export function SiteFooter() {
           </div>
 
           <div>
-            <h2 className="eyebrow text-surface">Kontakt</h2>
+            <h2 className="eyebrow text-white">Kontakt</h2>
             <ul className="mt-4 space-y-2.5 text-sm">
               <li>
-                <a href="mailto:info@mentalcore.hr" className="hover:text-surface">
+                <a href="mailto:info@mentalcore.hr" className="hover:text-white">
                   info@mentalcore.hr
                 </a>
               </li>
               <li>
-                <a href="tel:+385000000000" className="hover:text-surface">
+                <a href="tel:+385000000000" className="hover:text-white">
                   +385 00 000 0000
                 </a>
               </li>
