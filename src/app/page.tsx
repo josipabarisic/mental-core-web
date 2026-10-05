@@ -110,7 +110,7 @@ export default function Pocetna() {
     <>
       {/* Hero */}
       <section className="on-dark bg-brand">
-        <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 sm:py-20 lg:grid-cols-[1.15fr_1fr] lg:items-center lg:gap-16 lg:px-8 lg:py-28">
+        <div className="mx-auto grid max-w-6xl gap-10 px-5 pt-16 pb-5 sm:pt-20 sm:pb-8 lg:grid-cols-[1.15fr_1fr] lg:items-center lg:gap-16 lg:px-8 lg:py-28">
           <div>
             <Eyebrow tone="dark">Programi za poslovne subjekte</Eyebrow>
             <h1 className="font-display mt-5 text-balance text-4xl leading-[1.18] font-bold tracking-[0.01em] text-white sm:text-5xl lg:text-6xl">

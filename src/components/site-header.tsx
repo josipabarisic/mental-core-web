@@ -35,7 +35,7 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-surface">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3.5 lg:px-8">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3.5 md:py-5 lg:px-8">
         <Link href="/" aria-label="Mental Core, početna stranica">
           <Logo tone="light" />
         </Link>
@@ -46,7 +46,7 @@ export function SiteHeader() {
               key={item.href}
               href={item.href}
               className={cn(
-                "py-2 text-sm font-medium transition-colors hover:text-accent-clay",
+                "py-2.5 text-sm font-medium transition-colors hover:text-accent-clay",
                 pathname === item.href
                   ? "text-accent-clay"
                   : "text-ink",
@@ -57,7 +57,7 @@ export function SiteHeader() {
           ))}
           <Link
             href="/kontakt"
-            className="bg-accent-clay px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-accent-clay-dark"
+            className="bg-accent-clay px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-accent-clay-dark"
           >
             Zatražite razgovor
           </Link>
