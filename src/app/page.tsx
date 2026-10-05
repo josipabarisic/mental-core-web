@@ -293,7 +293,7 @@ export default function Pocetna() {
         <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-2xl">
             <Eyebrow>Ponuda</Eyebrow>
-            <SectionTitle className="mt-5">Šest načina za naš početak</SectionTitle>
+            <SectionTitle className="mt-5">Programi za vaš tim</SectionTitle>
             <p className="mt-5 text-lg leading-relaxed text-ink-muted">
               Sve cijene uključuju PDV. Kliknite na program za opis i cjenik.
             </p>

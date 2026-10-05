@@ -8,7 +8,16 @@ const AXE = await readFile(
   createRequire(import.meta.url).resolve("axe-core/axe.min.js"),
   "utf8",
 );
-const STRANICE = ["/", "/programi", "/programi/standard", "/upitnik", "/o-nama", "/kontakt", "/impressum"];
+const STRANICE = [
+  "/",
+  "/programi",
+  "/programi/standard",
+  "/programi/fun",
+  "/upitnik",
+  "/o-nama",
+  "/kontakt",
+  "/impressum",
+];
 
 const results = [];
 const errors = [];

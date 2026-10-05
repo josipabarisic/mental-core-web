@@ -95,7 +95,9 @@ export default async function ProgramStranica({
 
             {p.ukljuceno && (
               <div className="mt-10">
-                <h2 className="text-xl font-bold text-brand-deep">Uključeno</h2>
+                <h2 className="text-xl font-bold text-brand-deep">
+                  {p.ukljucenoNaslov ?? "Uključeno"}
+                </h2>
                 <ul className="mt-5 space-y-3.5">
                   {p.ukljuceno.map((u) => (
                     <li key={u} className="flex gap-3 text-ink-muted">
@@ -137,29 +139,29 @@ export default async function ProgramStranica({
                       <Cijene key={c.naslov ?? i} {...c} />
                     ))}
                   </div>
-                  {p.dodatneUsluge && (
-                    <div className="mt-10">
-                      <h2 className="mb-2 text-base font-bold text-brand-deep">
-                        Dodatne usluge
-                      </h2>
-                      <Cijene stavke={DODATNE_USLUGE} />
-                      <div className="mt-6 space-y-3 text-sm leading-relaxed text-ink-muted">
-                        <p>
-                          <span className="font-semibold text-brand-deep">
-                            Napomena:
-                          </span>{" "}
-                          {NAPOMENA_LOGISTIKA}
-                        </p>
-                        <p>{NAPOMENA_LOKACIJA}</p>
-                      </div>
-                    </div>
-                  )}
                 </>
               ) : (
                 <p className="mt-3 leading-relaxed text-ink-muted">
                   Po dogovoru. Cijenu šaljemo u ponudi, prema dogovorenom
                   sadržaju programa.
                 </p>
+              )}
+              {p.dodatneUsluge && (
+                <div className="mt-10">
+                  <h2 className="mb-2 text-base font-bold text-brand-deep">
+                    Dodatne usluge
+                  </h2>
+                  <Cijene stavke={DODATNE_USLUGE} />
+                  <div className="mt-6 space-y-3 text-sm leading-relaxed text-ink-muted">
+                    <p>
+                      <span className="font-semibold text-brand-deep">
+                        Napomena:
+                      </span>{" "}
+                      {NAPOMENA_LOGISTIKA}
+                    </p>
+                    <p>{NAPOMENA_LOKACIJA}</p>
+                  </div>
+                </div>
               )}
               <div className="mt-8 flex flex-col gap-3">
                 <Link

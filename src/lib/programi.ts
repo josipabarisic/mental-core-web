@@ -13,6 +13,7 @@ export type Program = {
   cijenaOd?: number;
   opis: string[];
   ukljuceno?: string[];
+  ukljucenoNaslov?: string;
   napomena?: string;
   cjenik?: Cjenik[];
   /** Dodatne usluge, napomena o hrani i prijevozu, izbor lokacije. */
@@ -178,18 +179,42 @@ export const PROGRAMI: Program[] = [
     detalji: ["Po dogovoru", "Po vašoj želji"],
     opis: [
       "Personalizirani paket složen po vašoj želji. Trajanje, broj sudionika, lokaciju i sadržaj programa dogovaramo zajedno s vama, prema onome što vaš tim treba.",
-      "Cijenu šaljemo u ponudi, nakon prvog razgovora.",
+      "Odabirete usluge koje vaš tim treba: analizu tima, coaching lidera, lokaciju, hranu i piće, prijevoz, pripremu s voditeljem, dizajn programa, terenske i timske vježbe, feedback, analizu vježbi, pisano izvješće te vrijeme za opuštanje i druženje.",
+      "Cijenu paketa formiramo nakon što odaberete usluge i dogovorimo broj sudionika.",
     ],
+    ukljuceno: [
+      "Analiza tima i coaching lidera prema odabranom opsegu",
+      "Odabir lokacije, hrane i pića",
+      "Razgovor i priprema s voditeljem",
+      "Dizajn programa prema potrebama vašeg tima",
+      "Terenske i timske vježbe",
+      "Feedback sa sudionicima na terenu",
+      "Analiza i raščlamba vježbi",
+      "Pisano izvješće nakon teambuildinga",
+      "Vrijeme za opuštanje i druženje",
+      "Organizirani prijevoz za sudionike",
+    ],
+    ukljucenoNaslov: "Usluge u ponudi",
+    dodatneUsluge: true,
     foto: "planiranje",
   },
   {
     slug: "fun",
     naziv: "Mental Core FUN",
-    podnaslov: "Opis programa uskoro",
-    sazetak: "Detalje ovog programa upravo pripremamo. Pitajte nas, rado ćemo ih ispričati.",
-    detalji: ["Uskoro"],
-    opis: [],
-    bezStranice: true,
+    podnaslov: "Paket za dan po vašoj mjeri",
+    sazetak:
+      "Mi preuzimamo organizaciju vašeg teambuildinga. Vi odaberete datum, a mi pripremimo dan za zabavu i opuštanje.",
+    detalji: ["Zabava i opuštanje", "Organizacija prema vašim željama"],
+    opis: [
+      "Odaberite datum, a mi preuzimamo organizaciju teambuildinga prema vašim željama i broju sudionika.",
+      "Mental Core FUN usmjeren je na zabavu i opuštanje. Ne uključuje stručne analize ni druge stručne aktivnosti.",
+      "Cijenu formiramo prema odabranim prijedlozima i broju sudionika.",
+    ],
+    ukljuceno: [
+      "Organizacija dana prema dogovorenim prijedlozima",
+      "Zabava i opuštanje",
+      "Planiranje prema broju sudionika",
+    ],
   },
 ];
 
