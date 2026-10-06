@@ -6,9 +6,9 @@ import { join } from "node:path";
  * Builds the sketch as a static bundle for GitHub Pages.
  *
  * `output: "export"` cannot carry a POST route handler, so the contact
- * endpoint is moved aside for the duration of the build. The form detects
- * NEXT_PUBLIC_STATIC_DEMO and confirms without sending anything, which is
- * stated in the confirmation text so nobody thinks an enquiry went out.
+ * endpoint is moved aside for the duration of the build. Without a configured
+ * mail endpoint, forms report that sending is unavailable instead of claiming
+ * an enquiry was received.
  */
 const root = process.cwd();
 const api = join(root, "src/app/api");

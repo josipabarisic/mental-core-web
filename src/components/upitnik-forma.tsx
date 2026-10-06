@@ -112,8 +112,7 @@ export function UpitnikForma() {
     setStanje("salje");
 
     if (DEMO) {
-      await new Promise((r) => setTimeout(r, 600));
-      setStanje("uspjeh");
+      setStanje("greska");
       return;
     }
 
@@ -149,12 +148,6 @@ export function UpitnikForma() {
         <p className="mt-3 leading-relaxed text-ink-muted">
           Odgovore pregledavamo i na {d.email} šaljemo naš feedback i ponudu.
         </p>
-        {DEMO && (
-          <p className="mt-4 border-l-2 border-line pl-4 text-sm text-ink-muted">
-            Ovo je skica, pa upitnik nije stvarno poslan. Slanje se uključuje
-            kad stranica dobije poslovni e-mail.
-          </p>
-        )}
       </div>
     );
   }
@@ -316,11 +309,13 @@ export function UpitnikForma() {
         >
           <CircleAlert size={17} className="mt-0.5 shrink-0" />
           <span>
-            Slanje nije uspjelo. Pišite nam izravno na{" "}
+            {DEMO
+              ? "Upitnik trenutačno nije povezan za slanje. Pošaljite nam e-mail na "
+              : "Slanje nije uspjelo. Pišite nam izravno na "}
             <a href={`mailto:${KONTAKT_MAIL}`} className="underline">
               {KONTAKT_MAIL}
-            </a>{" "}
-            ili pokušajte ponovno.
+            </a>
+            .
           </span>
         </p>
       )}

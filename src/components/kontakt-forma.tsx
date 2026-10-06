@@ -106,10 +106,8 @@ export function KontaktForma() {
 
     setStanje("salje");
 
-    // The statically published sketch has no server to post to.
     if (DEMO) {
-      await new Promise((r) => setTimeout(r, 600));
-      setStanje("uspjeh");
+      setStanje("greska");
       return;
     }
 
@@ -142,12 +140,6 @@ export function KontaktForma() {
           Javljamo se na {data.email} u roku od jednog radnog dana. Ako vam
           treba brže, odgovorite na mail.
         </p>
-        {DEMO && (
-          <p className="mt-4 border-l-2 border-line pl-4 text-sm text-ink-muted">
-            Ovo je skica, pa upit nije stvarno poslan. Slanje se uključuje kad
-            stranica dobije domenu i poslovni e-mail.
-          </p>
-        )}
         <button
           type="button"
           onClick={() => {
@@ -302,11 +294,13 @@ export function KontaktForma() {
         >
           <CircleAlert size={17} className="mt-0.5 shrink-0" />
           <span>
-            Slanje nije uspjelo. Pišite nam izravno na{" "}
+            {DEMO
+              ? "Obrazac trenutačno nije povezan za slanje. Pošaljite nam upit izravno na "
+              : "Slanje nije uspjelo. Pišite nam izravno na "}
             <a href={`mailto:${KONTAKT_MAIL}`} className="underline">
               {KONTAKT_MAIL}
             </a>{" "}
-            ili pokušajte ponovno.
+            .
           </span>
         </p>
       )}
