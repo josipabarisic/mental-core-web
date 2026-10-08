@@ -154,9 +154,8 @@ export default function ONama() {
                 nje.
               </li>
               <li>
-                Ronilac, padobranac i alpinist. Dvanaest medalja na
-                natjecanjima. Obuke pod visokim stresom i krajnjom
-                izdržljivošću.
+                Stekao različite specijalističke vještine, te prošao obuke pod
+                visokom dozom stresa i krajnje izdržljivosti.
               </li>
             </ul>
             <blockquote className="mt-6 border-l-2 border-accent-clay pl-5 text-lg leading-snug text-brand-deep">
