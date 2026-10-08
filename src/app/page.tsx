@@ -118,7 +118,10 @@ export default function Pocetna() {
               zajedno stvaraju rezultate. Jer tim je jak onoliko koliko su jake
               njegove veze.
             </p>
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <p className="mt-5 max-w-xl text-sm font-medium leading-relaxed text-white">
+              Što nam povjerite, ostaje kod nas. To možemo garantirati.
+            </p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
               <Link
                 href="/upitnik"
                 className="inline-flex items-center justify-center gap-2 bg-surface px-6 py-3.5 text-sm font-semibold text-brand-deep transition-colors hover:bg-white"
