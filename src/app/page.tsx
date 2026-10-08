@@ -40,7 +40,7 @@ const KORACI = [
     broj: "01",
     naslov: "Analiza tima",
     tekst:
-      "Prije programa mjerimo komunikaciju, povjerenje i usklađenost s ciljevima. Znamo s čime počinjemo.",
+      "Gledamo stvarnu poziciju ljudi u timu, ne samo funkciju na papiru. Taj uvid služi i vama, za poslagivanje uloga, ne samo nama za program.",
   },
   {
     broj: "02",
@@ -85,7 +85,7 @@ const PITANJA = [
   },
   {
     q: "Je li program fizički zahtjevan?",
-    a: "Ovisi o paketu, a intenzitet biramo zajedno s vama. Nijedna aktivnost ne traži posebnu pripremu ni kondiciju. Nitko se ne prisiljava i nitko se ne izlaže pred grupom.",
+    a: "Ovisi o paketu, a intenzitet biramo zajedno s vama. Isti program drži i ljude koji cijeli dan sjede, i one koji jedva čekaju izaći van. Nijedna aktivnost ne traži posebnu pripremu ni kondiciju. Nitko se ne prisiljava i nitko se ne izlaže pred grupom.",
   },
   {
     q: "Što ako u timu postoji otvoren konflikt?",
@@ -97,7 +97,7 @@ const PITANJA = [
   },
   {
     q: "Je li sve što se kaže na programu povjerljivo?",
-    a: "Da. Izvješće koje dobiva uprava sadrži obrasce i preporuke, nikada pojedinačne izjave ni imena. To pravilo objašnjavamo sudionicima na početku, jer bez njega nema iskrenog razgovora.",
+    a: "Da. Izvješće koje dobiva uprava sadrži obrasce i preporuke, nikada pojedinačne izjave ni imena. Fotografije, video i snimanje idu samo uz vaše odobrenje. Ne snimamo ako to niste htjeli. To pravilo objašnjavamo sudionicima na početku, jer bez njega nema iskrenog razgovora.",
   },
 ];
 
@@ -180,6 +180,10 @@ export default function Pocetna() {
             <p className="mt-4 text-lg leading-relaxed text-ink">
               Problem nije u zabavi. Problem je što zabava ne mijenja strukturu
               tima.
+            </p>
+            <p className="mt-4 text-lg leading-relaxed text-ink">
+              Kod nas razonoda nije ručak i piće. Dolazi iz zadataka koji
+              ostaju u sjećanju, i koji u isto vrijeme pokažu kako tim radi.
             </p>
             <ul className="mt-9 space-y-3.5">
               {SIMPTOMI.map((s) => (
@@ -349,17 +353,17 @@ export default function Pocetna() {
               <div className="border-l-2 border-accent-clay pl-5">
                 <h3 className="font-bold text-brand-deep">Helena</h3>
                 <p className="mt-1.5 leading-relaxed text-ink-muted">
-                  Psihologinja i coach. Bivša časnica OSRH. Pomaže timovima i
-                  liderima izgraditi psihološku otpornost i otvorenu
-                  komunikaciju pod pritiskom.
+                  Psihologinja i coach. Bivša časnica OSRH. Poznaje vodstvo i
+                  hijerarhiju iznutra. Pomaže timovima i liderima izgraditi
+                  psihološku otpornost i otvorenu komunikaciju pod pritiskom.
                 </p>
               </div>
               <div className="border-l-2 border-accent-clay pl-5">
                 <h3 className="font-bold text-brand-deep">Dinko</h3>
                 <p className="mt-1.5 leading-relaxed text-ink-muted">
-                  Bivši dočasnik i vojni instruktor u OSRH. Prenosi operativnu
-                  strukturu, disciplinu i vođenje pod kriznim pritiskom u
-                  poslovne timove.
+                  Ekonomist. Bivši dočasnik i vojni instruktor u OSRH. Prenosi
+                  operativnu strukturu u poslovne timove i osmišljava vježbe u
+                  kojima svatko ima svoju ulogu.
                 </p>
               </div>
             </div>

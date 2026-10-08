@@ -14,7 +14,7 @@ const METODA = [
   {
     naslov: "Analiza prije programa",
     tekst:
-      "Kratki upitnik za cijeli tim i razgovor s voditeljem. Ne ulazimo naslijepo i ne radimo isti program dvaput.",
+      "Kratki upitnik za cijeli tim i razgovor s voditeljem. Vidimo tko stvarno vodi, tko nosi, tko šuti, bez obzira na funkciju na papiru. Ne ulazimo naslijepo i ne radimo isti program dvaput.",
   },
   {
     naslov: "Iskustvo koje stvara stvarne reakcije",
@@ -112,10 +112,14 @@ export default function ONama() {
               Osnivačica. Psihologinja i coach. Bivša časnica OSRH.
             </p>
             <ul className="mt-5 space-y-2 text-[0.95rem] leading-relaxed text-ink-muted">
-              <li>NLP trenerica, buduća gestalt psihoterapeutkinja.</li>
               <li>
-                Časnica Hrvatske vojske u obavještajnom sektoru. Kreirala i
-                vodila treninge komunikacijskih vještina za taktičku razinu.
+                Kliničko i vojno iskustvo. Poznaje hijerarhiju i vodstvo s
+                različitih razina.
+              </li>
+              <li>NLP trenerica, edukantica gestalt psihoterapije.</li>
+              <li>
+                Časnica Hrvatske vojske u obavještajnom sektoru. Vodila
+                treninge komunikacije za taktičku razinu.
               </li>
               <li>
                 Prošla zarobljenički kamp i na njemu trenirala vlastitu
@@ -126,20 +130,33 @@ export default function ONama() {
               Pomažem timovima i liderima izgraditi psihološku otpornost i
               otvorenu komunikaciju pod pritiskom.
             </blockquote>
+            <p className="mt-5 leading-relaxed text-ink-muted">
+              Coaching lidera uz program ide brže od klasičnog. U razgovor
+              ulazi već imajući širu sliku tima, ne samo lidera.
+            </p>
           </article>
 
           <article className="border-t border-line pt-8">
             <Foto foto="dinko" pozicija="center 30%" />
             <h3 className="mt-7 text-2xl font-bold text-brand-deep">Dinko</h3>
             <p className="mt-1.5 text-sm font-medium text-accent-clay-dark">
-              Osnivač. Bivši dočasnik i vojni instruktor u OSRH.
+              Osnivač. Ekonomist. Bivši dočasnik i vojni instruktor u OSRH.
             </p>
             <ul className="mt-5 space-y-2 text-[0.95rem] leading-relaxed text-ink-muted">
+              <li>
+                Deset godina vojnog staža: od vojnika do instruktora središta
+                za razvoj vođa, zatim dočasnik u operativnom timu specijalne
+                postrojbe.
+              </li>
               <li>Bivši obavještajni dočasnik Hrvatske vojske.</li>
-              <li>Instruktor središta za razvoj vođa Hrvatske vojske.</li>
+              <li>
+                Osmišljava vježbe u kojima svatko ima svoju funkciju i uči iz
+                nje.
+              </li>
               <li>
                 Ronilac, padobranac i alpinist. Dvanaest medalja na
-                natjecanjima, prošao ekstremno zahtjevne obuke.
+                natjecanjima. Obuke pod visokim stresom i krajnjom
+                izdržljivošću.
               </li>
             </ul>
             <blockquote className="mt-6 border-l-2 border-accent-clay pl-5 text-lg leading-snug text-brand-deep">
@@ -148,7 +165,11 @@ export default function ONama() {
             </blockquote>
           </article>
         </div>
-        <p className="mt-10">
+        <p className="mt-10 max-w-2xl leading-relaxed text-ink">
+          Helena i Dinko su supružnici. Rade kao tim, i na programima i kod
+          kuće.
+        </p>
+        <p className="mt-6">
           <a
             href="https://www.linkedin.com/in/helena-i-dinko-maru%C5%A1%C4%8Dak-45b915440/"
             target="_blank"
@@ -185,8 +206,9 @@ export default function ONama() {
           </div>
         </div>
         <p className="mt-12 max-w-3xl border-l-2 border-accent-clay pl-6 text-lg leading-relaxed text-brand-deep">
-          Nitko se ne prisiljava i nitko se ne izlaže pred grupom. Intenzitet
-          biramo zajedno s vama, prema tome što vaš tim može podnijeti.
+          Nitko se ne prisiljava i nitko se ne izlaže pred grupom. Vježbe drže i
+          ljude koji cijeli dan sjede, i one koji hoće adrenalin. Intenzitet
+          biramo zajedno s vama.
         </p>
       </Section>
 
@@ -208,6 +230,9 @@ export default function ONama() {
             ))}
           </div>
         </div>
+        <p className="mt-12 max-w-2xl text-lg leading-relaxed font-medium text-brand-deep">
+          Svaka karika lanca je važna da lanac bude postojan i učinkovit.
+        </p>
       </Section>
 
       {/* Povjerljivost */}
@@ -219,9 +244,17 @@ export default function ONama() {
           </SectionTitle>
           <p className="mt-6 text-lg leading-relaxed text-ink">
             Izvješće koje dobiva uprava sadrži uočene obrasce i preporuke za
-            daljnji rad. Ne sadrži pojedinačne izjave, imena ni ocjene ljudi. To
-            pravilo objašnjavamo sudionicima na početku programa, jer bez njega
-            nema iskrenog razgovora, a bez iskrenog razgovora nema ni rezultata.
+            daljnji rad. Ne sadrži pojedinačne izjave, imena ni ocjene ljudi.
+          </p>
+          <p className="mt-4 text-lg leading-relaxed text-ink">
+            Isto vrijedi za fotografije, video i snimanje. Ništa ne objavljujemo
+            bez vašeg odobrenja. Ne snimamo ako to niste htjeli. Naučili smo to
+            tamo gdje povjerljivost nije izbor, nego uvjet rada.
+          </p>
+          <p className="mt-4 text-lg leading-relaxed text-ink">
+            To pravilo objašnjavamo sudionicima na početku programa, jer bez
+            njega nema iskrenog razgovora, a bez iskrenog razgovora nema ni
+            rezultata.
           </p>
         </div>
       </Section>

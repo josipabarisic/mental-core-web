@@ -39,7 +39,7 @@ const UKLJUCUJE_TERENSKI =
   "Uključuje razgovor s voditeljem organizacijske jedinice, razgovor sa svim članovima organizacijske jedinice, posebne vježbe na terenu za članove i voditelje organizacijske jedinice, analizu i raščlambu provedenih vježbi te feedback o odrađenim vježbama. Uz sve navedeno uključeno je vrijeme za opuštanje i zabavu svih sudionika teambuildinga. Uključuje i stručno pisano izvješće o svim provedenim aktivnostima tijekom teambuildinga.";
 
 const DODATNO_ANALIZA_COACHING =
-  "Uz dodatnu naknadu moguće je uključiti analizu tima i coaching lidera.";
+  "Uz dodatnu naknadu moguće je uključiti analizu tima i coaching lidera. Coaching uz teambuilding ide brže od klasičnog, jer Helena ulazi u razgovor već poznajući tim, ne samo lidera.";
 
 export const PROGRAMI: Program[] = [
   {
@@ -52,7 +52,7 @@ export const PROGRAMI: Program[] = [
     cijenaOd: 500,
     opis: [
       "Analiza tima od 3 do 15 osoba. Moguće je obuhvatiti i više timova, u dva ili više različitih termina. Pod nazivom tim podrazumijeva se svaka organizacijska jedinica unutar vašeg poslovanja, a može uključivati i cijeli radni kolektiv ako se radi o manjem poslovnom subjektu.",
-      "Analizom tima dobivamo uvid u pozicioniranje osoba unutar radne jedinice. Prepoznajemo pojedince koji se ističu, u pozitivnom ili negativnom smjeru, i koji su skloni povesti ostatak članova. Provjeravamo i jasnoću radnih ciljeva unutar jedinice, koje definiraju voditelji ili poslovođe.",
+      "Analizom tima dobivamo uvid u stvarne uloge unutar jedinice, neovisno o funkciji na koju je netko postavljen. Voditelj se ponekad u poslu profilira kao najbolji izvršitelj, a vodstvo preuzme netko iz tima. Taj uvid može poslužiti HR-u ili direktoru za poslagivanje funkcija. Prepoznajemo pojedince koji se ističu, u pozitivnom ili negativnom smjeru, i koji su skloni povesti ostatak članova. Provjeravamo i jasnoću radnih ciljeva unutar jedinice, koje definiraju voditelji ili poslovođe.",
       "Na temelju analize i razgovora s nadređenima predlažemo radionicu. Lokaciju, termin i način provedbe dogovaramo prema potrebama tima i našoj procjeni.",
     ],
     napomena: "Cijena ovisi o broju sudionika.",
@@ -86,7 +86,7 @@ export const PROGRAMI: Program[] = [
     cijenaOd: 1200,
     opis: [
       "Kratki trening u trajanju od 5 sati, unutar ili izvan vašeg poslovnog kompleksa.",
-      "Može uključivati i coaching lidera na terenu. Coaching lidera je strukturiran proces razvoja lidera kroz razgovor, refleksiju i praktičan rad. Cilj mu je jačanje liderskih kompetencija, samosvijesti, komunikacije i sposobnosti vođenja ljudi.",
+      "Može uključivati i coaching lidera na terenu. Coaching lidera je strukturiran proces razvoja lidera kroz razgovor, refleksiju i praktičan rad. Cilj mu je jačanje liderskih kompetencija, samosvijesti, komunikacije i sposobnosti vođenja ljudi. Ovdje ide brže od klasičnog coachinga, jer Helena ulazi u razgovor već poznajući tim i kako funkcionira pod pritiskom.",
     ],
     ukljuceno: [
       "Razgovor s članovima organizacijske jedinice",
