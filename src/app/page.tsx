@@ -97,7 +97,7 @@ const PITANJA = [
   },
   {
     q: "Je li sve što se kaže na programu povjerljivo?",
-    a: "Da. Izvješće koje dobiva uprava sadrži obrasce i preporuke, nikada pojedinačne izjave ni imena. Fotografije, video i snimanje idu samo uz vaše odobrenje. Ne snimamo ako to niste htjeli. To pravilo objašnjavamo sudionicima na početku, jer bez njega nema iskrenog razgovora.",
+    a: "Da. Dolazimo iz posla u kojem se poslovne tajne čuvaju, a ne prepričavaju. Ono što nam povjerite, ostaje kod nas. To možemo garantirati. Izvješće za upravu sadrži obrasce i preporuke, nikada pojedinačne izjave ni imena. Fotografije, video i snimanje idu samo uz vaše odobrenje.",
   },
 ];
 
@@ -149,7 +149,7 @@ export default function Pocetna() {
             {[
               "Psihologinja i vojni instruktori",
               "Analiza tima prije programa",
-              "Pisano izvješće nakon programa",
+              "Poslovne tajne ostaju kod nas",
             ].map((item) => (
               <p
                 key={item}

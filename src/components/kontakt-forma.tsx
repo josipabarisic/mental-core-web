@@ -283,7 +283,8 @@ export function KontaktForma() {
           )}
         </button>
         <p className="text-xs leading-relaxed text-ink-muted">
-          Vaši podaci ostaju kod nas. Ne šaljemo newsletter bez vašeg pristanka.
+          Ono što nam povjerite ostaje kod nas. To možemo garantirati. Ne
+          šaljemo newsletter bez vašeg pristanka.
         </p>
       </div>
 

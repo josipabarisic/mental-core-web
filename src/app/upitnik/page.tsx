@@ -25,8 +25,8 @@ export default function Upitnik() {
             Provjerite gdje vaš tim stoji
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white">
-            Ispunite upitnik. Nakon slanja upitnika na e-mail dobivate naš
-            feedback i ponudu.
+            Ispunite upitnik. Nakon slanja na e-mail dobivate naš feedback i
+            ponudu. Odgovori ostaju kod nas.
           </p>
         </div>
       </section>

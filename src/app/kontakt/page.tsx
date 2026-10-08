@@ -51,7 +51,7 @@ export default function Kontakt() {
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white">
             Javljamo se u roku od jednog radnog dana. Prvi razgovor traje 15
-            minuta i ne obvezuje ni na što.
+            minuta i ne obvezuje ni na što. Ono što nam kažete ostaje kod nas.
           </p>
         </div>
       </section>

@@ -243,13 +243,16 @@ export default function ONama() {
             Što ostaje u prostoriji, ostaje u prostoriji
           </SectionTitle>
           <p className="mt-6 text-lg leading-relaxed text-ink">
-            Izvješće koje dobiva uprava sadrži uočene obrasce i preporuke za
-            daljnji rad. Ne sadrži pojedinačne izjave, imena ni ocjene ljudi.
+            Dolazimo iz posla u kojem se poslovne tajne čuvaju, a ne
+            prepričavaju. Obavještajni i vojni rad naučio nas je zadržati ono
+            što treba ostati unutra. To nije obećanje na papiru. To je navika.
+            I to možemo garantirati.
           </p>
           <p className="mt-4 text-lg leading-relaxed text-ink">
-            Isto vrijedi za fotografije, video i snimanje. Ništa ne objavljujemo
-            bez vašeg odobrenja. Ne snimamo ako to niste htjeli. Naučili smo to
-            tamo gdje povjerljivost nije izbor, nego uvjet rada.
+            Izvješće koje dobiva uprava sadrži uočene obrasce i preporuke za
+            daljnji rad. Ne sadrži pojedinačne izjave, imena ni ocjene ljudi.
+            Fotografije, video i snimanje idu samo uz vaše odobrenje. Ne
+            snimamo ako to niste htjeli.
           </p>
           <p className="mt-4 text-lg leading-relaxed text-ink">
             To pravilo objašnjavamo sudionicima na početku programa, jer bez
