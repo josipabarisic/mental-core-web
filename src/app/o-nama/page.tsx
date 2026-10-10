@@ -5,9 +5,12 @@ import { Eyebrow, Section, SectionTitle } from "@/components/section";
 import { Foto } from "@/components/photo-slot";
 
 export const metadata: Metadata = {
-  title: "O nama",
+  title: "Helena i Dinko Maruščak",
   description:
-    "Mental Core vode psihologinja i vojni instruktor. Sustav nastao u uvjetima gdje greška ima posljedice.",
+    "Psihologinja Helena Maruščak i Dinko Maruščak vode Mental Core. Analiza timske dinamike, terenski programi i coaching lidera, iz vojnog i psihološkog iskustva.",
+  alternates: {
+    canonical: "/o-nama",
+  },
 };
 
 const METODA = [

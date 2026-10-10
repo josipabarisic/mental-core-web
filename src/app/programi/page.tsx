@@ -5,9 +5,12 @@ import { Eyebrow, Section } from "@/components/section";
 import { ProgramKartice } from "@/components/program-kartice";
 
 export const metadata: Metadata = {
-  title: "Programi",
+  title: "Programi za timove i lidere | STANDARD, MAXI, PREMIUM",
   description:
-    "Analiza tima i radionice, Mental Core MINI, STANDARD, MAXI, PREMIUM i FUN. Opisi programa i cijene s PDV-om.",
+    "Odaberite program prilagođen vašem timu: jednodnevni terenski treninzi, dvodnevni formati, dubinska analiza timske dinamike ili personalizirani programi.",
+  alternates: {
+    canonical: "/programi",
+  },
 };
 
 export default function Programi() {

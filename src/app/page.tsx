@@ -1,5 +1,8 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Check } from "lucide-react";
+import { FaqSchema } from "@/components/structured-data";
+import { OG_IMAGE } from "@/lib/seo";
 import {
   Accordion,
   AccordionContent,
@@ -76,7 +79,39 @@ const POKAZATELJI = [
   },
 ];
 
+export const metadata: Metadata = {
+  openGraph: {
+    type: "website",
+    locale: "hr_HR",
+    url: "./",
+    siteName: "Mental Core",
+    title: "Mental Core | Razvoj timova i lidera",
+    description:
+      "Programi za timove koji moraju funkcionirati i pod pritiskom. Iskustvene vježbe, analiza dinamike i coaching lidera diljem Hrvatske.",
+    images: [OG_IMAGE],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Mental Core | Razvoj timova i lidera",
+    description:
+      "Programi za timove koji moraju funkcionirati i kad nije sve pod kontrolom.",
+    images: [OG_IMAGE.url],
+  },
+};
+
 const PITANJA = [
+  {
+    q: "Po čemu se Mental Core razlikuje od klasičnog teambuildinga?",
+    a: "Klasični teambuilding fokusiran je isključivo na druženje i zabavu. Mental Core kombinira terensko iskustvo i realan stres s vođenom refleksijom, psihološkom analizom i pisanim izvješćem, stvarajući trajne promjene u funkcioniranju tima.",
+  },
+  {
+    q: "Za koga su namijenjeni Mental Core programi?",
+    a: "Za timove i lidere koji se suočavaju s izazovima u komunikaciji, odgovornosti ili donošenju odluka pod pritiskom. Programi su prilagođeni timovima od 3 do 40+ osoba diljem Hrvatske.",
+  },
+  {
+    q: "Što uključuje stručno izvješće nakon provedenog programa?",
+    a: "Nakon vježbi na terenu izrađujemo strukturirano pisano izvješće s uvidima o timskoj dinamici, raspodjeli odgovornosti i konkretnim preporukama za svakodnevni rad.",
+  },
   {
     q: "Koliko ljudi može sudjelovati?",
     a: "Ovisi o programu. Analiza tima radi se za 3 do 15 osoba, Mental Core MINI za do 20 osoba, a STANDARD i MAXI za do 40 osoba. Više timova možemo obuhvatiti u dva ili više različitih termina.",
@@ -106,6 +141,7 @@ const PITANJA = [
 export default function Pocetna() {
   return (
     <>
+      <FaqSchema stavke={PITANJA} />
       {/* Hero */}
       <section className="on-dark bg-brand">
         <div className="mx-auto grid max-w-6xl gap-10 px-5 pt-16 pb-5 sm:pt-20 sm:pb-8 lg:grid-cols-[1.15fr_1fr] lg:items-center lg:gap-16 lg:px-8 lg:py-28">
@@ -256,8 +292,8 @@ export default function Pocetna() {
       <Section tone="alt">
         <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-start lg:gap-16">
           <Foto
-            foto="dvoranskaVjezba"
-            pozicija="center 32%"
+            foto="orijentacija"
+            pozicija="center 45%"
             className="w-full"
           />
           <div>
