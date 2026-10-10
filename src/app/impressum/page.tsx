@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Eyebrow, Section, SectionTitle } from "@/components/section";
 import {
   KONTAKT_MAIL,
@@ -71,6 +72,23 @@ export default function Impressum() {
               </dd>
             </div>
           </dl>
+          <p className="mt-10 max-w-2xl leading-relaxed text-ink-muted">
+            Pogledajte i{" "}
+            <Link
+              href="/pravila-privatnosti"
+              className="text-ink underline underline-offset-4"
+            >
+              Pravila privatnosti
+            </Link>{" "}
+            i{" "}
+            <Link
+              href="/politika-o-kolacicima"
+              className="text-ink underline underline-offset-4"
+            >
+              Politiku o kolačićima
+            </Link>
+            .
+          </p>
         </div>
 
       </Section>

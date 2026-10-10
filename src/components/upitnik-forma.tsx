@@ -299,7 +299,11 @@ export function UpitnikForma() {
         </button>
         <p className="text-xs leading-relaxed text-ink-muted">
           Odgovori ostaju kod nas i služe samo za pripremu feedbacka i ponude
-          za vaš tim.
+          za vaš tim.{" "}
+          <a href="/pravila-privatnosti" className="underline underline-offset-4">
+            Pravila privatnosti
+          </a>
+          .
         </p>
       </div>
 

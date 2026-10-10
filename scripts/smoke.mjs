@@ -17,6 +17,8 @@ const STRANICE = [
   "/o-nama",
   "/kontakt",
   "/impressum",
+  "/pravila-privatnosti",
+  "/politika-o-kolacicima",
 ];
 
 const results = [];

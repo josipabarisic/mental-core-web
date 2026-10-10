@@ -48,6 +48,16 @@ export function SiteFooter() {
                   Impressum
                 </Link>
               </li>
+              <li>
+                <Link href="/pravila-privatnosti" className="hover:text-white">
+                  Pravila privatnosti
+                </Link>
+              </li>
+              <li>
+                <Link href="/politika-o-kolacicima" className="hover:text-white">
+                  Politika o kolačićima
+                </Link>
+              </li>
             </ul>
           </div>
 

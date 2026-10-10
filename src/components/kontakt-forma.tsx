@@ -284,7 +284,11 @@ export function KontaktForma() {
         </button>
         <p className="text-xs leading-relaxed text-ink-muted">
           Ono što nam povjerite ostaje kod nas. To možemo garantirati. Ne
-          šaljemo newsletter bez vašeg pristanka.
+          šaljemo newsletter bez vašeg pristanka.{" "}
+          <a href="/pravila-privatnosti" className="underline underline-offset-4">
+            Pravila privatnosti
+          </a>
+          .
         </p>
       </div>
 
