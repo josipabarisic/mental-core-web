@@ -1,5 +1,14 @@
 import { spawnSync } from "node:child_process";
-import { existsSync, renameSync, writeFileSync, mkdirSync } from "node:fs";
+import {
+  copyFileSync,
+  existsSync,
+  mkdirSync,
+  readdirSync,
+  readFileSync,
+  renameSync,
+  statSync,
+  writeFileSync,
+} from "node:fs";
 import { join } from "node:path";
 
 /**
@@ -41,5 +50,32 @@ if (result.status !== 0) process.exit(result.status ?? 1);
 const out = join(root, "out");
 mkdirSync(out, { recursive: true });
 writeFileSync(join(out, ".nojekyll"), "");
+
+// GitHub Pages bira Content-Type prema ekstenziji. Next metadata datoteke
+// (icon, apple-icon, opengraph-image) nemaju ekstenziju, pa crawleri sliku odbiju.
+const published = basePath ? join(out, basePath) : out;
+copyFileSync(join(published, "opengraph-image"), join(published, "og-image.png"));
+copyFileSync(join(published, "apple-icon"), join(published, "logo.png"));
+copyFileSync(join(published, "apple-icon"), join(published, "apple-icon.png"));
+copyFileSync(join(published, "icon"), join(published, "icon.png"));
+
+function rewriteHtml(dir) {
+  for (const name of readdirSync(dir)) {
+    const path = join(dir, name);
+    if (statSync(path).isDirectory()) {
+      rewriteHtml(path);
+      continue;
+    }
+    if (!name.endsWith(".html")) continue;
+    const html = readFileSync(path, "utf8");
+    const next = html
+      .replaceAll(/\/opengraph-image\?[A-Za-z0-9]+/g, "/og-image.png")
+      .replaceAll(/\/apple-icon\?[A-Za-z0-9]+/g, "/apple-icon.png")
+      .replaceAll(/\/icon\?[A-Za-z0-9]+/g, "/icon.png");
+    if (next !== html) writeFileSync(path, next);
+  }
+}
+
+rewriteHtml(published);
 
 console.log(`\nStatički izvoz je u ./out${basePath ? `, basePath ${basePath}` : ""}`);

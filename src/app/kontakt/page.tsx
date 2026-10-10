@@ -5,9 +5,12 @@ import { KontaktForma } from "@/components/kontakt-forma";
 import { KONTAKT_MAIL } from "@/lib/kontakt";
 
 export const metadata: Metadata = {
-  title: "Kontakt",
+  title: "Kontakt za programe i coaching",
   description:
-    "Recite nam gdje tim zapinje. Javljamo se u roku od jednog radnog dana, prvi razgovor traje 15 minuta i ne obvezuje.",
+    "Recite nam gdje tim zapinje. Javljamo se u roku od jednog radnog dana. Prvi razgovor traje 15 minuta i ne obvezuje. Radimo diljem Hrvatske.",
+  alternates: {
+    canonical: "/kontakt",
+  },
 };
 
 const KORACI = [
