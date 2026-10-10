@@ -61,9 +61,8 @@ export default function PravilaPrivatnosti() {
               kupujemo ni ne dijelimo kontakt-liste.
             </p>
             <p>
-              Na početnoj stranici možete učitati pregled Instagrama. Učitava
-              se samo ako kliknete. Tada Instagram (Meta) može postaviti
-              vlastite kolačiće. Mi ih ne koristimo za svoju analitiku.
+              Na početnoj stranici stoji poveznica na Instagram. Objave ne
+              ugrađujemo i njihov sadržaj se na ovom webu ne učitava.
             </p>
           </LegalOdlomak>
 

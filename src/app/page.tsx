@@ -397,8 +397,8 @@ export default function Pocetna() {
             <Eyebrow>Instagram</Eyebrow>
             <SectionTitle className="mt-5">Zadnje objave</SectionTitle>
             <p className="mt-5 text-lg leading-relaxed text-ink">
-              Helena i Dinko na @{INSTAGRAM_HANDLE}. Pregled se ažurira s
-              Instagramom.
+              Helena i Dinko na @{INSTAGRAM_HANDLE}. Profil se otvara u novom
+              tabu.
             </p>
             <a
               href={INSTAGRAM_URL}

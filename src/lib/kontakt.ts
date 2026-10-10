@@ -5,7 +5,6 @@ export const LINKEDIN_URL =
 
 export const INSTAGRAM_HANDLE = "mentalcoreteam";
 export const INSTAGRAM_URL = `https://www.instagram.com/${INSTAGRAM_HANDLE}/`;
-export const INSTAGRAM_EMBED_URL = `${INSTAGRAM_URL}embed`;
 
 export const TVRTKA = "Psihologija po mjeri j.d.o.o.";
 export const TVRTKA_PUNI_NAZIV =
