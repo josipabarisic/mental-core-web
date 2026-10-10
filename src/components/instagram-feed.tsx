@@ -1,9 +1,7 @@
-import Image from "next/image";
-import { FOTO } from "@/components/photo-slot";
+import { fotoDatoteke } from "@/components/photo-slot";
 import { INSTAGRAM_HANDLE, INSTAGRAM_URL } from "@/lib/kontakt";
 
-const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
-const PREGLED = FOTO.teren;
+const PREGLED = fotoDatoteke("teren");
 
 export function InstagramFeed() {
   return (
@@ -13,12 +11,16 @@ export function InstagramFeed() {
       rel="noopener noreferrer"
       className="group relative block aspect-[3/4] w-full overflow-hidden border border-line text-left"
     >
-      <Image
-        src={`${BASE}/foto/${PREGLED.src}`}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={PREGLED.src}
+        srcSet={PREGLED.srcSet}
+        sizes={PREGLED.srcSet ? "(min-width: 1024px) 40vw, 100vw" : undefined}
         alt={PREGLED.alt}
         width={PREGLED.w}
         height={PREGLED.h}
-        sizes="(min-width: 1024px) 40vw, 100vw"
+        loading="lazy"
+        decoding="async"
         style={{ objectPosition: "center 32%" }}
         className="absolute inset-0 size-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
       />
