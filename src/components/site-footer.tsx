@@ -1,6 +1,13 @@
 import Link from "next/link";
 import { Logo } from "@/components/brand/logo";
-import { KONTAKT_MAIL, OIB, SJEDISTE, TVRTKA } from "@/lib/kontakt";
+import {
+  INSTAGRAM_HANDLE,
+  INSTAGRAM_URL,
+  KONTAKT_MAIL,
+  OIB,
+  SJEDISTE,
+  TVRTKA,
+} from "@/lib/kontakt";
 
 export function SiteFooter() {
   return (
@@ -77,6 +84,16 @@ export function SiteFooter() {
                   className="underline underline-offset-4 hover:text-white"
                 >
                   LinkedIn: Helena i Dinko
+                </a>
+              </li>
+              <li>
+                <a
+                  href={INSTAGRAM_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline underline-offset-4 hover:text-white"
+                >
+                  Instagram: @{INSTAGRAM_HANDLE}
                 </a>
               </li>
               <li className="pt-1">Radimo na području cijele Hrvatske</li>

@@ -8,7 +8,9 @@ import {
 } from "@/components/ui/accordion";
 import { Eyebrow, Section, SectionTitle } from "@/components/section";
 import { Foto } from "@/components/photo-slot";
+import { InstagramFeed } from "@/components/instagram-feed";
 import { ProgramKartice } from "@/components/program-kartice";
+import { INSTAGRAM_HANDLE, INSTAGRAM_URL } from "@/lib/kontakt";
 
 const SIMPTOMI = [
   "Tim dobro radi dok je mirno, a pod rokom se raspada.",
@@ -386,6 +388,29 @@ export default function Pocetna() {
             pozicija="center 25%"
             className="w-full"
           />
+        </div>
+      </Section>
+
+      <Section tone="alt">
+        <div className="grid gap-12 lg:grid-cols-[1fr_1.15fr] lg:items-start lg:gap-20">
+          <div>
+            <Eyebrow>Instagram</Eyebrow>
+            <SectionTitle className="mt-5">Zadnje objave</SectionTitle>
+            <p className="mt-5 text-lg leading-relaxed text-ink">
+              Helena i Dinko na @{INSTAGRAM_HANDLE}. Pregled se ažurira s
+              Instagramom.
+            </p>
+            <a
+              href={INSTAGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-accent-clay-dark underline underline-offset-4"
+            >
+              Otvori Instagram
+              <ArrowRight size={15} />
+            </a>
+          </div>
+          <InstagramFeed />
         </div>
       </Section>
 

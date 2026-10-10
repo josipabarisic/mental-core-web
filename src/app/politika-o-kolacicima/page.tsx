@@ -71,6 +71,16 @@ export default function PolitikaKolacica() {
             </p>
           </LegalOdlomak>
 
+          <LegalOdlomak naslov="Instagram">
+            <p>
+              Na početnoj stranici možete prikazati zadnje objave s Instagrama
+              (@mentalcoreteam). Pregled se ne učitava sam. Tek kad kliknete
+              Instagram (Meta) može postaviti vlastite kolačiće. Te kolačiće
+              ne kontroliramo i ne koristimo ih za mjerenje posjeta našeg
+              weba.
+            </p>
+          </LegalOdlomak>
+
           <LegalOdlomak naslov="Ako se ovo promijeni">
             <p>
               Ako jednog dana uvedemo analitiku ili druge neobavezne kolačiće,

@@ -3,6 +3,10 @@ export const KONTAKT_MAIL = "mentalcoreteam@gmail.com";
 export const LINKEDIN_URL =
   "https://www.linkedin.com/in/helena-i-dinko-maru%C5%A1%C4%8Dak-45b915440/";
 
+export const INSTAGRAM_HANDLE = "mentalcoreteam";
+export const INSTAGRAM_URL = `https://www.instagram.com/${INSTAGRAM_HANDLE}/`;
+export const INSTAGRAM_EMBED_URL = `${INSTAGRAM_URL}embed`;
+
 export const TVRTKA = "Psihologija po mjeri j.d.o.o.";
 export const TVRTKA_PUNI_NAZIV =
   "Psihologija po mjeri jednostavno društvo s ograničenom odgovornošću za usluge";

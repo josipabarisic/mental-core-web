@@ -60,6 +60,11 @@ export default function PravilaPrivatnosti() {
               Ne vodimo newsletter. Ne skupljamo e-mail adrese s weba. Ne
               kupujemo ni ne dijelimo kontakt-liste.
             </p>
+            <p>
+              Na početnoj stranici možete učitati pregled Instagrama. Učitava
+              se samo ako kliknete. Tada Instagram (Meta) može postaviti
+              vlastite kolačiće. Mi ih ne koristimo za svoju analitiku.
+            </p>
           </LegalOdlomak>
 
           <LegalOdlomak naslov="Kad nam sami nešto pošaljete">
