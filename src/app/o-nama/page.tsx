@@ -192,7 +192,7 @@ export default function ONama() {
           <Foto
             foto="orijentacija"
             sizes="(min-width: 1024px) 440px, 100vw"
-            className="mx-auto w-full max-w-md lg:max-w-none"
+            className="w-full"
             pozicija="center 55%"
           />
           <div className="grid content-start gap-x-12 gap-y-10 sm:grid-cols-2">

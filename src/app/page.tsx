@@ -142,7 +142,7 @@ export default function Pocetna() {
             foto="flipchart"
             priority
             pozicija="28% center"
-            className="mx-auto w-full max-w-md lg:max-w-none"
+            className="w-full"
           />
         </div>
 
@@ -245,7 +245,7 @@ export default function Pocetna() {
           <Foto
             foto="povjerenje"
             pozicija="center 42%"
-            className="mx-auto w-full max-w-md lg:max-w-none"
+            className="w-full"
           />
         </div>
       </Section>
@@ -384,7 +384,7 @@ export default function Pocetna() {
           <Foto
             foto="portretZajedno"
             pozicija="center 25%"
-            className="mx-auto w-full max-w-md lg:max-w-none"
+            className="w-full"
           />
         </div>
       </Section>
