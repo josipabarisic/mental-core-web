@@ -13,7 +13,7 @@ export const OG_IMAGE = {
   url: "/og-image.png",
   width: 1200,
   height: 630,
-  alt: "Mental Core. Uspjeh je rezultat uspješnog funkcioniranja tima.",
+  alt: "Mental Core. Uspjeh je rezultat uspješnog funkcioniranja tima. Zatražite razgovor.",
 };
 
 export const LOGO = {
@@ -125,6 +125,7 @@ export function siteJsonLd() {
         address,
         parentOrganization: { "@id": organizationId },
         provider: { "@id": organizationId },
+        priceRange: "500-6000 EUR",
         areaServed: {
           "@type": "Country",
           name: "Hrvatska",

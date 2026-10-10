@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     template: "%s | Mental Core",
   },
   description:
-    "Programi za timove koji moraju funkcionirati i kad nije sve pod kontrolom. Analiza timske dinamike, terenske vježbe, coaching lidera i strukturirani teambuilding.",
+    "Programi za timove koji moraju funkcionirati i pod pritiskom. Analiza tima, teambuilding i coaching lidera.",
   keywords: [
     "teambuilding hrvatska",
     "razvoj timova i lidera",

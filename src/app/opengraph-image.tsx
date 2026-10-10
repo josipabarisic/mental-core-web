@@ -7,7 +7,7 @@ export const contentType = "image/png";
 // Required so the image is baked into the static export for GitHub Pages.
 export const dynamic = "force-static";
 export const alt =
-  "Mental Core. Uspjeh je rezultat uspješnog funkcioniranja tima.";
+  "Mental Core. Uspjeh je rezultat uspješnog funkcioniranja tima. Zatražite razgovor.";
 
 export default async function OpengraphImage() {
   const font = await readFile(
@@ -80,8 +80,22 @@ export default async function OpengraphImage() {
           >
             funkcioniranja tima.
           </div>
-          <div style={{ marginTop: 26, fontSize: 26, color: "#D3C8BB" }}>
+          <div style={{ marginTop: 22, fontSize: 26, color: "#D3C8BB" }}>
             Gradimo timove koji vjeruju jedni drugima.
+          </div>
+          <div
+            style={{
+              display: "flex",
+              alignSelf: "flex-start",
+              marginTop: 32,
+              background: "#FBF8F1",
+              color: "#2D3839",
+              fontSize: 24,
+              fontWeight: 700,
+              padding: "16px 28px",
+            }}
+          >
+            Zatražite razgovor
           </div>
         </div>
       </div>
