@@ -16,7 +16,7 @@ export function InstagramFeed() {
       <button
         type="button"
         onClick={() => setUcitan(true)}
-        className="group relative aspect-square w-full overflow-hidden border border-line text-left"
+        className="group relative aspect-[3/4] w-full overflow-hidden border border-line text-left"
       >
         <Image
           src={`${BASE}/foto/${PREGLED.src}`}
@@ -45,12 +45,14 @@ export function InstagramFeed() {
   }
 
   return (
-    <iframe
-      src={INSTAGRAM_EMBED_URL}
-      title={`Zadnje objave @${INSTAGRAM_HANDLE} na Instagramu`}
-      className="h-[46rem] w-full border border-line bg-white"
-      loading="lazy"
-      referrerPolicy="strict-origin-when-cross-origin"
-    />
+    <div className="relative aspect-[3/4] w-full overflow-hidden border border-line bg-white">
+      <iframe
+        src={INSTAGRAM_EMBED_URL}
+        title={`Zadnje objave @${INSTAGRAM_HANDLE} na Instagramu`}
+        className="absolute inset-0 size-full"
+        loading="lazy"
+        referrerPolicy="strict-origin-when-cross-origin"
+      />
+    </div>
   );
 }
