@@ -8,24 +8,11 @@ import { SiteSchema } from "@/components/structured-data";
 import { OG_IMAGE } from "@/lib/seo";
 
 // Lokalni font za naslove
+// Samo Bold. Naslovi i znak su uvijek 700, pa se Regular i Medium ne učitavaju.
 const openSauce = localFont({
-  src: [
-    {
-      path: "../fonts/OpenSauceOne-Regular.ttf",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "../fonts/OpenSauceOne-Medium.ttf",
-      weight: "500",
-      style: "normal",
-    },
-    {
-      path: "../fonts/OpenSauceOne-Bold.ttf",
-      weight: "700",
-      style: "normal",
-    },
-  ],
+  src: "../fonts/OpenSauceOne-Bold.ttf",
+  weight: "700",
+  style: "normal",
   variable: "--font-open-sauce",
   display: "swap",
 });

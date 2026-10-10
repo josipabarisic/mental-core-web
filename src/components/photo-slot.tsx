@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 // Static export without a custom domain serves assets under /<repo>.
@@ -48,6 +47,18 @@ export const FOTO = {
 
 export type FotoKljuc = keyof typeof FOTO;
 
+export function fotoDatoteke(foto: FotoKljuc) {
+  const f = FOTO[foto];
+  const base = f.src.replace(/\.jpg$/, "");
+  const puna = Math.min(f.w, 1440);
+  const src = `${BASE}/foto/${base}.webp`;
+  const srcSet =
+    f.w > 800
+      ? `${BASE}/foto/${base}-720.webp 720w, ${src} ${puna}w`
+      : undefined;
+  return { ...f, src, srcSet };
+}
+
 export function Foto({
   foto,
   className,
@@ -61,16 +72,21 @@ export function Foto({
   priority?: boolean;
   sizes?: string;
 }) {
-  const f = FOTO[foto];
+  const f = fotoDatoteke(foto);
   return (
     <div className={cn("relative aspect-[3/4] overflow-hidden bg-surface-alt", className)}>
-      <Image
-        src={`${BASE}/foto/${f.src}`}
+      {/* Statički izvoz ne izrađuje srcset, pa preglednik bira širinu sam. */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={f.src}
+        srcSet={f.srcSet}
+        sizes={f.srcSet ? sizes : undefined}
         alt={f.alt}
         width={f.w}
         height={f.h}
-        priority={priority}
-        sizes={sizes}
+        fetchPriority={priority ? "high" : "auto"}
+        loading={priority ? "eager" : "lazy"}
+        decoding="async"
         style={{ objectPosition: pozicija }}
         className="absolute inset-0 size-full object-cover"
       />
