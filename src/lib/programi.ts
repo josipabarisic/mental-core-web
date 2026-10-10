@@ -88,6 +88,7 @@ export const PROGRAMI: Program[] = [
       "Kratki trening u trajanju od 5 sati, unutar ili izvan vašeg poslovnog kompleksa.",
       "Može uključivati i coaching lidera na terenu. Coaching lidera je strukturiran proces razvoja lidera kroz razgovor, refleksiju i praktičan rad. Cilj mu je jačanje liderskih kompetencija, samosvijesti, komunikacije i sposobnosti vođenja ljudi. Ovdje ide brže od klasičnog coachinga, jer Helena ulazi u razgovor već poznajući tim i kako funkcionira pod pritiskom.",
     ],
+    foto: "dvoranskaVjezba",
     ukljuceno: [
       "Razgovor s članovima organizacijske jedinice",
       "Razgovor s voditeljem organizacijske jedinice",
@@ -119,6 +120,7 @@ export const PROGRAMI: Program[] = [
       UKLJUCUJE_TERENSKI,
       DODATNO_ANALIZA_COACHING,
     ],
+    foto: "teren",
     ukljuceno: [
       "Priprema i razgovor s voditeljem",
       "Razgovori s članovima tima",
@@ -151,6 +153,7 @@ export const PROGRAMI: Program[] = [
       "Dva dana rada na terenu i druženja. Program u koji se mogu uključiti i osobe izvan vaše organizacijske cjeline.",
     detalji: ["Dva dana", "Do 40 osoba", "Opcija: dodatne osobe"],
     cijenaOd: 3500,
+    foto: "koordinacija",
     opis: [
       "Dvodnevni program za timove koji žele veću promjenu i više zabave.",
       UKLJUCUJE_TERENSKI,

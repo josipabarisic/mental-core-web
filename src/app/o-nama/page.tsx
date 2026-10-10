@@ -190,10 +190,10 @@ export default function ONama() {
         </div>
         <div className="mt-12 grid gap-12 lg:grid-cols-[1fr_1.4fr] lg:gap-16">
           <Foto
-            foto="dvorana"
+            foto="orijentacija"
             sizes="(min-width: 1024px) 440px, 100vw"
             className="mx-auto w-full max-w-md lg:max-w-none"
-            pozicija="center center"
+            pozicija="center 55%"
           />
           <div className="grid content-start gap-x-12 gap-y-10 sm:grid-cols-2">
             {METODA.map((m) => (

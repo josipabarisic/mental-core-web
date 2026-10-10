@@ -243,8 +243,8 @@ export default function Pocetna() {
             </div>
           </div>
           <Foto
-            foto="suradnja"
-            pozicija="center 30%"
+            foto="povjerenje"
+            pozicija="center 42%"
             className="mx-auto w-full max-w-md lg:max-w-none"
           />
         </div>

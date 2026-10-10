@@ -14,6 +14,36 @@ export const FOTO = {
   biljeske: { src: "analiza-tima-biljeske.jpg", w: 1065, h: 1600, alt: "Bilješke na podlozi za pisanje tijekom analize tima" },
   upitnik: { src: "pregled-upitnika.jpg", w: 1065, h: 1600, alt: "Helena i Dinko pregledavaju ispunjene materijale" },
   planiranje: { src: "helena-dinko-planiranje.jpg", w: 1065, h: 1600, alt: "Helena i Dinko planiraju program za stolom" },
+  povjerenje: {
+    src: "helena-dinko-povjerenje.jpg",
+    w: 681,
+    h: 1024,
+    alt: "Helena i Dinko u vježbi povjerenja na terenu",
+  },
+  orijentacija: {
+    src: "helena-dinko-orijentacija.jpg",
+    w: 681,
+    h: 1024,
+    alt: "Helena i Dinko u vježbi orijentacije na terenu",
+  },
+  dvoranskaVjezba: {
+    src: "helena-dinko-dvoranska-vjezba.jpg",
+    w: 681,
+    h: 1024,
+    alt: "Helena i Dinko u vježbi u dvorani",
+  },
+  teren: {
+    src: "helena-dinko-teren.jpg",
+    w: 681,
+    h: 1024,
+    alt: "Helena i Dinko u terenskoj vježbi",
+  },
+  koordinacija: {
+    src: "helena-dinko-koordinacija.jpg",
+    w: 681,
+    h: 1024,
+    alt: "Zajednički zadatak na terenu, vježba koordinacije",
+  },
 } as const;
 
 export type FotoKljuc = keyof typeof FOTO;
