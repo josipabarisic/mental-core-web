@@ -245,8 +245,8 @@ export default function Pocetna() {
             </div>
           </div>
           <Foto
-            foto="povjerenje"
-            pozicija="center 42%"
+            foto="suradnja"
+            pozicija="center 30%"
             className="w-full"
           />
         </div>
@@ -254,17 +254,26 @@ export default function Pocetna() {
 
       {/* Tri stupa */}
       <Section tone="alt">
-        <Eyebrow>Diferencijacija</Eyebrow>
-        <SectionTitle className="mt-5 max-w-2xl">
-          Zašto ovo nije klasičan teambuilding?
-        </SectionTitle>
-        <div className="mt-12 grid gap-10 md:grid-cols-3 md:gap-8">
-          {STUPOVI.map((s) => (
-            <div key={s.naslov} className="border-t border-line pt-7 md:pr-6">
-              <h3 className="text-xl font-bold text-brand-deep">{s.naslov}</h3>
-              <p className="mt-3 leading-relaxed text-ink-muted">{s.tekst}</p>
+        <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-start lg:gap-16">
+          <Foto
+            foto="dvoranskaVjezba"
+            pozicija="center 32%"
+            className="w-full"
+          />
+          <div>
+            <Eyebrow>Diferencijacija</Eyebrow>
+            <SectionTitle className="mt-5">
+              Zašto ovo nije klasičan teambuilding?
+            </SectionTitle>
+            <div className="mt-10 grid gap-8">
+              {STUPOVI.map((s) => (
+                <div key={s.naslov} className="border-t border-line pt-6">
+                  <h3 className="text-xl font-bold text-brand-deep">{s.naslov}</h3>
+                  <p className="mt-3 leading-relaxed text-ink-muted">{s.tekst}</p>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
       </Section>
 
