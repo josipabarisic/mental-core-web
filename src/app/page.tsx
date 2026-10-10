@@ -87,7 +87,7 @@ export const metadata: Metadata = {
     siteName: "Mental Core",
     title: "Mental Core | Razvoj timova i lidera",
     description:
-      "Programi za timove koji moraju funkcionirati i pod pritiskom. Iskustvene vježbe, analiza dinamike i coaching lidera diljem Hrvatske.",
+      "Timovi koji drže i pod pritiskom. Terenske vježbe, analiza dinamike i coaching lidera.",
     images: [OG_IMAGE],
   },
   twitter: {
