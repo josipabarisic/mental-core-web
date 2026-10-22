@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { posaljiUpitnik } from "@/lib/mail";
+import { PITANJA_UPITNIKA } from "@/lib/upitnik";
 
 export async function POST(request: Request) {
   const data = await request.json().catch(() => null);
@@ -16,8 +17,9 @@ export async function POST(request: Request) {
   }
 
   const missing =
-    [ime, tvrtka, email].some((v) => typeof v !== "string" || v.trim() === "") ||
-    !Array.isArray(odgovori);
+    [ime, tvrtka, email, velicinaTima].some(
+      (v) => typeof v !== "string" || v.trim() === "",
+    ) || !Array.isArray(odgovori);
 
   if (missing) {
     return NextResponse.json(
@@ -26,13 +28,26 @@ export async function POST(request: Request) {
     );
   }
 
-  const ocjene = (odgovori as unknown[]).filter(
-    (o): o is { tvrdnja: string; ocjena: string } =>
-      Boolean(o) &&
-      typeof o === "object" &&
-      typeof (o as { tvrdnja?: unknown }).tvrdnja === "string" &&
-      typeof (o as { ocjena?: unknown }).ocjena === "string",
-  );
+  const ocjene = (odgovori as unknown[]).flatMap((o) => {
+    if (!o || typeof o !== "object") return [];
+    const red = o as { tvrdnja?: unknown; ocjena?: unknown; kategorija?: unknown };
+    if (typeof red.tvrdnja !== "string" || typeof red.ocjena !== "string") return [];
+    if (!red.ocjena.trim()) return [];
+    return [
+      {
+        tvrdnja: red.tvrdnja,
+        ocjena: red.ocjena,
+        kategorija: typeof red.kategorija === "string" ? red.kategorija : undefined,
+      },
+    ];
+  });
+
+  if (ocjene.length !== PITANJA_UPITNIKA.length) {
+    return NextResponse.json(
+      { error: "Nedostaju odgovori na pitanja." },
+      { status: 400 },
+    );
+  }
 
   try {
     await posaljiUpitnik({

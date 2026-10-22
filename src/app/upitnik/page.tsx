@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 };
 
 const KORACI = [
-  { broj: "01", tekst: "Ispunite upitnik. Traje oko pet minuta." },
+  { broj: "01", tekst: "Ispunite upitnik. Traje oko dvije minute." },
   { broj: "02", tekst: "Pregledavamo vaše odgovore i pripremamo feedback." },
   { broj: "03", tekst: "Na e-mail dobivate naš feedback i ponudu za vaš tim." },
 ];

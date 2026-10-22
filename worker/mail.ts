@@ -154,12 +154,14 @@ const mailWorker = {
           .filter(([, v]) => v)
           .map(([k, v]) => `<p style="margin:0 0 12px;"><strong>${k}</strong><br>${escapeHtml(v)}</p>`)
           .join("");
-        const ocjene = (data.odgovori as { tvrdnja?: string; ocjena?: string }[])
+        const ocjene = (data.odgovori as { tvrdnja?: string; ocjena?: string; kategorija?: string }[])
           .filter((o) => o?.tvrdnja && o?.ocjena)
-          .map(
-            (o) =>
-              `<p style="margin:0 0 10px;"><strong>${escapeHtml(o.ocjena!)}</strong> · ${escapeHtml(o.tvrdnja!)}</p>`,
-          )
+          .map((o) => {
+            const naslov = o.kategorija
+              ? `<strong>${escapeHtml(o.kategorija)}</strong><br>`
+              : "";
+            return `<p style="margin:0 0 14px;">${naslov}${escapeHtml(o.tvrdnja!)}<br><span style="color:#84593c;">${escapeHtml(o.ocjena!)}</span></p>`;
+          })
           .join("");
         const komentar = String(data.komentar ?? "").trim()
           ? `<p style="margin:16px 0 0;"><strong>Komentar</strong><br>${escapeHtml(String(data.komentar))}</p>`

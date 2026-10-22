@@ -1,29 +1,12 @@
 "use client";
 
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { ArrowRight, CircleAlert, CircleCheck, Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { KONTAKT_MAIL } from "@/lib/kontakt";
 import { mailEndpoint } from "@/lib/mail-endpoint";
 import { PROGRAMI, oznakaPrograma } from "@/lib/programi";
-
-const TVRDNJE = [
-  "U timu se otvoreno govori o problemima.",
-  "Svatko zna za što je odgovoran.",
-  "Ciljevi su jasni svim članovima.",
-  "Članovi tima vjeruju jedni drugima.",
-  "Pod pritiskom roka tim ostaje usklađen.",
-];
-
-const LJESTVICA = [
-  { vrijednost: "1", oznaka: "Uopće se ne slažem" },
-  { vrijednost: "2", oznaka: "Ne slažem se" },
-  { vrijednost: "3", oznaka: "Djelomično" },
-  { vrijednost: "4", oznaka: "Slažem se" },
-  { vrijednost: "5", oznaka: "Potpuno se slažem" },
-];
-
-const VELICINE = ["3 do 10 osoba", "11 do 20 osoba", "21 do 40 osoba", "više od 40 osoba"];
+import { PITANJA_UPITNIKA, VELICINE_TIMA } from "@/lib/upitnik";
 
 const DEMO =
   process.env.NEXT_PUBLIC_STATIC_DEMO === "1" &&
@@ -35,11 +18,11 @@ type Podaci = {
   email: string;
   velicinaTima: string;
   program: string;
-  odgovori: Record<number, string>;
+  odgovori: Record<string, string>;
   komentar: string;
 };
 
-type Greske = Partial<Record<"ime" | "tvrtka" | "email" | "velicinaTima" | "tvrdnje", string>>;
+type Greske = Partial<Record<"ime" | "tvrtka" | "email" | "velicinaTima" | "pitanja", string>>;
 
 const PRAZNO: Podaci = {
   ime: "",
@@ -59,18 +42,22 @@ function provjeri(d: Podaci): Greske {
   else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(d.email.trim()))
     g.email = "Provjerite e-mail adresu.";
   if (!d.velicinaTima) g.velicinaTima = "Odaberite veličinu tima.";
-  const bez = TVRDNJE.length - Object.keys(d.odgovori).length;
-  if (bez > 0)
-    g.tvrdnje = bez === 1 ? "Ostala je jedna tvrdnja bez odgovora." : `Ostalo je ${bez} tvrdnji bez odgovora.`;
+  const bez = PITANJA_UPITNIKA.filter((p) => !d.odgovori[p.id]).length;
+  if (bez > 0) g.pitanja = porukaPitanja(bez);
   return g;
 }
 
-const FOKUS: Record<keyof Greske, string> = {
+function porukaPitanja(bez: number) {
+  if (bez === 1) return "Ostalo je jedno pitanje bez odgovora.";
+  if (bez < 5) return `Ostala su ${bez} pitanja bez odgovora.`;
+  return `Ostalo je ${bez} pitanja bez odgovora.`;
+}
+
+const FOKUS: Record<Exclude<keyof Greske, "pitanja">, string> = {
   ime: "u-ime",
   tvrtka: "u-tvrtka",
   email: "u-email",
   velicinaTima: "u-velicina-0",
-  tvrdnje: "tvrdnje",
 };
 
 export function UpitnikForma() {
@@ -91,21 +78,29 @@ export function UpitnikForma() {
     if (polje in greske) setGreske((g) => ({ ...g, [polje]: undefined }));
   }
 
-  function odgovori(i: number, v: string) {
-    setD((s) => ({ ...s, odgovori: { ...s.odgovori, [i]: v } }));
-    const odgovoreno = Object.keys({ ...d.odgovori, [i]: v }).length;
-    if (greske.tvrdnje && odgovoreno === TVRDNJE.length) {
-      setGreske((g) => ({ ...g, tvrdnje: undefined }));
-    }
+  function odgovori(id: string, v: string) {
+    setD((s) => ({ ...s, odgovori: { ...s.odgovori, [id]: v } }));
   }
+
+  useEffect(() => {
+    setGreske((g) => {
+      if (!g.pitanja) return g;
+      const bez = PITANJA_UPITNIKA.filter((p) => !d.odgovori[p.id]).length;
+      const poruka = bez > 0 ? porukaPitanja(bez) : undefined;
+      if (g.pitanja === poruka) return g;
+      return { ...g, pitanja: poruka };
+    });
+  }, [d.odgovori]);
 
   async function posalji(e: React.FormEvent) {
     e.preventDefault();
     const g = provjeri(d);
     setGreske(g);
-    const prvo = (Object.keys(FOKUS) as (keyof Greske)[]).find((k) => g[k]);
-    if (prvo) {
-      requestAnimationFrame(() => document.getElementById(FOKUS[prvo])?.focus());
+    const prvo = (Object.keys(FOKUS) as (keyof typeof FOKUS)[]).find((k) => g[k]);
+    const prvoPitanje = PITANJA_UPITNIKA.find((p) => !d.odgovori[p.id]);
+    if (prvo || g.pitanja) {
+      const cilj = prvo ? FOKUS[prvo] : `pitanje-${prvoPitanje?.id}`;
+      requestAnimationFrame(() => document.getElementById(cilj)?.focus());
       return;
     }
 
@@ -122,7 +117,11 @@ export function UpitnikForma() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...d,
-          odgovori: TVRDNJE.map((t, i) => ({ tvrdnja: t, ocjena: d.odgovori[i] })),
+          odgovori: PITANJA_UPITNIKA.map((p) => ({
+            kategorija: p.kategorija,
+            tvrdnja: p.pitanje,
+            ocjena: d.odgovori[p.id],
+          })),
           med,
         }),
       });
@@ -178,49 +177,48 @@ export function UpitnikForma() {
       </div>
       <Izbor
         idPrefix="u-velicina"
-        legenda="Veličina tima"
-        opcije={VELICINE}
+        legenda="Koliko članova broji tim za koji ispunjavate upitnik?"
+        opcije={[...VELICINE_TIMA]}
         odabrano={d.velicinaTima}
         onChange={(v) => set("velicinaTima", v)}
         error={greske.velicinaTima}
       />
 
-      <p id="tvrdnje-uputa" className="mt-10 text-sm leading-relaxed text-ink">
-        Koliko se svaka tvrdnja odnosi na vaš tim danas. 1 ne slažem se, 5 slažem se.
+      <p id="pitanja-uputa" className="mt-10 text-sm leading-relaxed text-ink">
+        Odaberite odgovor koji najbolje opisuje vaš tim.
       </p>
       <div
-        id="tvrdnje"
-        tabIndex={-1}
-        aria-describedby={greske.tvrdnje ? "tvrdnje-greska" : undefined}
-        className="mt-6 space-y-6 outline-none"
+        aria-describedby={greske.pitanja ? "pitanja-greska pitanja-uputa" : "pitanja-uputa"}
+        className="mt-6 space-y-8"
       >
-        {TVRDNJE.map((t, i) => {
-          const neodgovoreno = Boolean(greske.tvrdnje) && !d.odgovori[i];
+        {PITANJA_UPITNIKA.map((p, i) => {
+          const neodgovoreno = Boolean(greske.pitanja) && !d.odgovori[p.id];
           return (
             <fieldset
-              key={t}
-              aria-describedby="tvrdnje-uputa"
+              key={p.id}
+              id={`pitanje-${p.id}`}
+              tabIndex={-1}
               className={cn(
-                "border-l-2 pl-4",
+                "border-l-2 pl-4 outline-none",
                 neodgovoreno ? "border-destructive" : "border-line",
               )}
             >
               <legend className="text-ink">
-                <span className="mr-2 text-sm tabular-nums text-accent-clay">
-                  {String(i + 1).padStart(2, "0")}
+                <span className="mb-1 block text-sm font-semibold text-accent-clay">
+                  {String(i + 1).padStart(2, "0")} {p.kategorija}
                 </span>
-                {t}
+                {p.pitanje}
               </legend>
-              <div className="mt-3 grid grid-cols-5 gap-1.5 sm:gap-2">
-                {LJESTVICA.map((o) => {
-                  const id = `t${i}-${o.vrijednost}`;
-                  const odabran = d.odgovori[i] === o.vrijednost;
+              <div className="mt-3 grid gap-2">
+                {p.opcije.map((o, oi) => {
+                  const id = `${p.id}-${oi}`;
+                  const odabran = d.odgovori[p.id] === o;
                   return (
                     <label
-                      key={o.vrijednost}
+                      key={o}
                       htmlFor={id}
-                        className={cn(
-                        "flex cursor-pointer items-center justify-center border px-1 py-2.5 text-center transition-colors has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-brand",
+                      className={cn(
+                        "flex cursor-pointer border px-4 py-3 text-sm leading-relaxed transition-colors has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-brand",
                         odabran
                           ? "border-brand bg-brand text-white"
                           : "border-line text-ink hover:border-brand",
@@ -229,14 +227,13 @@ export function UpitnikForma() {
                       <input
                         id={id}
                         type="radio"
-                        name={`tvrdnja-${i}`}
-                        value={o.vrijednost}
+                        name={p.id}
+                        value={o}
                         checked={odabran}
-                        onChange={() => odgovori(i, o.vrijednost)}
+                        onChange={() => odgovori(p.id, o)}
                         className="sr-only"
                       />
-                      <span>{o.vrijednost}</span>
-                      <span className="sr-only">{o.oznaka}</span>
+                      {o}
                     </label>
                   );
                 })}
@@ -245,7 +242,7 @@ export function UpitnikForma() {
           );
         })}
       </div>
-      {greske.tvrdnje && <Greska id="tvrdnje-greska" poruka={greske.tvrdnje} />}
+      {greske.pitanja && <Greska id="pitanja-greska" poruka={greske.pitanja} />}
 
       <div className="mt-10">
         <label htmlFor="u-program" className="text-sm text-ink">
@@ -348,7 +345,7 @@ function Izbor({
       className="mt-6"
       aria-describedby={error ? `${idPrefix}-greska` : undefined}
     >
-      <legend className="text-sm text-ink">{legenda}</legend>
+      <legend className="text-ink">{legenda}</legend>
       <div className="mt-3 flex flex-wrap gap-2">
         {opcije.map((o, i) => (
           <button

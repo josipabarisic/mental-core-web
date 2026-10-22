@@ -11,7 +11,11 @@ export type Upit = {
   izazov: string;
 };
 
-export type UpitnikOdgovor = { tvrdnja: string; ocjena: string };
+export type UpitnikOdgovor = {
+  tvrdnja: string;
+  ocjena: string;
+  kategorija?: string;
+};
 
 export type Upitnik = {
   ime: string;
@@ -38,6 +42,13 @@ function escapeHtml(value: string) {
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;");
+}
+
+function redOdgovora(o: UpitnikOdgovor) {
+  const naslov = o.kategorija
+    ? `<strong>${escapeHtml(o.kategorija)}</strong><br>`
+    : "";
+  return `<p style="margin:0 0 14px;">${naslov}${escapeHtml(o.tvrdnja)}<br><span style="color:#84593c;">${escapeHtml(o.ocjena)}</span></p>`;
 }
 
 function wrap(naslov: string, tijelo: string) {
@@ -109,12 +120,7 @@ export async function posaljiUpitnik(data: Upitnik) {
     )
     .join("");
 
-  const ocjene = data.odgovori
-    .map(
-      (o) =>
-        `<p style="margin:0 0 10px;"><strong>${escapeHtml(o.ocjena)}</strong> · ${escapeHtml(o.tvrdnja)}</p>`,
-    )
-    .join("");
+  const ocjene = data.odgovori.map((o) => redOdgovora(o)).join("");
 
   const komentar = data.komentar?.trim()
     ? `<p style="margin:16px 0 0;"><strong>Komentar</strong><br>${escapeHtml(data.komentar)}</p>`
