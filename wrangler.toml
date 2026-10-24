@@ -3,4 +3,4 @@ main = "worker/mail.ts"
 compatibility_date = "2026-10-05"
 
 [vars]
-CONTACT_EMAIL = "mentalcoreteam@gmail.com"
+CONTACT_EMAIL = "info@mentalcoreteam.com"
