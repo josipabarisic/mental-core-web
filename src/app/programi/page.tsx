@@ -24,7 +24,9 @@ export default function Programi() {
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white">
             Sadržaj, lokaciju i način provedbe dogovaramo prema potrebama vašeg
-            tima i našoj procjeni. Sve cijene uključuju PDV.
+            tima i našoj procjeni. Sjedište nam je u okolici Zagreba. Najzgodnija
+            nam je Zagrebačka županija, a otvoreni smo za rad diljem Hrvatske.
+            Sve cijene uključuju PDV.
           </p>
         </div>
       </section>

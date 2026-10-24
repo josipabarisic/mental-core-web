@@ -35,7 +35,7 @@ export const NAPOMENA_LOGISTIKA =
   "Hranu, piće, najam prostora i organizirani prijevoz moguće je uključiti u ponudu uz dodatnu naknadu za usluge.";
 
 export const NAPOMENA_LOKACIJA =
-  "Lokaciju teambuildinga može odabrati Mental Core ili je birate vi.";
+  "Lokaciju teambuildinga može odabrati Mental Core ili je birate vi. Sjedište nam je u okolici Zagreba, najzgodnija nam je Zagrebačka županija, a otvoreni smo za rad diljem Hrvatske.";
 
 const UKLJUCUJE_TERENSKI =
   "Uključuje razgovor s voditeljem organizacijske jedinice, razgovor sa svim članovima organizacijske jedinice, posebne vježbe na terenu za članove i voditelje organizacijske jedinice, analizu i raščlambu provedenih vježbi te feedback o odrađenim vježbama. Uz sve navedeno uključeno je vrijeme za opuštanje i zabavu svih sudionika teambuildinga. Uključuje i stručno pisano izvješće o svim provedenim aktivnostima tijekom teambuildinga.";
@@ -209,17 +209,23 @@ export const PROGRAMI: Program[] = [
     naziv: "Mental Core FUN",
     podnaslov: "Paket za dan po vašoj mjeri",
     sazetak:
-      "Mi preuzimamo organizaciju vašeg teambuildinga. Vi odaberete datum, a mi pripremimo dan za zabavu i opuštanje.",
-    detalji: ["Zabava i opuštanje", "Organizacija prema vašim željama"],
+      "Igre koje potiču komunikaciju i promišljanje. Vježbe su produktivne i zabavne, izvan uobičajenog radnog konteksta.",
+    detalji: [
+      "Igre za komunikaciju i promišljanje",
+      "Kratko izvješće",
+      "Poziv prije sljedeće razine rada",
+    ],
     opis: [
-      "Odaberite datum, a mi preuzimamo organizaciju teambuildinga prema vašim željama i broju sudionika.",
-      "Mental Core FUN usmjeren je na zabavu i opuštanje. Ne uključuje stručne analize ni druge stručne aktivnosti.",
-      "Cijenu formiramo prema odabranim prijedlozima i broju sudionika.",
+      "U Mental Core FUN-u su igre koje potiču dobru komunikaciju i promišljanje. Vježbe su produktivne, a zabavne.",
+      "Ljudi ponekad pričaju različitim jezicima. Postoje igre koje pomažu da se to prevlada. Rad je izvan uobičajenog konteksta, daleko od stola i uobičajenih uloga.",
+      "Dobivate kratko izvješće. FUN je poziv prije sljedeće razine rada na timu.",
+      "Odaberite datum, a mi preuzimamo organizaciju prema vašim željama i broju sudionika. Cijenu formiramo prema odabranim prijedlozima i broju sudionika.",
     ],
     ukljuceno: [
+      "Igre koje potiču komunikaciju i promišljanje",
+      "Vježbe izvan uobičajenog radnog konteksta",
+      "Kratko izvješće",
       "Organizacija dana prema dogovorenim prijedlozima",
-      "Zabava i opuštanje",
-      "Planiranje prema broju sudionika",
     ],
   },
 ];

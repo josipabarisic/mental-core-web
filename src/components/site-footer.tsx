@@ -6,6 +6,7 @@ import {
   KONTAKT_MAIL,
   OIB,
   SJEDISTE,
+  PODRUCJE_RADA,
   TVRTKA,
 } from "@/lib/kontakt";
 
@@ -96,7 +97,7 @@ export function SiteFooter() {
                   Instagram: @{INSTAGRAM_HANDLE}
                 </a>
               </li>
-              <li className="pt-1">Radimo na području cijele Hrvatske</li>
+              <li className="pt-1">{PODRUCJE_RADA}</li>
             </ul>
           </div>
         </div>

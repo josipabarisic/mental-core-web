@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import { ExternalLink, Mail, MapPin } from "lucide-react";
 import { Eyebrow, Koraci, Section, SectionTitle } from "@/components/section";
 import { KontaktForma } from "@/components/kontakt-forma";
-import { KONTAKT_MAIL } from "@/lib/kontakt";
+import { KONTAKT_MAIL, PODRUCJE_RADA } from "@/lib/kontakt";
 
 export const metadata: Metadata = {
   title: "Kontakt za programe i coaching",
   description:
-    "Recite nam gdje tim zapinje. Javljamo se u roku od jednog radnog dana. Prvi razgovor traje 15 minuta i ne obvezuje. Radimo diljem Hrvatske.",
+    "Recite nam gdje tim zapinje. Javljamo se u roku od jednog radnog dana. Prvi razgovor traje 15 minuta i ne obvezuje. Sjedište u okolici Zagreba, otvoreni za cijelu Hrvatsku.",
   alternates: {
     canonical: "/kontakt",
   },
@@ -35,7 +35,7 @@ const LOGISTIKA = [
   },
   {
     q: "Radite li izvan Zagreba?",
-    a: "Da, radimo na području cijele Hrvatske. Lokaciju, termin i način provedbe dogovaramo prema potrebama vašeg tima i našoj procjeni.",
+    a: "Da. Sjedište nam je u okolici Zagreba i najzgodnija nam je Zagrebačka županija, a otvoreni smo za rad diljem Hrvatske. Lokaciju, termin i način provedbe dogovaramo prema potrebama vašeg tima i našoj procjeni.",
   },
   {
     q: "Možete li program prilagoditi smjenskom ili hibridnom timu?",
@@ -83,9 +83,7 @@ export default function Kontakt() {
                 </li>
                 <li className="flex items-start gap-3">
                   <MapPin size={17} className="mt-0.5 shrink-0 text-ink-muted" />
-                  <span className="text-ink">
-                    Radimo na području cijele Hrvatske
-                  </span>
+                  <span className="text-ink">{PODRUCJE_RADA}</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <ExternalLink size={17} className="shrink-0 text-ink" />

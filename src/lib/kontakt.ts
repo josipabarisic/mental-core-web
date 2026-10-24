@@ -14,3 +14,7 @@ export const MBS = "081608269";
 export const DIREKTOR = "Helena Maruščak";
 export const DATUM_OSNIVANJA = "8. listopada 2024.";
 export const SJEDISTE = "Savska ulica 14, 10291 Javorje, Hrvatska";
+
+/** Kratka napomena o području rada, za kontakt i footer. */
+export const PODRUCJE_RADA =
+  "Sjedište nam je u okolici Zagreba. Najzgodnija nam je Zagrebačka županija, a otvoreni smo za rad diljem Hrvatske.";

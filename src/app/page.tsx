@@ -119,7 +119,7 @@ const PITANJA = [
   },
   {
     q: "Za koga su namijenjeni Mental Core programi?",
-    a: "Za timove i lidere koji se suočavaju s izazovima u komunikaciji, odgovornosti ili donošenju odluka pod pritiskom. Programi su prilagođeni timovima od 3 do 40+ osoba diljem Hrvatske.",
+    a: "Za timove i lidere koji se suočavaju s izazovima u komunikaciji, odgovornosti ili donošenju odluka pod pritiskom. Programi su prilagođeni timovima od 3 do 40+ osoba. Sjedište nam je u okolici Zagreba, najzgodnija nam je Zagrebačka županija, a otvoreni smo za rad diljem Hrvatske.",
   },
   {
     q: "Što uključuje stručno izvješće nakon provedenog programa?",
@@ -375,8 +375,10 @@ export default function Pocetna() {
             <SectionTitle className="mt-5">Programi za vaš tim</SectionTitle>
             <p className="lead mt-5 text-ink-muted">
               Sadržaj, lokaciju i način provedbe dogovaramo prema potrebama
-              vašeg tima i našoj procjeni. Sve cijene uključuju PDV. Kliknite
-              na program za opis i cjenik.
+              vašeg tima i našoj procjeni. Sjedište nam je u okolici Zagreba.
+              Najzgodnija nam je Zagrebačka županija, a otvoreni smo za rad
+              diljem Hrvatske. Sve cijene uključuju PDV. Kliknite na program
+              za opis i cjenik.
             </p>
           </div>
           <Link
