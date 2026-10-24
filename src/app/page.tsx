@@ -346,24 +346,19 @@ export default function Pocetna() {
             vrijednim je što se događa prije i poslije.
           </p>
         </div>
-        <div className="relative mt-14 grid gap-10 md:grid-cols-3 md:gap-8">
-          <div
-            aria-hidden
-            className="absolute top-[0.55rem] right-8 left-8 hidden border-t border-accent-clay/50 md:block"
-          />
+        <div className="mt-14 grid gap-10 md:grid-cols-3 md:gap-8">
           {KORACI.map((k) => (
-            <div key={k.broj} className="group relative">
-              <span className="relative z-10 inline-flex bg-surface pr-3 text-sm font-bold tracking-[0.14em] text-accent-clay">
+            <div key={k.broj} className="group">
+              <p className="text-sm font-bold tracking-[0.14em] text-accent-clay">
                 {k.broj}
-              </span>
-              <h3 className="relative mt-4 pt-4 text-xl font-bold text-brand-deep">
-                <span aria-hidden className="absolute inset-x-0 top-0 h-px bg-line" />
+              </p>
+              <div className="relative mt-3 h-px bg-line">
                 <span
                   aria-hidden
-                  className="absolute inset-x-0 top-0 h-px origin-left scale-x-0 bg-accent-clay motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-out group-hover:scale-x-100"
+                  className="absolute inset-0 origin-left scale-x-0 bg-accent-clay motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-out group-hover:scale-x-100"
                 />
-                {k.naslov}
-              </h3>
+              </div>
+              <h3 className="mt-4 text-xl font-bold text-brand-deep">{k.naslov}</h3>
               <p className="mt-2 leading-relaxed text-ink-muted">{k.tekst}</p>
             </div>
           ))}
