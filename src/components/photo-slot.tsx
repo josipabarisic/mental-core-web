@@ -73,14 +73,11 @@ export function Foto({
   sizes?: string;
 }) {
   const f = fotoDatoteke(foto);
-  // Široke scene ostaju 3:2. Portreti idu u 4:5, ne u kvadrat:
-  // kvadrat na cijeloj širini izgleda kao slika umetnuta u dokument.
-  const siroka = f.w / f.h >= 1;
   return (
     <div
       className={cn(
-        "relative w-full overflow-hidden bg-surface-alt",
-        siroka ? "aspect-[3/2]" : "aspect-[4/5]",
+        // Portretni okvir 3:4 i za široke snimke: u hero stupcu 3:2 izgleda stisnuto.
+        "relative aspect-[3/4] w-full overflow-hidden bg-surface-alt max-md:aspect-auto max-md:h-[360px] max-md:max-h-[360px]",
         className,
       )}
     >
