@@ -162,7 +162,7 @@ export default function Pocetna() {
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
               <Link
                 href="/upitnik"
-                className="inline-flex items-center justify-center gap-2 bg-surface px-6 py-3.5 text-sm font-semibold text-brand-deep transition-colors hover:bg-white"
+                className="inline-flex items-center justify-center gap-2 bg-white px-6 py-3.5 text-sm font-semibold text-brand-deep transition-colors hover:bg-surface"
               >
                 Provjerite gdje vaš tim stoji
                 <ArrowRight size={16} />

@@ -34,7 +34,7 @@ export function SiteHeader() {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-line bg-surface">
+    <header className="sticky top-0 z-40 border-b border-line bg-white">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3.5 md:py-5 lg:px-8">
         <Link href="/" aria-label="Mental Core, početna stranica">
           <Logo tone="light" />
@@ -77,7 +77,7 @@ export function SiteHeader() {
       </div>
 
       {open && (
-        <div id="mobilni-izbornik" className="border-t border-line bg-surface md:hidden">
+        <div id="mobilni-izbornik" className="border-t border-line bg-white md:hidden">
           <nav
             aria-label="Glavni izbornik, mobilni"
             className="mx-auto flex max-w-6xl flex-col px-5 py-2"

@@ -12,7 +12,7 @@ export function ProgramKartice({ naslovRazina = 3 }: { naslovRazina?: 2 | 3 }) {
         return (
           <article
             key={p.slug}
-            className="relative flex flex-col border border-line bg-surface p-7 transition-colors focus-within:border-brand hover:border-brand"
+            className="relative flex flex-col border border-line bg-white p-7 transition-colors focus-within:border-brand hover:border-brand"
           >
             <Naslov className="text-xl font-bold text-brand-deep">
               {p.naziv}

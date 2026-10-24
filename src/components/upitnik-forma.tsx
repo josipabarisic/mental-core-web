@@ -138,7 +138,7 @@ export function UpitnikForma() {
         ref={otkrijPotvrdu}
         role="status"
         tabIndex={-1}
-        className="scroll-mt-28 border border-line bg-surface p-8 sm:p-10"
+        className="scroll-mt-28 border border-line bg-white p-8 sm:p-10"
       >
         <CircleCheck size={28} className="text-accent-clay" strokeWidth={1.75} />
         <h2 className="mt-5 text-2xl font-bold text-brand-deep">
@@ -156,7 +156,7 @@ export function UpitnikForma() {
       onSubmit={posalji}
       noValidate
       aria-label="Upitnik o timu"
-      className="relative border border-line bg-surface p-6 sm:p-9"
+      className="relative border border-line bg-white p-6 sm:p-9"
     >
       <input
         type="text"

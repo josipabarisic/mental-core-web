@@ -83,7 +83,7 @@ export default async function ProgramStranica({
         </div>
       </section>
 
-      <Section tone="surface">
+      <Section tone="alt">
         <div className="grid gap-12 lg:grid-cols-[1.3fr_1fr] lg:gap-20">
           <div>
             <Eyebrow>O programu</Eyebrow>
@@ -124,7 +124,7 @@ export default async function ProgramStranica({
           </div>
 
           <aside aria-labelledby="cijene-naslov" className="lg:pt-1">
-            <div className="border border-line bg-surface-alt p-7 sm:p-8">
+            <div className="border border-line bg-white p-7 sm:p-8">
               <h2 id="cijene-naslov" className="text-xl font-bold text-brand-deep">
                 Cijene
               </h2>
