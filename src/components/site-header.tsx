@@ -57,7 +57,7 @@ export function SiteHeader() {
           ))}
           <Link
             href="/kontakt"
-            className="bg-accent-clay px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-accent-clay-dark"
+            className="gumb inline-flex min-h-12 items-center bg-accent-clay px-5 text-sm font-semibold text-white hover:bg-accent-clay-dark"
           >
             Zatražite razgovor
           </Link>
@@ -70,7 +70,7 @@ export function SiteHeader() {
           aria-expanded={open}
           aria-controls="mobilni-izbornik"
           aria-label={open ? "Zatvori izbornik" : "Otvori izbornik"}
-          className="p-1.5 text-brand-deep md:hidden"
+          className="inline-flex size-12 items-center justify-center text-brand-deep md:hidden"
         >
           {open ? <X size={22} /> : <Menu size={22} />}
         </button>
@@ -88,7 +88,7 @@ export function SiteHeader() {
                 href={item.href}
                 onClick={close}
                 className={cn(
-                  "border-b border-line/60 py-3.5 text-base font-medium",
+                  "flex min-h-12 items-center border-b border-line/60 text-base font-medium",
                   pathname === item.href ? "text-accent-clay" : "text-ink",
                 )}
               >
@@ -98,7 +98,7 @@ export function SiteHeader() {
             <Link
               href="/kontakt"
               onClick={close}
-              className="mt-4 mb-2 bg-accent-clay px-5 py-3 text-center text-sm font-semibold text-white"
+              className="gumb mt-4 mb-2 flex min-h-12 w-full items-center justify-center bg-accent-clay px-5 text-center text-sm font-semibold text-white hover:bg-accent-clay-dark"
             >
               Zatražite razgovor
             </Link>

@@ -280,7 +280,7 @@ export function UpitnikForma() {
         <button
           type="submit"
           disabled={stanje === "salje"}
-          className="inline-flex shrink-0 items-center justify-center gap-2 whitespace-nowrap bg-accent-clay px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-accent-clay-dark disabled:opacity-70"
+          className="gumb inline-flex min-h-12 w-full shrink-0 items-center justify-center gap-2 bg-accent-clay px-6 text-sm font-semibold text-white hover:bg-accent-clay-dark disabled:opacity-70 md:w-auto"
         >
           {stanje === "salje" ? (
             <>

@@ -16,7 +16,7 @@ export default function NotFound() {
         <div className="mt-9 flex flex-col gap-3 sm:flex-row">
           <Link
             href="/"
-            className="inline-flex items-center justify-center gap-2 bg-white px-6 py-3.5 text-sm font-semibold text-brand-deep transition-colors hover:bg-surface"
+            className="gumb inline-flex min-h-12 w-full items-center justify-center gap-2 bg-white px-6 text-sm font-semibold text-brand-deep hover:bg-surface md:w-auto"
           >
             Na početnu
             <ArrowRight size={16} />

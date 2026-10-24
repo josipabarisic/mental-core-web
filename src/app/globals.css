@@ -143,3 +143,40 @@
 @utility rule-top {
   @apply border-t border-line pt-4;
 }
+
+/* Pokret traje ispod 400 ms. Reduced-motion iznad gasi trajanje. */
+@media (prefers-reduced-motion: no-preference) {
+  a,
+  button {
+    transition-property: color, background-color, border-color, box-shadow, transform,
+      opacity;
+    transition-duration: 200ms;
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .gumb:hover {
+    transform: translateY(-2px);
+  }
+
+  .gumb:active:not(:disabled) {
+    transition-duration: 100ms;
+    transform: translateY(0) scale(0.98);
+  }
+
+  .lucide-arrow-right {
+    transition: transform 200ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  a:hover .lucide-arrow-right,
+  button:hover .lucide-arrow-right {
+    transform: translateX(4px);
+  }
+
+  [data-slot="accordion-trigger"] .lucide-chevron-down {
+    transition: transform 200ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+}
+
+[data-slot="accordion-trigger"][aria-expanded="true"] .lucide-chevron-down {
+  transform: rotate(180deg);
+}

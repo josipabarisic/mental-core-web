@@ -166,7 +166,7 @@ export default async function ProgramStranica({
               <div className="mt-8 flex flex-col gap-3">
                 <Link
                   href="/upitnik"
-                  className="inline-flex items-center justify-center gap-2 bg-accent-clay px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-accent-clay-dark"
+                  className="gumb inline-flex min-h-12 w-full items-center justify-center gap-2 bg-accent-clay px-6 text-sm font-semibold text-white hover:bg-accent-clay-dark"
                 >
                   Ispunite upitnik i dobijte ponudu
                   <ArrowRight size={16} />

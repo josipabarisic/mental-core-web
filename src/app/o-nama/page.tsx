@@ -195,10 +195,10 @@ export default function ONama() {
           <Foto
             foto="orijentacija"
             sizes="(min-width: 1024px) 440px, 100vw"
-            className="w-full"
+            className="order-2 w-full lg:order-1"
             pozicija="center 55%"
           />
-          <div className="grid content-start gap-x-12 gap-y-10 sm:grid-cols-2">
+          <div className="order-1 grid content-start gap-x-12 gap-y-10 sm:grid-cols-2 lg:order-2">
             {METODA.map((m) => (
               <div key={m.naslov} className="border-t border-line pt-6">
                 <h3 className="text-lg font-bold text-brand-deep">{m.naslov}</h3>
@@ -275,7 +275,7 @@ export default function ONama() {
           </p>
           <Link
             href="/kontakt"
-            className="mt-9 inline-flex items-center gap-2 bg-accent-clay px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-accent-clay-dark"
+            className="gumb mt-9 inline-flex min-h-12 w-full items-center justify-center gap-2 bg-accent-clay px-6 text-sm font-semibold text-white hover:bg-accent-clay-dark md:w-auto"
           >
             Na kontakt
             <ArrowRight size={16} />

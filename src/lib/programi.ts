@@ -20,6 +20,8 @@ export type Program = {
   dodatneUsluge?: boolean;
   /** Program bez vlastite stranice, kartica vodi na kontakt. */
   bezStranice?: boolean;
+  /** Jedna istaknuta kartica, da izbor ne bude šest jednakih opcija. */
+  preporuceno?: boolean;
   foto?: FotoKljuc;
 };
 
@@ -109,6 +111,7 @@ export const PROGRAMI: Program[] = [
   },
   {
     slug: "standard",
+    preporuceno: true,
     naziv: "Mental Core STANDARD",
     podnaslov: "Jednodnevni trening u trajanju od 8 do 10 sati",
     sazetak:

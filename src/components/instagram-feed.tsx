@@ -9,7 +9,7 @@ export function InstagramFeed() {
       href={INSTAGRAM_URL}
       target="_blank"
       rel="noopener noreferrer"
-      className="group relative block aspect-[3/4] w-full overflow-hidden border border-line text-left"
+      className="group relative block aspect-[3/4] w-full overflow-hidden text-left max-md:aspect-auto max-md:h-[360px] max-md:max-h-[360px]"
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
@@ -32,7 +32,7 @@ export function InstagramFeed() {
         <span className="mt-2 block max-w-sm text-sm leading-relaxed text-white">
           Objave ostaju na Instagramu. Klik otvara profil u novom tabu.
         </span>
-        <span className="mt-5 inline-flex items-center justify-center bg-accent-clay px-6 py-3.5 text-sm font-semibold text-white transition-colors group-hover:bg-accent-clay-dark">
+        <span className="gumb mt-5 inline-flex min-h-12 items-center justify-center bg-accent-clay px-6 text-sm font-semibold text-white group-hover:bg-accent-clay-dark">
           Otvori Instagram
         </span>
       </span>

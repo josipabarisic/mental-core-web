@@ -74,7 +74,12 @@ export function Foto({
 }) {
   const f = fotoDatoteke(foto);
   return (
-    <div className={cn("relative aspect-[3/4] overflow-hidden bg-surface-alt", className)}>
+    <div
+      className={cn(
+        "relative aspect-[3/4] overflow-hidden bg-surface-alt max-md:aspect-auto max-md:h-[360px] max-md:max-h-[360px] max-md:w-full",
+        className,
+      )}
+    >
       {/* Statički izvoz ne izrađuje srcset, pa preglednik bira širinu sam. */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img

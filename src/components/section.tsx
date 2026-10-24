@@ -11,17 +11,24 @@ const TONE: Record<Tone, string> = {
 export function Section({
   tone = "surface",
   className,
+  unutra,
   children,
   id,
 }: {
   tone?: Tone;
   className?: string;
+  unutra?: string;
   children: React.ReactNode;
   id?: string;
 }) {
   return (
     <section id={id} className={cn(TONE[tone], className)}>
-      <div className="mx-auto max-w-6xl px-5 py-16 sm:py-20 lg:px-8 lg:py-24">
+      <div
+        className={cn(
+          "mx-auto max-w-6xl px-5 py-12 md:py-20 lg:px-8 lg:py-24",
+          unutra,
+        )}
+      >
         {children}
       </div>
     </section>
@@ -78,7 +85,7 @@ export function SectionTitle({
   return (
     <h2
       className={cn(
-        "font-display text-balance text-3xl leading-[1.18] font-bold tracking-[0.01em] sm:text-4xl lg:text-[2.75rem]",
+        "font-display text-balance text-[clamp(1.75rem,1.15rem+2.4vw,2.75rem)] leading-[1.18] font-bold tracking-[0.01em]",
         tone === "light" ? "text-brand-deep" : "text-white",
         className,
       )}

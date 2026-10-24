@@ -16,10 +16,22 @@ import { ProgramKartice } from "@/components/program-kartice";
 import { INSTAGRAM_HANDLE, INSTAGRAM_URL } from "@/lib/kontakt";
 
 const SIMPTOMI = [
-  "Tim dobro radi dok je mirno, a pod rokom se raspada.",
-  "Konflikti se ne rješavaju, nego zaobilaze.",
-  "Ljudi odlaze, a razloge saznate tek na izlaznom razgovoru.",
-  "Ne možete upravi pokazati što ste dobili za prošlogodišnji budžet.",
+  {
+    kljuc: "Tim dobro radi",
+    tekst: "dok je mirno, a pod rokom se raspada.",
+  },
+  {
+    kljuc: "Konflikti se ne rješavaju,",
+    tekst: "nego zaobilaze.",
+  },
+  {
+    kljuc: "Ljudi odlaze,",
+    tekst: "a razloge saznate tek na izlaznom razgovoru.",
+  },
+  {
+    kljuc: "Ne možete upravi pokazati",
+    tekst: "što ste dobili za prošlogodišnji budžet.",
+  },
 ];
 
 const STUPOVI = [
@@ -147,7 +159,7 @@ export default function Pocetna() {
         <div className="mx-auto grid max-w-6xl gap-10 px-5 pt-16 pb-5 sm:pt-20 sm:pb-8 lg:grid-cols-[1.15fr_1fr] lg:items-center lg:gap-16 lg:px-8 lg:py-28">
           <div>
             <Eyebrow tone="dark">Programi za poslovne subjekte</Eyebrow>
-            <h1 className="font-display mt-5 text-balance text-4xl leading-[1.18] font-bold tracking-[0.01em] text-white sm:text-5xl lg:text-6xl">
+            <h1 className="font-display mt-5 text-balance text-[clamp(2.15rem,1.2rem+4.2vw,3.75rem)] leading-[1.18] font-bold tracking-[0.01em] text-white">
               Uspjeh je rezultat uspješnog funkcioniranja tima.
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-white">
@@ -159,17 +171,17 @@ export default function Pocetna() {
             <p className="mt-5 max-w-xl text-sm font-medium leading-relaxed text-white">
               Što nam povjerite, ostaje kod nas. To možemo garantirati.
             </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <div className="mt-8 flex flex-col gap-3 md:flex-row md:items-center">
               <Link
                 href="/upitnik"
-                className="inline-flex items-center justify-center gap-2 bg-white px-6 py-3.5 text-sm font-semibold text-brand-deep transition-colors hover:bg-surface"
+                className="gumb inline-flex min-h-12 w-full items-center justify-center gap-2 bg-accent-clay px-7 text-sm font-bold text-white hover:bg-accent-clay-dark md:w-auto"
               >
                 Provjerite gdje vaš tim stoji
                 <ArrowRight size={16} />
               </Link>
               <a
                 href="#ponuda"
-                className="inline-flex items-center justify-center px-2 py-3.5 text-sm font-medium text-white underline underline-offset-4 hover:text-white"
+                className="inline-flex min-h-12 w-full items-center justify-center px-2 text-sm font-medium text-white underline underline-offset-4 hover:text-white md:w-auto"
               >
                 Pogledajte ponudu
               </a>
@@ -226,15 +238,22 @@ export default function Pocetna() {
               Kod nas razonoda nije ručak i piće. Dolazi iz zadataka koji
               ostaju u sjećanju, i koji u isto vrijeme pokažu kako tim radi.
             </p>
-            <ul className="mt-9 space-y-3.5">
+            <ul className="mt-9 space-y-5">
               {SIMPTOMI.map((s) => (
-                <li key={s} className="flex gap-3 text-[0.95rem] text-ink-muted">
+                <li
+                  key={s.kljuc}
+                  className="flex gap-4 text-[0.95rem] leading-relaxed text-ink-muted"
+                >
                   <Check
                     size={18}
                     className="mt-0.5 shrink-0 text-accent-clay"
                     strokeWidth={2.5}
+                    aria-hidden
                   />
-                  <span>{s}</span>
+                  <span>
+                    <span className="font-semibold text-brand-deep">{s.kljuc}</span>{" "}
+                    {s.tekst}
+                  </span>
                 </li>
               ))}
             </ul>
@@ -250,28 +269,28 @@ export default function Pocetna() {
             <SectionTitle tone="dark" className="mt-5">
               Jak tim ne nastaje slučajno. Gradi se.
             </SectionTitle>
-            <div className="mt-7 space-y-4 text-lg leading-relaxed text-white">
-              <p>
+            <div className="mt-7 space-y-4 leading-relaxed">
+              <p className="text-xl text-white">
                 Tim nije samo skup pojedinaca. Tim čine odnosi, povjerenje,
                 komunikacija i sposobnost da ljudi djeluju zajedno, čak i onda
                 kada se ne slažu. Uspješni rezultati nisu posljedica samo
                 individualnog talenta. Oni su rezultat dobrog funkcioniranja
                 cijelog tima.
               </p>
-              <p>
+              <p className="text-lg text-white/80">
                 Snaga tima mjeri se kvalitetom odnosa među njegovim članovima.
                 Kada postoje povjerenje, otvorena komunikacija i spremnost na
                 suradnju, tim ne samo da bolje funkcionira. On napreduje.
               </p>
-              <p className="font-medium text-white">
+              <p className="text-lg font-medium text-white">
                 Zato teambuilding nije samo druženje izvan ureda.
               </p>
-              <p>
+              <p className="text-lg text-white/80">
                 To je prilika da se članovi tima bolje upoznaju i povežu, nauče
                 slušati jedni druge, prepoznaju svoje različitosti i zajedno
                 pronađu način da ih pretvore u snagu.
               </p>
-              <p>
+              <p className="text-lg text-white/80">
                 <span className="font-medium text-white">
                   A konflikti? I oni su dio svakog tima.
                 </span>{" "}
@@ -294,9 +313,9 @@ export default function Pocetna() {
           <Foto
             foto="orijentacija"
             pozicija="center 45%"
-            className="w-full"
+            className="order-2 w-full lg:order-1"
           />
-          <div>
+          <div className="order-1 lg:order-2">
             <Eyebrow>Diferencijacija</Eyebrow>
             <SectionTitle className="mt-5">
               Zašto ovo nije klasičan teambuilding?
@@ -305,7 +324,7 @@ export default function Pocetna() {
               {STUPOVI.map((s) => (
                 <div key={s.naslov} className="border-t border-line pt-6">
                   <h3 className="text-xl font-bold text-brand-deep">{s.naslov}</h3>
-                  <p className="mt-3 leading-relaxed text-ink-muted">{s.tekst}</p>
+                  <p className="mt-1.5 leading-relaxed text-ink-muted">{s.tekst}</p>
                 </div>
               ))}
             </div>
@@ -323,16 +342,25 @@ export default function Pocetna() {
             vrijednim je što se događa prije i poslije.
           </p>
         </div>
-        <div className="mt-14 grid gap-10 md:grid-cols-3 md:gap-8">
+        <div className="relative mt-14 grid gap-10 md:grid-cols-3 md:gap-8">
+          <div
+            aria-hidden
+            className="absolute top-[0.55rem] right-8 left-8 hidden border-t border-accent-clay/50 md:block"
+          />
           {KORACI.map((k) => (
-            <div key={k.broj}>
-              <span className="text-sm font-bold tracking-[0.1em] text-accent-clay">
+            <div key={k.broj} className="group relative">
+              <span className="relative z-10 inline-flex bg-surface pr-3 text-sm font-bold tracking-[0.14em] text-accent-clay">
                 {k.broj}
               </span>
-              <h3 className="mt-3 border-t border-line pt-4 text-xl font-bold text-brand-deep">
+              <h3 className="relative mt-4 pt-4 text-xl font-bold text-brand-deep">
+                <span aria-hidden className="absolute inset-x-0 top-0 h-px bg-line" />
+                <span
+                  aria-hidden
+                  className="absolute inset-x-0 top-0 h-px origin-left scale-x-0 bg-accent-clay motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-out group-hover:scale-x-100"
+                />
                 {k.naslov}
               </h3>
-              <p className="mt-3 leading-relaxed text-ink-muted">{k.tekst}</p>
+              <p className="mt-2 leading-relaxed text-ink-muted">{k.tekst}</p>
             </div>
           ))}
         </div>
@@ -455,13 +483,15 @@ export default function Pocetna() {
               <ArrowRight size={15} />
             </a>
           </div>
-          <InstagramFeed />
+          <div className="border border-line bg-white p-3 sm:p-4">
+            <InstagramFeed />
+          </div>
         </div>
       </Section>
 
       {/* Za koga nije */}
-      <Section tone="alt">
-        <div className="max-w-3xl">
+      <Section tone="surface">
+        <div className="max-w-3xl border-l-4 border-accent-clay bg-surface-alt px-6 py-8 sm:px-8 sm:py-10">
           <Eyebrow>Granice</Eyebrow>
           <SectionTitle className="mt-5">Kad nismo pravi izbor</SectionTitle>
           <p className="mt-6 text-lg leading-relaxed text-ink">
@@ -502,19 +532,24 @@ export default function Pocetna() {
       </Section>
 
       {/* Završni CTA */}
-      <Section tone="dark">
+      <Section tone="dark" unutra="md:py-24 lg:py-28">
         <div className="max-w-2xl">
-          <SectionTitle tone="dark">Recite nam gdje tim zapinje</SectionTitle>
+          <SectionTitle
+            tone="dark"
+            className="text-[clamp(2rem,1.1rem+3.4vw,3.75rem)]"
+          >
+            Recite nam gdje tim zapinje
+          </SectionTitle>
           <p className="mt-6 text-lg leading-relaxed text-white">
             Petnaest minuta razgovora, bez obveze. Ako procijenimo da vam ne
             možemo pomoći, reći ćemo vam.
           </p>
           <Link
             href="/kontakt"
-            className="mt-9 inline-flex items-center gap-2 bg-accent-clay px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-accent-clay-dark"
+            className="gumb mt-10 inline-flex min-h-12 w-full items-center justify-center gap-2 bg-accent-clay px-8 text-base font-bold text-white hover:bg-accent-clay-dark md:w-auto"
           >
             Zatražite razgovor
-            <ArrowRight size={16} />
+            <ArrowRight size={18} />
           </Link>
         </div>
       </Section>
