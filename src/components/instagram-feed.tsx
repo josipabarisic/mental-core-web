@@ -9,7 +9,7 @@ export function InstagramFeed() {
       href={INSTAGRAM_URL}
       target="_blank"
       rel="noopener noreferrer"
-      className="group relative block aspect-[3/4] w-full overflow-hidden text-left max-md:aspect-auto max-md:h-[360px] max-md:max-h-[360px]"
+      className="group relative block aspect-[4/5] w-full overflow-hidden text-left"
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
