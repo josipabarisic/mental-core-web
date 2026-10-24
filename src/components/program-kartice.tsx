@@ -1,7 +1,10 @@
+"use client";
+
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { PROGRAMI, eur } from "@/lib/programi";
+import { otvoriRazgovor } from "@/components/razgovor";
 
 export function ProgramKartice({ naslovRazina = 3 }: { naslovRazina?: 2 | 3 }) {
   const Naslov = naslovRazina === 2 ? "h2" : "h3";
@@ -40,7 +43,7 @@ export function ProgramKartice({ naslovRazina = 3 }: { naslovRazina?: 2 | 3 }) {
                   <li key={d}>{d}</li>
                 ))}
               </ul>
-              <div className="mt-5 flex flex-wrap items-end justify-between gap-3">
+              <div className="mt-5">
                 <p className="text-sm text-ink-muted">
                   {p.cijenaOd ? (
                     <>
@@ -56,15 +59,26 @@ export function ProgramKartice({ naslovRazina = 3 }: { naslovRazina?: 2 | 3 }) {
                     </span>
                   )}
                 </p>
-                {/* The ::after stretches the link over the whole card. */}
-                <Link
-                  href={href}
-                  className="inline-flex min-h-12 w-full items-center justify-center gap-1.5 bg-accent-clay px-4 text-sm font-bold text-white after:absolute after:inset-0 md:min-h-0 md:w-auto md:justify-start md:bg-transparent md:px-0 md:text-accent-clay-dark"
-                >
-                  {p.bezStranice ? "Pitajte nas" : "Detalji i cijene"}
-                  <ArrowRight size={16} />
-                  <span className="sr-only">, {p.naziv}</span>
-                </Link>
+                <div className="mt-5 flex flex-col gap-2">
+                  <button
+                    type="button"
+                    onClick={() => otvoriRazgovor(p.naziv)}
+                    className="gumb relative z-10 inline-flex min-h-12 w-full items-center justify-center gap-1.5 bg-accent-clay px-4 text-sm font-bold text-white hover:bg-accent-clay-dark"
+                  >
+                    Zatražite razgovor
+                    <ArrowRight size={16} />
+                  </button>
+                  {!p.bezStranice && (
+                    <Link
+                      href={href}
+                      className="inline-flex min-h-12 items-center justify-center gap-1.5 text-sm font-semibold text-accent-clay-dark after:absolute after:inset-0 md:min-h-0 md:justify-start"
+                    >
+                      Detalji i cijene
+                      <ArrowRight size={16} />
+                      <span className="sr-only">, {p.naziv}</span>
+                    </Link>
+                  )}
+                </div>
               </div>
             </div>
           </article>

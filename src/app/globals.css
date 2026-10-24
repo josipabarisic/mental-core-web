@@ -144,6 +144,15 @@
   @apply border-t border-line pt-4;
 }
 
+/* Ladica i donja traka: 250 ms, ista krivulja kao gumbi. */
+@media (prefers-reduced-motion: no-preference) {
+  .klizanje {
+    transition-property: translate, opacity;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+}
+
 /* Pokret traje ispod 400 ms. Reduced-motion iznad gasi trajanje. */
 @media (prefers-reduced-motion: no-preference) {
   a,

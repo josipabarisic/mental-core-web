@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { OtvoriRazgovor } from "@/components/razgovor";
 import { Eyebrow, Section, SectionTitle } from "@/components/section";
 import { Foto } from "@/components/photo-slot";
 
@@ -264,7 +264,7 @@ export default function ONama() {
         </div>
       </Section>
 
-      <Section tone="dark">
+      <Section id="razgovor" tone="dark">
         <div className="max-w-2xl">
           <SectionTitle tone="dark">
             Razgovarajmo o izazovima vašeg tima
@@ -273,13 +273,10 @@ export default function ONama() {
             Petnaest minuta, bez obveze. Recite nam što se događa i predložit
             ćemo format koji ima smisla.
           </p>
-          <Link
-            href="/kontakt"
-            className="gumb mt-9 inline-flex min-h-12 w-full items-center justify-center gap-2 bg-accent-clay px-6 text-sm font-semibold text-white hover:bg-accent-clay-dark md:w-auto"
-          >
-            Na kontakt
+          <OtvoriRazgovor className="gumb mt-9 inline-flex min-h-12 w-full items-center justify-center gap-2 bg-accent-clay px-6 text-sm font-semibold text-white hover:bg-accent-clay-dark md:w-auto">
+            Recite nam gdje tim zapinje
             <ArrowRight size={16} />
-          </Link>
+          </OtvoriRazgovor>
         </div>
       </Section>
     </>

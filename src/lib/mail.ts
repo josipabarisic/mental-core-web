@@ -5,10 +5,12 @@ const FROM = "Mental Core <info@mentalcoreteam.com>";
 
 export type Upit = {
   ime: string;
-  tvrtka: string;
   email: string;
-  velicinaTima: string;
   izazov: string;
+  tvrtka?: string;
+  velicinaTima?: string;
+  telefon?: string;
+  fokus?: string[];
 };
 
 export type UpitnikOdgovor = {
@@ -66,13 +68,17 @@ function wrap(naslov: string, tijelo: string) {
 
 export async function posaljiUpit(data: Upit) {
   const { client, contactEmail } = resend();
+  const fokus = (data.fokus ?? []).filter(Boolean).join(", ");
   const redovi = [
     ["Ime", data.ime],
-    ["Tvrtka", data.tvrtka],
     ["E-mail", data.email],
-    ["Veličina tima", data.velicinaTima],
-    ["Izazov", data.izazov],
+    ["Telefon", data.telefon ?? ""],
+    ["Tvrtka", data.tvrtka ?? ""],
+    ["Veličina tima", data.velicinaTima ?? ""],
+    ["Fokus", fokus],
+    ["Gdje tim zapinje", data.izazov],
   ]
+    .filter(([k, v]) => v.trim() !== "" && !(k === "Gdje tim zapinje" && v.trim() === fokus))
     .map(
       ([k, v]) =>
         `<p style="margin:0 0 12px;"><strong>${k}</strong><br>${escapeHtml(v)}</p>`,
@@ -83,7 +89,7 @@ export async function posaljiUpit(data: Upit) {
     from: FROM,
     to: contactEmail,
     replyTo: data.email,
-    subject: `Novi upit: ${data.tvrtka}`,
+    subject: `Novi upit: ${data.tvrtka?.trim() || data.ime}`,
     html: wrap("Novi upit s weba", redovi),
   });
   if (interni.error) throw new Error(interni.error.message);

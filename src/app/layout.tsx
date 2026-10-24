@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { RazgovorOkvir } from "@/components/razgovor";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { SiteSchema } from "@/components/structured-data";
@@ -101,6 +102,7 @@ export default function RootLayout({
           {children}
         </main>
         <SiteFooter />
+        <RazgovorOkvir />
       </body>
     </html>
   );

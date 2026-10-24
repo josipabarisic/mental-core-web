@@ -13,6 +13,7 @@ import { Eyebrow, Section, SectionTitle } from "@/components/section";
 import { Foto } from "@/components/photo-slot";
 import { InstagramFeed } from "@/components/instagram-feed";
 import { ProgramKartice } from "@/components/program-kartice";
+import { OtvoriRazgovor, RazgovorObrazac } from "@/components/razgovor";
 import { INSTAGRAM_HANDLE, INSTAGRAM_URL } from "@/lib/kontakt";
 
 const SIMPTOMI = [
@@ -155,7 +156,7 @@ export default function Pocetna() {
     <>
       <FaqSchema stavke={PITANJA} />
       {/* Hero */}
-      <section className="on-dark bg-brand">
+      <section id="uvod" className="on-dark bg-brand">
         <div className="mx-auto grid max-w-6xl gap-10 px-5 pt-16 pb-5 sm:pt-20 sm:pb-8 lg:grid-cols-[1.15fr_1fr] lg:items-center lg:gap-16 lg:px-8 lg:py-28">
           <div>
             <Eyebrow tone="dark">Programi za poslovne subjekte</Eyebrow>
@@ -172,12 +173,15 @@ export default function Pocetna() {
               Što nam povjerite, ostaje kod nas. To možemo garantirati.
             </p>
             <div className="mt-8 flex flex-col gap-3 md:flex-row md:items-center">
+              <OtvoriRazgovor className="gumb inline-flex min-h-12 w-full items-center justify-center gap-2 bg-accent-clay px-7 text-sm font-bold text-white hover:bg-accent-clay-dark md:w-auto">
+                Recite nam gdje tim zapinje
+                <ArrowRight size={16} />
+              </OtvoriRazgovor>
               <Link
                 href="/upitnik"
-                className="gumb inline-flex min-h-12 w-full items-center justify-center gap-2 bg-accent-clay px-7 text-sm font-bold text-white hover:bg-accent-clay-dark md:w-auto"
+                className="inline-flex min-h-12 w-full items-center justify-center px-2 text-sm font-medium text-white underline underline-offset-4 hover:text-white md:w-auto"
               >
                 Provjerite gdje vaš tim stoji
-                <ArrowRight size={16} />
               </Link>
               <a
                 href="#ponuda"
@@ -532,25 +536,27 @@ export default function Pocetna() {
       </Section>
 
       {/* Završni CTA */}
-      <Section tone="dark" unutra="md:py-24 lg:py-28">
-        <div className="max-w-2xl">
-          <SectionTitle
-            tone="dark"
-            className="text-[clamp(2rem,1.1rem+3.4vw,3.75rem)]"
-          >
-            Recite nam gdje tim zapinje
-          </SectionTitle>
-          <p className="mt-6 text-lg leading-relaxed text-white">
-            Petnaest minuta razgovora, bez obveze. Ako procijenimo da vam ne
-            možemo pomoći, reći ćemo vam.
-          </p>
-          <Link
-            href="/kontakt"
-            className="gumb mt-10 inline-flex min-h-12 w-full items-center justify-center gap-2 bg-accent-clay px-8 text-base font-bold text-white hover:bg-accent-clay-dark md:w-auto"
-          >
-            Zatražite razgovor
-            <ArrowRight size={18} />
-          </Link>
+      <Section id="razgovor" tone="dark" unutra="md:py-24 lg:py-28">
+        <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-16">
+          <div>
+            <SectionTitle
+              tone="dark"
+              className="text-[clamp(2rem,1.1rem+3.4vw,3.75rem)]"
+            >
+              Recite nam gdje tim zapinje
+            </SectionTitle>
+            <p className="mt-6 text-lg leading-relaxed text-white">
+              Petnaest minuta razgovora, bez obveze. Ako procijenimo da vam ne
+              možemo pomoći, reći ćemo vam.
+            </p>
+            <p className="mt-4 leading-relaxed text-white/80">
+              Javljamo se unutar 24 radna sata, s konkretnim prijedlogom
+              koraka. Bez generičke prezentacije.
+            </p>
+          </div>
+          <div className="bg-white">
+            <RazgovorObrazac idPrefix="podnozje" />
+          </div>
         </div>
       </Section>
     </>

@@ -104,23 +104,32 @@ const mailWorker = {
         const tvrtka = String(data.tvrtka ?? "").trim();
         const email = String(data.email ?? "").trim();
         const velicinaTima = String(data.velicinaTima ?? "").trim();
-        const izazov = String(data.izazov ?? "").trim();
-        if (!ime || !tvrtka || !email || !velicinaTima || !izazov) {
+        const telefon = String(data.telefon ?? "").trim();
+        const fokus = Array.isArray(data.fokus)
+          ? data.fokus
+              .filter((t): t is string => typeof t === "string" && t.trim() !== "")
+              .join(", ")
+          : "";
+        const izazov = String(data.izazov ?? "").trim() || fokus;
+        if (!ime || !email || !izazov) {
           return Response.json({ error: "Nedostaju obavezna polja." }, { status: 400, headers });
         }
         const redovi = [
           ["Ime", ime],
-          ["Tvrtka", tvrtka],
           ["E-mail", email],
+          ["Telefon", telefon],
+          ["Tvrtka", tvrtka],
           ["Veličina tima", velicinaTima],
-          ["Izazov", izazov],
+          ["Fokus", fokus],
+          ["Gdje tim zapinje", izazov],
         ]
+          .filter(([k, v]) => v !== "" && !(k === "Gdje tim zapinje" && v === fokus))
           .map(([k, v]) => `<p style="margin:0 0 12px;"><strong>${k}</strong><br>${escapeHtml(v)}</p>`)
           .join("");
         await posalji(apiKey, {
           to: contactEmail,
           replyTo: email,
-          subject: `Novi upit: ${tvrtka}`,
+          subject: `Novi upit: ${tvrtka || ime}`,
           html: wrap("Novi upit s weba", redovi),
         });
         await posalji(apiKey, {

@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Logo } from "@/components/brand/logo";
+import { otvoriRazgovor } from "@/components/razgovor";
 
 const NAV = [
   { href: "/", label: "Početna" },
@@ -55,12 +56,13 @@ export function SiteHeader() {
               {item.label}
             </Link>
           ))}
-          <Link
-            href="/kontakt"
+          <button
+            type="button"
+            onClick={() => otvoriRazgovor()}
             className="gumb inline-flex min-h-12 items-center bg-accent-clay px-5 text-sm font-semibold text-white hover:bg-accent-clay-dark"
           >
             Zatražite razgovor
-          </Link>
+          </button>
         </nav>
 
         <button
@@ -95,13 +97,16 @@ export function SiteHeader() {
                 {item.label}
               </Link>
             ))}
-            <Link
-              href="/kontakt"
-              onClick={close}
+            <button
+              type="button"
+              onClick={() => {
+                close();
+                otvoriRazgovor();
+              }}
               className="gumb mt-4 mb-2 flex min-h-12 w-full items-center justify-center bg-accent-clay px-5 text-center text-sm font-semibold text-white hover:bg-accent-clay-dark"
             >
               Zatražite razgovor
-            </Link>
+            </button>
           </nav>
         </div>
       )}

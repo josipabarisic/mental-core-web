@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, Check } from "lucide-react";
 import { Eyebrow, Section } from "@/components/section";
 import { Foto } from "@/components/photo-slot";
+import { OtvoriRazgovor } from "@/components/razgovor";
 import {
   DODATNE_USLUGE,
   NAPOMENA_LOGISTIKA,
@@ -171,12 +172,12 @@ export default async function ProgramStranica({
                   Ispunite upitnik i dobijte ponudu
                   <ArrowRight size={16} />
                 </Link>
-                <Link
-                  href="/kontakt"
+                <OtvoriRazgovor
+                  program={p.naziv}
                   className="text-center text-sm font-semibold text-accent-clay-dark underline underline-offset-4"
                 >
                   Ili nam pišite izravno
-                </Link>
+                </OtvoriRazgovor>
               </div>
             </div>
           </aside>

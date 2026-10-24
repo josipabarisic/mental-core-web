@@ -8,20 +8,20 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Neispravan zahtjev." }, { status: 400 });
   }
 
-  const { ime, tvrtka, email, velicinaTima, izazov, med } = data as Record<
-    string,
-    unknown
-  >;
+  const { ime, tvrtka, email, velicinaTima, izazov, telefon, fokus, med } =
+    data as Record<string, unknown>;
 
   if (typeof med === "string" && med.trim() !== "") {
     return NextResponse.json({ ok: true });
   }
 
-  const missing = [ime, tvrtka, email, velicinaTima, izazov].some(
-    (v) => typeof v !== "string" || v.trim() === "",
-  );
+  const tekst = (v: unknown) => (typeof v === "string" ? v.trim() : "");
+  const teme = Array.isArray(fokus)
+    ? fokus.filter((t): t is string => typeof t === "string" && t.trim() !== "")
+    : [];
+  const tijelo = tekst(izazov) || teme.join(", ");
 
-  if (missing) {
+  if (!tekst(ime) || !tekst(email) || !tijelo) {
     return NextResponse.json(
       { error: "Nedostaju obavezna polja." },
       { status: 400 },
@@ -30,11 +30,13 @@ export async function POST(request: Request) {
 
   try {
     await posaljiUpit({
-      ime: String(ime).trim(),
-      tvrtka: String(tvrtka).trim(),
-      email: String(email).trim(),
-      velicinaTima: String(velicinaTima).trim(),
-      izazov: String(izazov).trim(),
+      ime: tekst(ime),
+      email: tekst(email),
+      izazov: tijelo,
+      tvrtka: tekst(tvrtka) || undefined,
+      velicinaTima: tekst(velicinaTima) || undefined,
+      telefon: tekst(telefon) || undefined,
+      fokus: teme,
     });
     return NextResponse.json({ ok: true });
   } catch (error) {
