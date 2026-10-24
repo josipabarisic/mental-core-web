@@ -172,23 +172,25 @@ export default function Pocetna() {
             <p className="mt-5 max-w-xl text-sm font-medium leading-relaxed text-white">
               Što nam povjerite, ostaje kod nas. To možemo garantirati.
             </p>
-            <div className="mt-8 flex flex-col gap-3 md:flex-row md:items-center">
+            <div className="mt-8 flex flex-col gap-3 md:items-start md:gap-4">
               <OtvoriRazgovor className="gumb inline-flex min-h-12 w-full items-center justify-center gap-2 bg-accent-clay px-6 text-center text-sm font-bold leading-tight text-white hover:bg-accent-clay-dark md:w-auto">
                 Ispričajte nam izazov u vašem timu
                 <ArrowRight size={16} />
               </OtvoriRazgovor>
-              <Link
-                href="/upitnik"
-                className="inline-flex min-h-12 w-full items-center justify-center px-2 text-sm font-medium text-white underline underline-offset-4 hover:text-white md:w-auto"
-              >
-                Provjerite gdje vaš tim stoji
-              </Link>
-              <a
-                href="#ponuda"
-                className="inline-flex min-h-12 w-full items-center justify-center px-2 text-sm font-medium text-white underline underline-offset-4 hover:text-white md:w-auto"
-              >
-                Pogledajte ponudu
-              </a>
+              <div className="flex flex-col gap-3 md:flex-row md:flex-wrap md:items-center md:gap-x-6 md:gap-y-3">
+                <Link
+                  href="/upitnik"
+                  className="inline-flex min-h-12 w-full items-center justify-center px-2 text-sm font-medium text-white underline underline-offset-4 hover:text-white md:min-h-0 md:w-auto md:justify-start md:px-0 md:underline-offset-[5px]"
+                >
+                  Provjerite gdje vaš tim stoji
+                </Link>
+                <a
+                  href="#ponuda"
+                  className="inline-flex min-h-12 w-full items-center justify-center px-2 text-sm font-medium text-white underline underline-offset-4 hover:text-white md:min-h-0 md:w-auto md:justify-start md:px-0 md:underline-offset-[5px]"
+                >
+                  Pogledajte ponudu
+                </a>
+              </div>
             </div>
           </div>
 
