@@ -157,13 +157,13 @@ export default function Pocetna() {
       <FaqSchema stavke={PITANJA} />
       {/* Hero */}
       <section id="uvod" className="on-dark bg-brand">
-        <div className="mx-auto grid max-w-6xl gap-10 px-5 pt-16 pb-5 sm:pt-20 sm:pb-8 lg:grid-cols-[1.15fr_1fr] lg:items-center lg:gap-16 lg:px-8 lg:py-28">
+        <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 md:py-24 lg:grid-cols-[1.15fr_1fr] lg:items-center lg:gap-16 lg:px-8">
           <div>
             <Eyebrow tone="dark">Programi za poslovne subjekte</Eyebrow>
             <h1 className="font-display mt-5 text-balance text-[clamp(2.15rem,1.2rem+4.2vw,3.75rem)] leading-[1.18] font-bold tracking-[0.01em] text-white">
               Uspjeh je rezultat uspješnog funkcioniranja tima.
             </h1>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-white">
+            <p className="lead mt-6 max-w-xl text-white">
               Vrijeme je da vaš tim postane više od grupe ljudi koji rade
               zajedno. Gradimo timove koji vjeruju jedni drugima, surađuju i
               zajedno stvaraju rezultate. Jer tim je jak onoliko koliko su jake
@@ -173,8 +173,8 @@ export default function Pocetna() {
               Što nam povjerite, ostaje kod nas. To možemo garantirati.
             </p>
             <div className="mt-8 flex flex-col gap-3 md:flex-row md:items-center">
-              <OtvoriRazgovor className="gumb inline-flex min-h-12 w-full items-center justify-center gap-2 bg-accent-clay px-7 text-sm font-bold text-white hover:bg-accent-clay-dark md:w-auto">
-                Recite nam gdje tim zapinje
+              <OtvoriRazgovor className="gumb inline-flex min-h-12 w-full items-center justify-center gap-2 bg-accent-clay px-6 text-center text-sm font-bold leading-tight text-white hover:bg-accent-clay-dark md:w-auto">
+                Ispričajte nam izazov u vašem timu
                 <ArrowRight size={16} />
               </OtvoriRazgovor>
               <Link
@@ -229,7 +229,7 @@ export default function Pocetna() {
             </SectionTitle>
           </div>
           <div>
-            <p className="text-lg leading-relaxed text-ink">
+            <p className="lead text-ink">
               Ljudi se dobro provedu. Vrate se u ured i sve ostane isto. Iste
               šutnje na sastancima, iste nejasne uloge, isti ljudi koji nose sve
               na sebi.
@@ -274,7 +274,7 @@ export default function Pocetna() {
               Jak tim ne nastaje slučajno. Gradi se.
             </SectionTitle>
             <div className="mt-7 space-y-4 leading-relaxed">
-              <p className="text-xl text-white">
+              <p className="lead text-white">
                 Tim nije samo skup pojedinaca. Tim čine odnosi, povjerenje,
                 komunikacija i sposobnost da ljudi djeluju zajedno, čak i onda
                 kada se ne slažu. Uspješni rezultati nisu posljedica samo
@@ -341,7 +341,7 @@ export default function Pocetna() {
         <div className="max-w-2xl">
           <Eyebrow>Proces</Eyebrow>
           <SectionTitle className="mt-5">Tri koraka, ne jedan dan</SectionTitle>
-          <p className="mt-5 text-lg leading-relaxed text-ink-muted">
+          <p className="lead mt-5 text-ink-muted">
             Teambuilding je sredina procesa, ne cijeli proces. Ono što ga čini
             vrijednim je što se događa prije i poslije.
           </p>
@@ -376,7 +376,7 @@ export default function Pocetna() {
           <div className="max-w-2xl">
             <Eyebrow>Ponuda</Eyebrow>
             <SectionTitle className="mt-5">Programi za vaš tim</SectionTitle>
-            <p className="mt-5 text-lg leading-relaxed text-ink-muted">
+            <p className="lead mt-5 text-ink-muted">
               Sadržaj, lokaciju i način provedbe dogovaramo prema potrebama
               vašeg tima i našoj procjeni. Sve cijene uključuju PDV. Kliknite
               na program za opis i cjenik.
@@ -403,7 +403,7 @@ export default function Pocetna() {
             <SectionTitle tone="dark" className="mt-5">
               Kako znate da je vrijedilo
             </SectionTitle>
-            <p className="mt-6 text-lg leading-relaxed text-white">
+            <p className="lead mt-6 text-white">
               Zamjena jednog stručnog zaposlenika košta tvrtku između 50 i 200
               posto njegove godišnje plaće. Ako program zadrži jednu osobu,
               platio se sam.
@@ -415,7 +415,7 @@ export default function Pocetna() {
           <div className="space-y-px">
             {POKAZATELJI.map((p) => (
               <div key={p.naslov} className="border-t border-white/15 py-6">
-                <h3 className="text-lg font-bold text-white">{p.naslov}</h3>
+                <h3 className="text-xl font-bold text-white">{p.naslov}</h3>
                 <p className="mt-2 leading-relaxed text-white">{p.tekst}</p>
               </div>
             ))}
@@ -433,7 +433,7 @@ export default function Pocetna() {
             </SectionTitle>
             <div className="mt-8 space-y-6">
               <div className="border-l-2 border-accent-clay pl-5">
-                <h3 className="font-bold text-brand-deep">Helena</h3>
+                <h3 className="text-xl font-bold text-brand-deep">Helena</h3>
                 <p className="mt-1.5 leading-relaxed text-ink-muted">
                   Psihologinja i coach. Bivša časnica OSRH. Poznaje vodstvo i
                   hijerarhiju iznutra. Pomaže timovima i liderima izgraditi
@@ -441,7 +441,7 @@ export default function Pocetna() {
                 </p>
               </div>
               <div className="border-l-2 border-accent-clay pl-5">
-                <h3 className="font-bold text-brand-deep">Dinko</h3>
+                <h3 className="text-xl font-bold text-brand-deep">Dinko</h3>
                 <p className="mt-1.5 leading-relaxed text-ink-muted">
                   Ekonomist. Bivši dočasnik i vojni instruktor u OSRH. Prenosi
                   operativnu strukturu u poslovne timove i osmišljava vježbe u
@@ -473,7 +473,7 @@ export default function Pocetna() {
           <div>
             <Eyebrow>Instagram</Eyebrow>
             <SectionTitle className="mt-5">Zadnje objave</SectionTitle>
-            <p className="mt-5 text-lg leading-relaxed text-ink">
+            <p className="lead mt-5 text-ink">
               Helena i Dinko na @{INSTAGRAM_HANDLE}. Profil se otvara u novom
               tabu.
             </p>
@@ -498,7 +498,7 @@ export default function Pocetna() {
         <div className="max-w-3xl border-l-4 border-accent-clay bg-surface-alt px-6 py-8 sm:px-8 sm:py-10">
           <Eyebrow>Granice</Eyebrow>
           <SectionTitle className="mt-5">Kad nismo pravi izbor</SectionTitle>
-          <p className="mt-6 text-lg leading-relaxed text-ink">
+          <p className="lead mt-6 text-ink">
             Ako tražite opuštanje, zabavni park i dan bez obveza, postoje bolje
             agencije od nas. Naš program traži izlazak iz zone komfora i otvorenu
             komunikaciju. To nekim timovima u početku ne odgovara. Recite nam to
@@ -536,7 +536,7 @@ export default function Pocetna() {
       </Section>
 
       {/* Završni CTA */}
-      <Section id="razgovor" tone="dark" unutra="md:py-24 lg:py-28">
+      <Section id="razgovor" tone="dark">
         <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-16">
           <div>
             <SectionTitle
@@ -545,7 +545,7 @@ export default function Pocetna() {
             >
               Recite nam gdje tim zapinje
             </SectionTitle>
-            <p className="mt-6 text-lg leading-relaxed text-white">
+            <p className="lead mt-6 text-white">
               Petnaest minuta razgovora, bez obveze. Ako procijenimo da vam ne
               možemo pomoći, reći ćemo vam.
             </p>

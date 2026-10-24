@@ -59,9 +59,9 @@ export function SiteHeader() {
           <button
             type="button"
             onClick={() => otvoriRazgovor()}
-            className="gumb inline-flex min-h-12 items-center bg-accent-clay px-5 text-sm font-semibold text-white hover:bg-accent-clay-dark"
+            className="gumb inline-flex min-h-12 items-center bg-accent-clay px-6 text-center text-sm font-bold leading-tight text-white hover:bg-accent-clay-dark"
           >
-            Zatražite razgovor
+            Dogovorite 15 minuta konzultacija
           </button>
         </nav>
 
@@ -103,9 +103,9 @@ export function SiteHeader() {
                 close();
                 otvoriRazgovor();
               }}
-              className="gumb mt-4 mb-2 flex min-h-12 w-full items-center justify-center bg-accent-clay px-5 text-center text-sm font-semibold text-white hover:bg-accent-clay-dark"
+              className="gumb mt-4 mb-2 flex min-h-12 w-full items-center justify-center bg-accent-clay px-6 text-center text-sm font-bold leading-tight text-white hover:bg-accent-clay-dark"
             >
-              Zatražite razgovor
+              Dogovorite 15 minuta konzultacija
             </button>
           </nav>
         </div>

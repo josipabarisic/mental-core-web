@@ -17,7 +17,7 @@ export function ProgramKartice({ naslovRazina = 3 }: { naslovRazina?: 2 | 3 }) {
           <article
             key={p.slug}
             className={cn(
-              "relative flex w-[85vw] shrink-0 snap-start flex-col border-2 bg-white p-7 focus-within:border-accent-clay motion-safe:transition motion-safe:duration-200 md:w-auto md:shrink md:hover:-translate-y-1 md:hover:shadow-[0_12px_24px_rgba(0,0,0,0.06)]",
+              "relative flex h-full w-[85vw] shrink-0 snap-start flex-col border-2 bg-white p-7 focus-within:border-accent-clay motion-safe:transition motion-safe:duration-200 md:w-auto md:shrink md:hover:-translate-y-1 md:hover:shadow-[0_12px_24px_rgba(0,0,0,0.06)]",
               p.preporuceno
                 ? "border-accent-clay"
                 : "border-line md:hover:border-accent-clay",
@@ -28,22 +28,23 @@ export function ProgramKartice({ naslovRazina = 3 }: { naslovRazina?: 2 | 3 }) {
                 Preporučeno
               </p>
             )}
-            <Naslov className="text-xl font-bold text-brand-deep">
-              {p.naziv}
-            </Naslov>
-            <p className="mt-1.5 text-sm font-medium text-accent-clay-dark">
-              {p.podnaslov}
-            </p>
-            <p className="mt-4 flex-1 leading-relaxed text-ink-muted">
-              {p.sazetak}
-            </p>
-            <div className="mt-6 border-t border-line pt-5">
-              <ul className="space-y-1.5 text-sm text-ink-muted">
+            <div className="flex flex-1 flex-col">
+              <Naslov className="text-xl font-bold text-brand-deep">
+                {p.naziv}
+              </Naslov>
+              <p className="mt-1.5 text-sm font-medium text-accent-clay-dark">
+                {p.podnaslov}
+              </p>
+              <p className="mt-4 leading-relaxed text-ink-muted">
+                {p.sazetak}
+              </p>
+              <ul className="mt-6 space-y-1.5 text-sm text-ink-muted">
                 {p.detalji.map((d) => (
                   <li key={d}>{d}</li>
                 ))}
               </ul>
-              <div className="mt-5">
+            </div>
+            <div className="mt-6 border-t border-line pt-5">
                 <p className="text-sm text-ink-muted">
                   {p.cijenaOd ? (
                     <>
@@ -63,23 +64,22 @@ export function ProgramKartice({ naslovRazina = 3 }: { naslovRazina?: 2 | 3 }) {
                   <button
                     type="button"
                     onClick={() => otvoriRazgovor(p.naziv)}
-                    className="gumb relative z-10 inline-flex min-h-12 w-full items-center justify-center gap-1.5 bg-accent-clay px-4 text-sm font-bold text-white hover:bg-accent-clay-dark"
+                    className="gumb relative z-10 inline-flex min-h-12 w-full items-center justify-center gap-1.5 bg-accent-clay px-6 text-center text-sm font-bold leading-tight text-white hover:bg-accent-clay-dark"
                   >
-                    Zatražite razgovor
+                    Ispričajte nam izazov u vašem timu
                     <ArrowRight size={16} />
                   </button>
                   {!p.bezStranice && (
                     <Link
                       href={href}
-                      className="inline-flex min-h-12 items-center justify-center gap-1.5 text-sm font-semibold text-accent-clay-dark after:absolute after:inset-0 md:min-h-0 md:justify-start"
+                      className="inline-flex min-h-12 items-center justify-center gap-1.5 text-center text-sm font-semibold leading-tight text-accent-clay-dark after:absolute after:inset-0"
                     >
-                      Detalji i cijene
+                      Pogledajte što uključuje program
                       <ArrowRight size={16} />
                       <span className="sr-only">, {p.naziv}</span>
                     </Link>
                   )}
                 </div>
-              </div>
             </div>
           </article>
         );

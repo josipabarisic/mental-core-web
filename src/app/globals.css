@@ -136,6 +136,11 @@
   }
 }
 
+@utility lead {
+  font-size: 1.125rem;
+  line-height: 1.7;
+}
+
 @utility eyebrow {
   @apply font-display text-[0.7rem] font-bold uppercase tracking-[0.24em];
 }

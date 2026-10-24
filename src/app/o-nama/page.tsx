@@ -64,7 +64,7 @@ export default function ONama() {
   return (
     <>
       <section className="on-dark bg-brand">
-        <div className="mx-auto max-w-6xl px-5 py-16 sm:py-20 lg:px-8 lg:py-24">
+        <div className="mx-auto max-w-6xl px-5 py-16 md:py-24 lg:px-8">
           <Eyebrow tone="dark">O nama</Eyebrow>
           <h1 className="font-display mt-5 max-w-3xl text-balance text-4xl leading-[1.18] font-bold tracking-[0.01em] text-white sm:text-5xl">
             Mi smo ovo prošli.
@@ -83,7 +83,7 @@ export default function ONama() {
             <SectionTitle className="mt-5">Zašto smo ovo pokrenuli</SectionTitle>
           </div>
           <div className="space-y-5 text-lg leading-relaxed text-ink">
-            <p>
+            <p className="lead">
               Vidjeli smo isti obrazac i u vojsci i u tvrtkama. Timovi ne padaju
               zbog nedostatka sposobnosti, nego zbog nedostatka strukture.
             </p>
@@ -224,7 +224,7 @@ export default function ONama() {
           <div className="grid gap-x-10 gap-y-7 sm:grid-cols-2">
             {VRIJEDNOSTI.map((v) => (
               <div key={v.naziv}>
-                <h3 className="font-bold text-brand-deep">{v.naziv}</h3>
+                <h3 className="text-xl font-bold text-brand-deep">{v.naziv}</h3>
                 <p className="mt-1.5 text-[0.95rem] leading-relaxed text-ink-muted">
                   {v.opis}
                 </p>
@@ -273,8 +273,8 @@ export default function ONama() {
             Petnaest minuta, bez obveze. Recite nam što se događa i predložit
             ćemo format koji ima smisla.
           </p>
-          <OtvoriRazgovor className="gumb mt-9 inline-flex min-h-12 w-full items-center justify-center gap-2 bg-accent-clay px-6 text-sm font-semibold text-white hover:bg-accent-clay-dark md:w-auto">
-            Recite nam gdje tim zapinje
+          <OtvoriRazgovor className="gumb mt-9 inline-flex min-h-12 w-full items-center justify-center gap-2 bg-accent-clay px-6 text-center text-sm font-bold leading-tight text-white hover:bg-accent-clay-dark md:w-auto">
+            Dogovorite 15 minuta konzultacija
             <ArrowRight size={16} />
           </OtvoriRazgovor>
         </div>

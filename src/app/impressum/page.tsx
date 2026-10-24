@@ -31,7 +31,7 @@ export default function Impressum() {
   return (
     <>
       <section className="on-dark bg-brand">
-        <div className="mx-auto max-w-6xl px-5 py-16 sm:py-20 lg:px-8">
+        <div className="mx-auto max-w-6xl px-5 py-16 md:py-24 lg:px-8">
           <Eyebrow tone="dark">Pravne informacije</Eyebrow>
           <h1 className="font-display mt-5 max-w-3xl text-balance text-4xl leading-[1.18] font-bold tracking-[0.01em] text-white sm:text-5xl">
             Impressum

@@ -246,9 +246,9 @@ export function RazgovorOkvir() {
           type="button"
           tabIndex={traka ? 0 : -1}
           onClick={() => otvoriRazgovor()}
-          className="gumb flex h-12 w-full items-center justify-center bg-accent-clay px-4 text-sm font-bold text-white hover:bg-accent-clay-dark"
+          className="gumb flex min-h-12 w-full items-center justify-center bg-accent-clay px-6 py-2 text-center text-sm font-bold leading-tight text-white hover:bg-accent-clay-dark"
         >
-          Recite nam gdje tim zapinje
+          Dogovorite 15 minuta konzultacija
         </button>
       </div>
 

@@ -67,7 +67,7 @@ export default async function ProgramStranica({
   return (
     <>
       <section className="on-dark bg-brand">
-        <div className="mx-auto max-w-6xl px-5 py-16 sm:py-20 lg:px-8">
+        <div className="mx-auto max-w-6xl px-5 py-16 md:py-24 lg:px-8">
           <Link
             href="/programi"
             className="inline-flex items-center gap-1.5 text-sm font-medium text-white underline underline-offset-4 hover:text-white"
@@ -149,7 +149,7 @@ export default async function ProgramStranica({
               )}
               {p.dodatneUsluge && (
                 <div className="mt-10">
-                  <h2 className="mb-2 text-base font-bold text-brand-deep">
+                  <h2 className="mb-2 text-xl font-bold text-brand-deep">
                     Dodatne usluge
                   </h2>
                   <Cijene stavke={DODATNE_USLUGE} />
@@ -176,7 +176,7 @@ export default async function ProgramStranica({
                   program={p.naziv}
                   className="text-center text-sm font-semibold text-accent-clay-dark underline underline-offset-4"
                 >
-                  Ili nam pišite izravno
+                  Ispričajte nam izazov u vašem timu
                 </OtvoriRazgovor>
               </div>
             </div>

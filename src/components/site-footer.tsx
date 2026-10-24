@@ -12,7 +12,7 @@ import {
 export function SiteFooter() {
   return (
     <footer className="on-dark bg-brand text-white">
-      <div className="mx-auto max-w-6xl px-5 py-14 lg:px-8">
+      <div className="mx-auto max-w-6xl px-5 py-16 lg:px-8 md:py-24">
         <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr]">
           <div>
             <Logo tone="dark" />

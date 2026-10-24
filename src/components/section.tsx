@@ -25,7 +25,7 @@ export function Section({
     <section id={id} className={cn(TONE[tone], className)}>
       <div
         className={cn(
-          "mx-auto max-w-6xl px-5 py-12 md:py-20 lg:px-8 lg:py-24",
+          "mx-auto max-w-6xl px-5 py-16 md:py-24 lg:px-8",
           unutra,
         )}
       >
