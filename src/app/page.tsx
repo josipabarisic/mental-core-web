@@ -174,7 +174,7 @@ export default function Pocetna() {
             </p>
             <div className="mt-8 flex flex-col gap-3 md:items-start md:gap-4">
               <OtvoriRazgovor className="gumb inline-flex min-h-12 w-full items-center justify-center gap-2 bg-accent-clay px-6 text-center text-sm font-bold leading-tight text-white hover:bg-accent-clay-dark md:w-auto">
-                Ispričajte nam izazov u vašem timu
+                Zatražite razgovor
                 <ArrowRight size={16} />
               </OtvoriRazgovor>
               <div className="flex flex-col gap-3 md:flex-row md:flex-wrap md:items-center md:gap-x-6 md:gap-y-3">

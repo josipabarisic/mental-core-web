@@ -66,7 +66,7 @@ export function ProgramKartice({ naslovRazina = 3 }: { naslovRazina?: 2 | 3 }) {
                     onClick={() => otvoriRazgovor(p.naziv)}
                     className="gumb relative z-10 inline-flex min-h-12 w-full items-center justify-center gap-1.5 bg-accent-clay px-6 text-center text-sm font-bold leading-tight text-white hover:bg-accent-clay-dark"
                   >
-                    Ispričajte nam izazov u vašem timu
+                    Zatražite razgovor
                     <ArrowRight size={16} />
                   </button>
                   {!p.bezStranice && (

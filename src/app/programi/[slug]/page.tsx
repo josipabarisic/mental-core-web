@@ -176,7 +176,7 @@ export default async function ProgramStranica({
                   program={p.naziv}
                   className="text-center text-sm font-semibold text-accent-clay-dark underline underline-offset-4"
                 >
-                  Ispričajte nam izazov u vašem timu
+                  Zatražite razgovor
                 </OtvoriRazgovor>
               </div>
             </div>
