@@ -145,6 +145,54 @@
   @apply font-display text-[0.7rem] font-bold uppercase tracking-[0.24em];
 }
 
+/* Mali razmaknuti natpis s Instagram objava, samo unutar kartica. */
+@utility natpis {
+  @apply text-[0.7rem] font-semibold uppercase tracking-[0.32em];
+}
+
+/* Drugi, tiši dio dvobojnog naslova. */
+.tiho {
+  color: color-mix(in srgb, currentColor 45%, transparent);
+}
+
+@keyframes uvod {
+  from {
+    opacity: 0;
+    translate: 0 28px;
+    scale: 0.98;
+  }
+}
+
+.uvod {
+  animation: uvod 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Novi izgled vrijedi samo unutar okvira početne, dok se ostale stranice ne dorade. */
+@layer base {
+  .novi-izgled h1,
+  .novi-izgled h2 {
+    letter-spacing: -0.03em;
+  }
+
+  .novi-izgled h3 {
+    letter-spacing: -0.015em;
+  }
+}
+
+.novi-izgled .eyebrow {
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+@media (min-width: 768px) {
+  .novi-izgled .eyebrow {
+    font-size: 1rem;
+  }
+}
+
 @utility rule-top {
   @apply border-t border-line pt-4;
 }
@@ -160,6 +208,10 @@
 
 /* Pokret traje ispod 400 ms. Reduced-motion iznad gasi trajanje. */
 @media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+
   a,
   button {
     transition-property: color, background-color, border-color, box-shadow, transform,

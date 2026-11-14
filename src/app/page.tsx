@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { FaqSchema } from "@/components/structured-data";
 import { OG_IMAGE } from "@/lib/seo";
 import {
@@ -9,7 +9,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Eyebrow, Section, SectionTitle } from "@/components/section";
+import { Eyebrow, NoviIzgledOkvir, Section, SectionTitle, Tiho } from "@/components/section";
+import { Otkrij, Vrtuljak } from "@/components/pokret";
 import { Foto } from "@/components/photo-slot";
 import { InstagramFeed } from "@/components/instagram-feed";
 import { ProgramKartice } from "@/components/program-kartice";
@@ -57,31 +58,48 @@ const KORACI = [
 
 const DAN = [
   {
+    kada: "Jutro",
     naslov: "Dolazak",
     tekst: "Stižemo na teren, kratko se predstavimo i dogovorimo kako dan ide.",
   },
   {
+    kada: "Prijepodne",
     naslov: "Prvi zadatak",
     tekst:
-      "Mali izazov. Dovoljan da se vidi tko vodi, tko šuti i tko drži grupu na okupu.",
+      "Lagani zadatak za zagrijavanje. Svatko se uključi na svoj način i ekipa se brzo opusti.",
   },
   {
+    kada: "Podne",
     naslov: "Ručak",
     tekst: "Pauza bez programa. Ljudi pričaju o onome što se upravo dogodilo.",
   },
   {
+    kada: "Popodne",
     naslov: "Glavni izazov",
     tekst:
       "Duži zadatak na terenu. Tim mora donijeti odluku i izvesti je do kraja.",
   },
   {
+    kada: "Kraj dana",
     naslov: "Završni krug",
     tekst:
       "Sjednemo zajedno. Što se vidjelo na terenu, i što od toga ostaje u uredu.",
   },
 ];
 
-const DAN_FOTO = ["povjerenje", "orijentacija", "teren", "koordinacija"] as const;
+const UVOD_FOTO = [
+  ["orijentacija", "center 60%"],
+  ["povjerenje", "center 55%"],
+  ["teren", "center 50%"],
+] as const;
+
+const meko = "ease-[cubic-bezier(0.22,1,0.36,1)]";
+const podigni = `transition-[translate,box-shadow,scale] duration-500 ${meko} active:scale-[0.985] md:hover:-translate-y-1.5 md:hover:shadow-[0_28px_50px_-30px_rgba(45,56,57,0.55)]`;
+const veza =
+  "group/veza inline-flex items-center gap-1 text-[0.95rem] font-semibold";
+const strelica = `transition-transform duration-300 ${meko} group-hover/veza:translate-x-1`;
+const gumb =
+  "gumb inline-flex min-h-12 items-center justify-center gap-2 bg-accent-clay px-7 text-center text-sm font-bold leading-tight text-white hover:bg-accent-clay-dark";
 
 export const metadata: Metadata = {
   title: {
@@ -153,165 +171,232 @@ const PITANJA = [
 
 export default function Pocetna() {
   return (
+    <NoviIzgledOkvir>
     <>
       <FaqSchema stavke={PITANJA} />
-      {/* Hero */}
-      <section id="uvod" className="on-dark bg-brand">
-        <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 md:py-24 lg:grid-cols-[1.15fr_1fr] lg:items-center lg:gap-16 lg:px-8">
-          <div>
-            <Eyebrow tone="dark">Teambuilding i razvoj timova</Eyebrow>
-            <h1 className="font-display mt-5 text-balance text-[clamp(2.15rem,1.2rem+4.2vw,3.75rem)] leading-[1.18] font-bold tracking-[0.01em] text-white">
-              Teambuilding koji se pamti. I koji se vidi u uredu.
-            </h1>
-            <p className="mt-5 max-w-xl text-lg leading-snug font-medium text-white/90">
-              Uspjeh je rezultat uspješnog funkcioniranja tima.
-            </p>
-            <p className="lead mt-6 max-w-xl text-white">
-              Vrijeme je da vaš tim postane više od grupe ljudi koji rade
-              zajedno. Gradimo timove koji vjeruju jedni drugima, surađuju i
-              zajedno stvaraju rezultate. Jer tim je jak onoliko koliko su jake
-              njegove veze.
-            </p>
-            <p className="mt-5 max-w-xl text-sm font-medium leading-relaxed text-white">
-              Što nam povjerite, ostaje kod nas. To možemo garantirati.
-            </p>
-            <div className="mt-8 flex flex-col gap-3 md:items-start md:gap-4">
-              <OtvoriRazgovor className="gumb inline-flex min-h-12 w-full items-center justify-center gap-2 bg-accent-clay px-6 text-center text-sm font-bold leading-tight text-white hover:bg-accent-clay-dark md:w-auto">
-                Zatražite razgovor
-                <ArrowRight size={16} />
-              </OtvoriRazgovor>
-              <div className="flex flex-col gap-3 md:flex-row md:flex-wrap md:items-center md:gap-x-6 md:gap-y-3">
-                <Link
-                  href="/upitnik"
-                  className="inline-flex min-h-12 w-full items-center justify-center px-2 text-sm font-medium text-white underline underline-offset-4 hover:text-white md:min-h-0 md:w-auto md:justify-start md:px-0 md:underline-offset-[5px]"
-                >
-                  Provjerite gdje vaš tim stoji
-                </Link>
-                <a
-                  href="#ponuda"
-                  className="inline-flex min-h-12 w-full items-center justify-center px-2 text-sm font-medium text-white underline underline-offset-4 hover:text-white md:min-h-0 md:w-auto md:justify-start md:px-0 md:underline-offset-[5px]"
-                >
-                  Pogledajte ponudu
-                </a>
-              </div>
-            </div>
+      {/* Uvod */}
+      <section id="uvod" className="bg-surface">
+        <div className="mx-auto max-w-6xl px-5 pt-16 pb-12 text-center md:pt-24 lg:px-8">
+          <p className="uvod eyebrow text-accent-clay">
+            Teambuilding i razvoj timova
+          </p>
+          <h1
+            style={{ animationDelay: "80ms" }}
+            className="uvod font-display mx-auto mt-4 max-w-5xl text-balance text-[clamp(2.4rem,1rem+5vw,4.8rem)] leading-[1.06] font-bold text-brand"
+          >
+            <span className="block">Teambuilding koji se pamti.</span>{" "}
+            <span className="mt-1 inline-block bg-accent-clay/12 px-[0.18em] text-accent-clay">
+              I koji se vidi u uredu.
+            </span>
+          </h1>
+          <p
+            style={{ animationDelay: "160ms" }}
+            className="uvod mx-auto mt-7 max-w-2xl text-lg leading-relaxed text-ink/80 md:text-xl"
+          >
+            Dan na terenu s psihologinjom i vojnim instruktorom. Zadaci koji
+            izvuku ljude iz uloga i zajednički osvrt na kraju.
+          </p>
+          <div
+            style={{ animationDelay: "240ms" }}
+            className="uvod mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row sm:flex-wrap sm:gap-x-8"
+          >
+            <OtvoriRazgovor className={`${gumb} w-full sm:w-auto`}>
+              Zatražite razgovor
+            </OtvoriRazgovor>
+            <a href="#ponuda" className={`${veza} text-brand`}>
+              Pogledajte ponudu
+              <ChevronRight size={17} className={strelica} />
+            </a>
+            <Link href="/upitnik" className={`${veza} text-brand`}>
+              Provjerite gdje vaš tim stoji
+              <ChevronRight size={17} className={strelica} />
+            </Link>
           </div>
-
-          <Foto
-            foto="flipchart"
-            priority
-            pozicija="28% center"
-            className="w-full"
-          />
+          <p
+            style={{ animationDelay: "300ms" }}
+            className="uvod mt-6 text-sm font-medium text-ink/70"
+          >
+            Što nam povjerite, ostaje kod nas. To možemo garantirati.
+          </p>
         </div>
 
-        {/* Traka povjerenja */}
-        <div className="border-t border-white/15">
-          <div className="mx-auto grid max-w-6xl px-5 sm:grid-cols-3 lg:px-8">
-            {[
-              "Teren i izazovi",
-              "Psihologinja i vojni instruktori",
-              "Dan koji tim pamti",
-            ].map((item) => (
-              <p
-                key={item}
-                className="border-white/12 py-4 text-sm font-medium text-white not-last:border-b sm:border-b-0! sm:py-6 sm:not-last:border-r sm:not-last:pr-6 sm:[&:not(:first-child)]:pl-6"
-              >
-                {item}
-              </p>
+        <div
+          style={{ animationDelay: "360ms" }}
+          className="uvod mx-auto max-w-6xl px-5 pb-20 md:pb-28 lg:px-8"
+        >
+          <div className="-mx-5 flex snap-x snap-mandatory scroll-px-5 gap-3 overflow-x-auto overscroll-x-contain px-5 [scrollbar-width:none] md:mx-0 md:grid md:grid-cols-3 md:gap-4 md:overflow-visible md:px-0 [&::-webkit-scrollbar]:hidden">
+            {UVOD_FOTO.map(([foto, pozicija], i) => (
+              <Foto
+                key={foto}
+                foto={foto}
+                pozicija={pozicija}
+                priority={i === 1}
+                sizes="(min-width: 768px) 33vw, 80vw"
+                className="aspect-[4/5] w-[80%] shrink-0 snap-start max-md:aspect-[4/5] max-md:h-auto max-md:max-h-none md:w-auto"
+              />
             ))}
           </div>
         </div>
       </section>
 
-      <Section tone="surface" id="dan">
-        <div className="grid items-start gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
-          <div>
-            <Eyebrow>Teren</Eyebrow>
-            <SectionTitle className="mt-5">Kako izgleda dan s nama</SectionTitle>
-            <p className="lead mt-5 text-ink-muted">
-              Jedan dan, od dolaska do završnog kruga.
-            </p>
-            <ol className="mt-10">
-              {DAN.map((d) => (
-                <li
-                  key={d.naslov}
-                  className="relative border-l border-line pb-8 pl-8 last:pb-0"
-                >
-                  <span
-                    aria-hidden
-                    className="absolute top-1.5 left-0 size-2.5 -translate-x-1/2 bg-accent-clay"
-                  />
-                  <h3 className="text-xl font-bold text-brand-deep">{d.naslov}</h3>
-                  <p className="mt-1.5 leading-relaxed text-ink-muted">{d.tekst}</p>
-                </li>
-              ))}
-            </ol>
-          </div>
-          <div className="grid grid-cols-2 gap-3">
-            {DAN_FOTO.map((foto) => (
+      {/* Uspjeh tima */}
+      <Section tone="alt" unutra="max-w-4xl text-center">
+        <p className="font-display text-balance text-[clamp(1.9rem,1.1rem+2.8vw,3rem)] leading-[1.12] font-bold tracking-[-0.03em] text-brand">
+          Uspjeh je rezultat{" "}
+          <span className="text-accent-clay">
+            uspješnog funkcioniranja tima.
+          </span>
+        </p>
+        <p className="lead mx-auto mt-7 max-w-2xl text-ink/80">
+          Vrijeme je da vaš tim postane više od grupe ljudi koji rade zajedno.
+          Gradimo timove koji vjeruju jedni drugima, surađuju i zajedno stvaraju
+          rezultate. Jer tim je jak onoliko koliko su jake njegove veze.
+        </p>
+      </Section>
+
+      {/* Bez dvorane */}
+      <Section tone="surface">
+        <SectionTitle className="max-w-3xl">
+          Bez prezentacija u dvorani. <Tiho>Tim radi, a ne sluša.</Tiho>
+        </SectionTitle>
+        <div className="mt-12 grid gap-3 md:grid-cols-3 md:grid-rows-2 md:gap-4">
+          <Otkrij className="md:col-span-2 md:row-span-2">
+            <div className="relative h-full min-h-[420px] overflow-hidden">
               <Foto
-                key={foto}
-                foto={foto}
-                sizes="(min-width: 1024px) 22vw, 45vw"
-                className="max-md:aspect-[3/4] max-md:h-auto max-md:max-h-none"
+                foto="koordinacija"
+                pozicija="center 40%"
+                sizes="(min-width: 768px) 66vw, 90vw"
+                className="absolute inset-0 aspect-auto h-full max-md:aspect-auto max-md:h-full max-md:max-h-none"
               />
-            ))}
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-brand-deep/85 via-brand-deep/15 to-transparent" />
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 p-8 text-surface md:p-10">
+                <p className="natpis text-surface/75">Teren i izazovi</p>
+                <h3 className="font-display mt-3 max-w-md text-[clamp(1.6rem,1rem+1.6vw,2.4rem)] leading-[1.1] font-bold tracking-[-0.03em]">
+                  Većinu dana ste vani i rješavate zadatke zajedno.
+                </h3>
+              </div>
+            </div>
+          </Otkrij>
+          <Otkrij kasnjenje={110}>
+            <article
+              className={`flex h-full flex-col bg-brand p-8 text-surface ${podigni}`}
+            >
+              <p className="natpis text-surface/60">Tko vas vodi</p>
+              <h3 className="font-display mt-4 text-2xl leading-tight font-bold">
+                Psihologinja i vojni instruktori
+              </h3>
+              <p className="mt-auto pt-6 leading-relaxed text-surface/75">
+                Ljudi koji znaju voditi grupu i kad postane napeto.
+              </p>
+            </article>
+          </Otkrij>
+          <Otkrij kasnjenje={220}>
+            <article
+              className={`flex h-full flex-col bg-accent-clay p-8 text-white ${podigni}`}
+            >
+              <p className="natpis text-white/70">Što ostaje</p>
+              <h3 className="font-display mt-4 text-2xl leading-tight font-bold">
+                Dan koji tim pamti
+              </h3>
+              <p className="mt-auto pt-6 leading-relaxed text-white/85">
+                Puno smijeha, a na kraju zajednički osvrt koji ide u ured.
+              </p>
+            </article>
+          </Otkrij>
+        </div>
+      </Section>
+
+      {/* Dan s nama */}
+      <Section tone="dark" id="dan">
+        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div>
+            <Eyebrow tone="dark">Teren</Eyebrow>
+            <SectionTitle tone="dark" className="mt-4">
+              Kako izgleda dan s nama
+            </SectionTitle>
           </div>
+          <p className="max-w-sm text-lg leading-relaxed text-surface/70">
+            Jedan dan, od dolaska do završnog kruga.
+          </p>
+        </div>
+        <div className="mt-12">
+          <Vrtuljak oznaka="Koraci jednog dana" svijetlo>
+            {DAN.map((d, i) => (
+              <article
+                key={d.naslov}
+                className={`relative flex min-h-[320px] w-[78%] shrink-0 snap-start flex-col bg-surface p-8 text-brand sm:w-[46%] lg:w-[calc((100%-24px)/3)] ${podigni}`}
+              >
+                <p className="natpis text-accent-clay">{d.kada}</p>
+                <span
+                  aria-hidden
+                  className="font-display absolute top-5 right-7 text-7xl font-bold tracking-[-0.05em] text-brand/[0.07]"
+                >
+                  {`0${i + 1}`}
+                </span>
+                <h3 className="font-display mt-auto text-3xl font-bold">
+                  {d.naslov}
+                </h3>
+                <p className="mt-3 leading-relaxed text-ink/80">{d.tekst}</p>
+              </article>
+            ))}
+          </Vrtuljak>
         </div>
       </Section>
 
       {/* Problem */}
-      <Section tone="alt">
-        <div className="grid gap-12 lg:grid-cols-[1fr_1fr] lg:gap-20">
-          <div>
-            <Eyebrow>Problem</Eyebrow>
-            <SectionTitle className="mt-5">
-              Je li vaš teambuilding samo još jedan izlet u prirodu?
-            </SectionTitle>
-          </div>
-          <div>
-            <p className="lead text-ink">
-              Ljudi se dobro provedu. Vrate se u ured i sve ostane isto.
-            </p>
-            <p className="mt-4 text-lg leading-relaxed text-ink">
-              Kod nas zabava dolazi iz zadataka koji ostaju u sjećanju.
-            </p>
-          </div>
+      <Section tone="surface" unutra="max-w-4xl text-center">
+        <Eyebrow>Problem</Eyebrow>
+        <SectionTitle className="mt-4">
+          Je li vaš teambuilding samo još jedan izlet u prirodu?
+        </SectionTitle>
+        <blockquote className="font-display mt-10 text-balance text-[clamp(1.5rem,1rem+1.8vw,2.25rem)] leading-[1.2] font-bold tracking-[-0.025em] text-brand">
+          „Ljudi se dobro provedu. Vrate se u ured i sve ostane isto.{" "}
+          <span className="text-accent-clay">
+            Kod nas zabava dolazi iz zadataka koji ostaju u sjećanju.”
+          </span>
+        </blockquote>
+        <div className="mt-8 flex items-center justify-center gap-3">
+          <Foto
+            foto="portretZajedno"
+            pozicija="center 30%"
+            sizes="48px"
+            className="aspect-square size-12 max-md:aspect-square max-md:h-12 max-md:max-h-12"
+          />
+          <p className="text-sm font-semibold text-brand">Helena i Dinko</p>
         </div>
       </Section>
 
       {/* Jak tim */}
-      <Section tone="dark">
+      <Section tone="alt">
         <div className="grid gap-12 lg:grid-cols-[1.2fr_1fr] lg:items-center lg:gap-20">
           <div>
-            <Eyebrow tone="dark">Tim</Eyebrow>
-            <SectionTitle tone="dark" className="mt-5">
-              Jak tim ne nastaje slučajno. Gradi se.
+            <Eyebrow>Tim</Eyebrow>
+            <SectionTitle className="mt-4">
+              Jak tim ne nastaje slučajno. <Tiho>Gradi se.</Tiho>
             </SectionTitle>
-            <div className="mt-7 space-y-4 leading-relaxed">
-              <p className="lead text-white">
+            <div className="mt-8 space-y-4 leading-relaxed">
+              <p className="lead text-ink">
                 Tim nije samo skup pojedinaca. Tim čine odnosi, povjerenje,
                 komunikacija i sposobnost da ljudi djeluju zajedno, čak i onda
                 kada se ne slažu. Uspješni rezultati nisu posljedica samo
                 individualnog talenta. Oni su rezultat dobrog funkcioniranja
                 cijelog tima.
               </p>
-              <p className="text-lg text-white/80">
+              <p className="text-lg text-ink/80">
                 Snaga tima mjeri se kvalitetom odnosa među njegovim članovima.
                 Kada postoje povjerenje, otvorena komunikacija i spremnost na
                 suradnju, tim ne samo da bolje funkcionira. On napreduje.
               </p>
-              <p className="text-lg font-medium text-white">
+              <p className="font-display py-2 text-2xl leading-snug font-bold tracking-[-0.02em] text-accent-clay">
                 Zato teambuilding nije samo druženje izvan ureda.
               </p>
-              <p className="text-lg text-white/80">
+              <p className="text-lg text-ink/80">
                 To je prilika da se članovi tima bolje upoznaju i povežu, nauče
                 slušati jedni druge, prepoznaju svoje različitosti i zajedno
                 pronađu način da ih pretvore u snagu.
               </p>
-              <p className="text-lg text-white/80">
-                <span className="font-medium text-white">
+              <p className="text-lg text-ink/80">
+                <span className="font-semibold text-brand">
                   A konflikti? I oni su dio svakog tima.
                 </span>{" "}
                 Ne moraju biti problem. Mogu biti prilika za učenje, razvoj i
@@ -319,64 +404,71 @@ export default function Pocetna() {
               </p>
             </div>
           </div>
-          <Foto
-            foto="suradnja"
-            pozicija="center 30%"
-            className="w-full"
-          />
+          <Foto foto="suradnja" pozicija="center 30%" className="w-full" />
         </div>
       </Section>
 
       {/* Tri stupa */}
-      <Section tone="alt">
-        <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-start lg:gap-16">
-          <Foto
-            foto="orijentacija"
-            pozicija="center 45%"
-            className="order-2 w-full lg:order-1"
-          />
-          <div className="order-1 lg:order-2">
-            <Eyebrow>Diferencijacija</Eyebrow>
-            <SectionTitle className="mt-5">
-              Zašto ovo nije klasičan teambuilding?
-            </SectionTitle>
-            <div className="mt-10 grid gap-8">
-              {STUPOVI.map((s) => (
-                <div key={s.naslov} className="border-t border-line pt-6">
-                  <h3 className="text-xl font-bold text-brand-deep">{s.naslov}</h3>
-                  <p className="mt-1.5 leading-relaxed text-ink-muted">{s.tekst}</p>
-                </div>
-              ))}
-            </div>
-          </div>
+      <Section tone="surface">
+        <div className="max-w-3xl">
+          <Eyebrow>Diferencijacija</Eyebrow>
+          <SectionTitle className="mt-4">
+            Zašto ovo nije klasičan teambuilding?
+          </SectionTitle>
+        </div>
+        <div className="mt-12 grid gap-3 md:grid-cols-3 md:gap-4">
+          {STUPOVI.map((s, i) => (
+            <Otkrij key={s.naslov} kasnjenje={i * 110}>
+              <article
+                className={`relative flex h-full flex-col bg-surface-alt p-8 ${podigni}`}
+              >
+                <span
+                  aria-hidden
+                  className="font-display absolute top-5 right-7 text-6xl font-bold tracking-[-0.05em] text-brand/[0.08]"
+                >
+                  {`0${i + 1}`}
+                </span>
+                <h3 className="font-display mt-16 text-2xl leading-tight font-bold text-brand">
+                  {s.naslov}
+                </h3>
+                <p className="mt-3 leading-relaxed text-ink/80">{s.tekst}</p>
+              </article>
+            </Otkrij>
+          ))}
         </div>
       </Section>
 
       {/* Kako izgleda suradnja */}
-      <Section tone="surface">
+      <Section tone="dark">
         <div className="max-w-2xl">
-          <Eyebrow>Proces</Eyebrow>
-          <SectionTitle className="mt-5">Tri koraka, ne jedan dan</SectionTitle>
-          <p className="lead mt-5 text-ink-muted">
+          <Eyebrow tone="dark">Proces</Eyebrow>
+          <SectionTitle tone="dark" className="mt-4">
+            Tri koraka, <Tiho>ne jedan dan</Tiho>
+          </SectionTitle>
+          <p className="lead mt-5 text-surface/75">
             Dan na terenu je srce. Prije njega se dogovorimo što tim treba, a
             poslije sjednemo na zajednički osvrt.
           </p>
         </div>
-        <div className="mt-14 grid gap-10 md:grid-cols-3 md:gap-8">
-          {KORACI.map((k) => (
-            <div key={k.broj} className="group">
-              <p className="text-sm font-bold tracking-[0.14em] text-accent-clay">
-                {k.broj}
-              </p>
-              <div className="relative mt-3 h-px bg-line">
+        <div className="mt-12 grid gap-3 md:grid-cols-3 md:gap-4">
+          {KORACI.map((k, i) => (
+            <Otkrij key={k.broj} kasnjenje={i * 110}>
+              <article
+                className={`relative flex h-full min-h-[280px] flex-col bg-surface p-8 text-brand ${podigni}`}
+              >
+                <p className="natpis text-accent-clay">Korak {k.broj}</p>
                 <span
                   aria-hidden
-                  className="absolute inset-0 origin-left scale-x-0 bg-accent-clay motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-out group-hover:scale-x-100"
-                />
-              </div>
-              <h3 className="mt-4 text-xl font-bold text-brand-deep">{k.naslov}</h3>
-              <p className="mt-2 leading-relaxed text-ink-muted">{k.tekst}</p>
-            </div>
+                  className="font-display absolute top-5 right-7 text-7xl font-bold tracking-[-0.05em] text-brand/[0.07]"
+                >
+                  {k.broj}
+                </span>
+                <h3 className="font-display mt-auto text-3xl font-bold">
+                  {k.naslov}
+                </h3>
+                <p className="mt-3 leading-relaxed text-ink/80">{k.tekst}</p>
+              </article>
+            </Otkrij>
           ))}
         </div>
       </Section>
@@ -386,84 +478,102 @@ export default function Pocetna() {
         <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-2xl">
             <Eyebrow>Ponuda</Eyebrow>
-            <SectionTitle className="mt-5">Programi za vaš tim</SectionTitle>
-            <p className="lead mt-5 text-ink-muted">
+            <SectionTitle className="mt-4">Programi za vaš tim</SectionTitle>
+            <p className="lead mt-5 text-ink/80">
               Sadržaj, lokaciju i način provedbe dogovaramo prema potrebama
               vašeg tima i našoj procjeni. Sjedište nam je u okolici Zagreba.
               Najzgodnija nam je Zagrebačka županija, a otvoreni smo za rad
-              diljem Hrvatske. Sve cijene uključuju PDV. Kliknite na program
-              za opis i cjenik.
+              diljem Hrvatske. Sve cijene uključuju PDV. Kliknite na program za
+              opis i cjenik.
             </p>
           </div>
           <Link
             href="/upitnik"
-            className="inline-flex shrink-0 items-center gap-2 self-start text-sm font-semibold text-accent-clay-dark underline underline-offset-4 sm:self-auto"
+            className={`${veza} shrink-0 self-start text-accent-clay-dark sm:self-auto`}
           >
             Niste sigurni? Ispunite upitnik
-            <ArrowRight size={15} />
+            <ChevronRight size={17} className={strelica} />
           </Link>
         </div>
         <div className="mt-12">
-          <ProgramKartice />
+          <ProgramKartice izgled="novo" />
         </div>
       </Section>
 
       {/* Mjerenje */}
-      <Section tone="dark">
-        <div className="max-w-2xl">
-          <Eyebrow tone="dark">Nakon dana</Eyebrow>
-          <SectionTitle tone="dark" className="mt-5">
-            Kako znate da je vrijedilo
-          </SectionTitle>
-          <p className="lead mt-6 text-white">
+      <section className="bg-accent-clay text-white">
+        <Otkrij className="mx-auto grid max-w-6xl gap-8 px-5 py-20 md:grid-cols-2 md:items-end md:py-28 lg:px-8">
+          <div>
+            <p className="eyebrow text-white/75">Nakon dana</p>
+            <h2 className="font-display mt-4 text-balance text-[clamp(2rem,1.2rem+3vw,3.25rem)] leading-[1.08] font-bold">
+              Kako znate da je vrijedilo
+            </h2>
+          </div>
+          <p className="font-display text-balance text-[clamp(1.4rem,1rem+1.4vw,2rem)] leading-[1.2] font-bold tracking-[-0.02em] text-white/90">
             Ako program zadrži jednu osobu, platio se sam.
           </p>
-        </div>
-      </Section>
+        </Otkrij>
+      </section>
 
       {/* Osnivači */}
       <Section tone="surface">
-        <div className="grid gap-12 lg:grid-cols-[1fr_1fr] lg:gap-20">
-          <div>
-            <Eyebrow>Autoritet</Eyebrow>
-            <SectionTitle className="mt-5">
-              Metode razvijene ondje gdje greška ima posljedice
-            </SectionTitle>
-            <div className="mt-8 space-y-6">
-              <div className="border-l-2 border-accent-clay pl-5">
-                <h3 className="text-xl font-bold text-brand-deep">Helena</h3>
-                <p className="mt-1.5 leading-relaxed text-ink-muted">
-                  Psihologinja. Bivša časnica OSRH, s terena i iz vojske.
-                  Poznaje vodstvo i hijerarhiju iznutra. Coach je sljedeći
-                  korak: pomaže timovima i liderima izgraditi psihološku
-                  otpornost i otvorenu komunikaciju pod pritiskom.
-                </p>
-              </div>
-              <div className="border-l-2 border-accent-clay pl-5">
-                <h3 className="text-xl font-bold text-brand-deep">Dinko</h3>
-                <p className="mt-1.5 leading-relaxed text-ink-muted">
-                  Ekonomist. Bivši dočasnik i vojni instruktor u OSRH. Prenosi
-                  operativnu strukturu u poslovne timove i osmišljava vježbe u
-                  kojima svatko ima svoju ulogu.
-                </p>
-              </div>
-            </div>
-            <p className="mt-8 text-xl leading-snug font-medium text-balance text-brand-deep">
-              Držimo prostor i vodimo vas i kada postane teško.
-            </p>
-            <Link
-              href="/o-nama"
-              className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-accent-clay-dark underline underline-offset-4"
-            >
-              Više o nama
-              <ArrowRight size={15} />
-            </Link>
-          </div>
-          <Foto
-            foto="portretZajedno"
-            pozicija="center 25%"
-            className="w-full"
-          />
+        <div className="max-w-3xl">
+          <Eyebrow>Autoritet</Eyebrow>
+          <SectionTitle className="mt-4">
+            Metode razvijene ondje gdje greška ima posljedice
+          </SectionTitle>
+        </div>
+        <div className="mt-12 grid gap-3 md:grid-cols-2 md:gap-4">
+          {[
+            {
+              foto: "helena" as const,
+              pozicija: "center 72%",
+              ime: "Helena",
+              uloga: "Psihologinja i bivša časnica OSRH",
+              tekst:
+                "Psihologinja. Bivša časnica OSRH, s terena i iz vojske. Poznaje vodstvo i hijerarhiju iznutra. Coach je sljedeći korak: pomaže timovima i liderima izgraditi psihološku otpornost i otvorenu komunikaciju pod pritiskom.",
+            },
+            {
+              foto: "dinko" as const,
+              pozicija: "center 20%",
+              ime: "Dinko",
+              uloga: "Bivši dočasnik i vojni instruktor",
+              tekst:
+                "Ekonomist. Bivši dočasnik i vojni instruktor u OSRH. Prenosi operativnu strukturu u poslovne timove i osmišljava vježbe u kojima svatko ima svoju ulogu.",
+            },
+          ].map((o, i) => (
+            <Otkrij key={o.ime} kasnjenje={i * 120}>
+              <article
+                className={`flex h-full flex-col bg-surface-alt ${podigni}`}
+              >
+                <Foto
+                  foto={o.foto}
+                  pozicija={o.pozicija}
+                  sizes="(min-width: 768px) 50vw, 90vw"
+                  className="aspect-[4/3] max-md:aspect-[4/3] max-md:h-auto max-md:max-h-none"
+                />
+                <div className="p-8">
+                  <p className="natpis text-accent-clay">{o.uloga}</p>
+                  <h3 className="font-display mt-3 text-3xl font-bold text-brand">
+                    {o.ime}
+                  </h3>
+                  <p className="mt-3 leading-relaxed text-ink/80">{o.tekst}</p>
+                </div>
+              </article>
+            </Otkrij>
+          ))}
+        </div>
+        <div className="mt-10 flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
+          <p className="font-display text-2xl leading-snug font-bold tracking-[-0.02em] text-balance text-brand">
+            Držimo prostor i vodimo vas i kada postane teško.
+          </p>
+          <Link
+            href="/o-nama"
+            className={`${veza} shrink-0 text-accent-clay-dark`}
+          >
+            Više o nama
+            <ChevronRight size={17} className={strelica} />
+          </Link>
         </div>
       </Section>
 
@@ -471,7 +581,7 @@ export default function Pocetna() {
         <div className="grid gap-12 lg:grid-cols-[1fr_1.15fr] lg:items-start lg:gap-20">
           <div>
             <Eyebrow>Instagram</Eyebrow>
-            <SectionTitle className="mt-5">Zadnje objave</SectionTitle>
+            <SectionTitle className="mt-4">Zadnje objave</SectionTitle>
             <p className="lead mt-5 text-ink">
               Helena i Dinko na @{INSTAGRAM_HANDLE}. Profil se otvara u novom
               tabu.
@@ -480,24 +590,24 @@ export default function Pocetna() {
               href={INSTAGRAM_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-accent-clay-dark underline underline-offset-4"
+              className={`${veza} mt-6 text-accent-clay-dark`}
             >
               Otvori Instagram
-              <ArrowRight size={15} />
+              <ChevronRight size={17} className={strelica} />
             </a>
           </div>
-          <div className="border border-line bg-white p-3 sm:p-4">
+          <div className="bg-surface p-3 sm:p-4">
             <InstagramFeed />
           </div>
         </div>
       </Section>
 
       {/* Za koga nije */}
-      <Section tone="surface">
-        <div className="max-w-3xl border-l-4 border-accent-clay bg-surface-alt px-6 py-8 sm:px-8 sm:py-10">
+      <Section tone="surface" unutra="pb-0 md:pb-0">
+        <div className="bg-surface-alt px-6 py-10 sm:px-12 sm:py-14">
           <Eyebrow>Granice</Eyebrow>
-          <SectionTitle className="mt-5">Kad nismo pravi izbor</SectionTitle>
-          <p className="lead mt-6 text-ink">
+          <SectionTitle className="mt-4">Kad nismo pravi izbor</SectionTitle>
+          <p className="lead mt-6 max-w-2xl text-ink">
             Kod nas ima zabave, ali ne samo zabave. Ako želite isključivo
             opušteni izlet, reći ćemo vam iskreno.
           </p>
@@ -509,7 +619,7 @@ export default function Pocetna() {
         <div className="grid gap-10 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
           <div>
             <Eyebrow>Česta pitanja</Eyebrow>
-            <SectionTitle className="mt-5">
+            <SectionTitle className="mt-4">
               Ono što HR obično pita prvo
             </SectionTitle>
           </div>
@@ -518,12 +628,12 @@ export default function Pocetna() {
               <AccordionItem
                 key={p.q}
                 value={`p-${i}`}
-                className="border-b border-line"
+                className="border-b border-brand/15"
               >
-                <AccordionTrigger className="py-5 text-base font-semibold text-brand-deep hover:no-underline">
+                <AccordionTrigger className="py-6 text-left text-lg font-semibold tracking-[-0.01em] text-brand hover:no-underline">
                   {p.q}
                 </AccordionTrigger>
-                <AccordionContent className="pb-5 text-[0.95rem] leading-relaxed text-ink-muted">
+                <AccordionContent className="pb-6 text-base leading-relaxed text-ink/80">
                   {p.a}
                 </AccordionContent>
               </AccordionItem>
@@ -538,24 +648,25 @@ export default function Pocetna() {
           <div>
             <SectionTitle
               tone="dark"
-              className="text-[clamp(2rem,1.1rem+3.4vw,3.75rem)]"
+              className="text-[clamp(2.2rem,1.1rem+3.6vw,3.75rem)]"
             >
               Recite nam gdje tim zapinje
             </SectionTitle>
-            <p className="lead mt-6 text-white">
+            <p className="lead mt-6 text-surface">
               Petnaest minuta razgovora, bez obveze. Ako procijenimo da vam ne
               možemo pomoći, reći ćemo vam.
             </p>
-            <p className="mt-4 leading-relaxed text-white/80">
-              Javljamo se unutar 24 radna sata, s konkretnim prijedlogom
-              koraka. Bez generičke prezentacije.
+            <p className="mt-4 leading-relaxed text-surface/75">
+              Javljamo se unutar 24 radna sata, s konkretnim prijedlogom koraka.
+              Bez generičke prezentacije.
             </p>
           </div>
-          <div className="bg-white">
+          <div className="bg-surface">
             <RazgovorObrazac idPrefix="podnozje" />
           </div>
         </div>
       </Section>
     </>
+    </NoviIzgledOkvir>
   );
 }

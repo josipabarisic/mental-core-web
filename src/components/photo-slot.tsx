@@ -77,7 +77,7 @@ export function Foto({
     <div
       className={cn(
         // Portretni okvir 3:4 i za široke snimke: u hero stupcu 3:2 izgleda stisnuto.
-        "relative aspect-[3/4] w-full overflow-hidden bg-surface-alt max-md:aspect-auto max-md:h-[360px] max-md:max-h-[360px]",
+        "group relative aspect-[3/4] w-full overflow-hidden bg-surface-alt max-md:aspect-auto max-md:h-[360px] max-md:max-h-[360px]",
         className,
       )}
     >
@@ -94,7 +94,7 @@ export function Foto({
         loading={priority ? "eager" : "lazy"}
         decoding="async"
         style={{ objectPosition: pozicija }}
-        className="absolute inset-0 size-full object-cover"
+        className="absolute inset-0 size-full object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.04]"
       />
     </div>
   );
