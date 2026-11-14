@@ -55,7 +55,7 @@ export default async function OpengraphImage() {
               color: "#D3C8BB",
             }}
           >
-            TEAMBULDING I RAZVOJ TIMOVA
+            TEAMBUILDING I RAZVOJ TIMOVA
           </div>
         </div>
 

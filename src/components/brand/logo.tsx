@@ -28,7 +28,7 @@ export function Logo({
           descColor,
         )}
       >
-        TEAMBULDING I RAZVOJ TIMOVA
+        TEAMBUILDING I RAZVOJ TIMOVA
       </span>
       <span className="sr-only">Mental Core</span>
     </span>
