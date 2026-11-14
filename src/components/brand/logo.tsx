@@ -24,11 +24,11 @@ export function Logo({
       <span className={cn("my-1 h-px w-full", ruleColor)} />
       <span
         className={cn(
-          "font-display text-[0.5rem] leading-none font-bold tracking-[0.24em] sm:text-[0.6rem]",
+          "font-display text-[0.46rem] leading-none font-bold tracking-[0.12em] whitespace-nowrap sm:text-[0.55rem] sm:tracking-[0.14em]",
           descColor,
         )}
       >
-        RAZVOJ TIMOVA I LIDERA
+        TEAMBULDING I RAZVOJ TIMOVA
       </span>
       <span className="sr-only">Mental Core</span>
     </span>

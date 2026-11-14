@@ -7,7 +7,7 @@ export const contentType = "image/png";
 // Required so the image is baked into the static export for GitHub Pages.
 export const dynamic = "force-static";
 export const alt =
-  "Mental Core. Uspjeh je rezultat uspješnog funkcioniranja tima. Zatražite razgovor.";
+  "Mental Core. Teambuilding koji se pamti. I koji se vidi u uredu.";
 
 export default async function OpengraphImage() {
   const font = await readFile(
@@ -42,7 +42,7 @@ export default async function OpengraphImage() {
           <div
             style={{
               marginTop: 10,
-              width: 250,
+              width: 460,
               height: 1,
               background: "#D3C8BB",
             }}
@@ -51,11 +51,11 @@ export default async function OpengraphImage() {
             style={{
               marginTop: 10,
               fontSize: 14,
-              letterSpacing: "0.3em",
+              letterSpacing: "0.16em",
               color: "#D3C8BB",
             }}
           >
-            RAZVOJ TIMOVA I LIDERA
+            TEAMBULDING I RAZVOJ TIMOVA
           </div>
         </div>
 
@@ -68,7 +68,7 @@ export default async function OpengraphImage() {
               letterSpacing: "0.01em",
             }}
           >
-            Uspjeh je rezultat uspješnog
+            Teambuilding koji se pamti.
           </div>
           <div
             style={{
@@ -78,10 +78,10 @@ export default async function OpengraphImage() {
               letterSpacing: "0.01em",
             }}
           >
-            funkcioniranja tima.
+            I koji se vidi u uredu.
           </div>
           <div style={{ marginTop: 22, fontSize: 26, color: "#D3C8BB" }}>
-            Gradimo timove koji vjeruju jedni drugima.
+            Uspjeh je rezultat uspješnog funkcioniranja tima.
           </div>
           <div
             style={{

@@ -38,12 +38,36 @@ export const NAPOMENA_LOKACIJA =
   "Lokaciju teambuildinga može odabrati Mental Core ili je birate vi. Sjedište nam je u okolici Zagreba, najzgodnija nam je Zagrebačka županija, a otvoreni smo za rad diljem Hrvatske.";
 
 const UKLJUCUJE_TERENSKI =
-  "Uključuje razgovor s voditeljem organizacijske jedinice, razgovor sa svim članovima organizacijske jedinice, posebne vježbe na terenu za članove i voditelje organizacijske jedinice, analizu i raščlambu provedenih vježbi te feedback o odrađenim vježbama. Uz sve navedeno uključeno je vrijeme za opuštanje i zabavu svih sudionika teambuildinga. Uključuje i stručno pisano izvješće o svim provedenim aktivnostima tijekom teambuildinga.";
+  "Uključuje razgovor s voditeljem, razgovor s članovima tima i zadatke na terenu. Nakon zadataka sjednemo na zajednički osvrt. Uz to ostaje vrijeme za opuštanje i zabavu.";
 
 const DODATNO_ANALIZA_COACHING =
   "Uz dodatnu naknadu moguće je uključiti analizu tima i coaching lidera. Coaching uz teambuilding ide brže od klasičnog, jer Helena ulazi u razgovor već poznajući tim, ne samo lidera.";
 
 export const PROGRAMI: Program[] = [
+  {
+    slug: "fun",
+    naziv: "Mental Core FUN",
+    podnaslov: "Teambuilding za dan po vašoj mjeri",
+    sazetak:
+      "Igre koje potiču komunikaciju i promišljanje. Vježbe su produktivne i zabavne, izvan uobičajenog radnog konteksta.",
+    detalji: [
+      "Igre za komunikaciju i promišljanje",
+      "Zajednički osvrt",
+      "Ulaz u rad na timu",
+    ],
+    opis: [
+      "U Mental Core FUN-u su igre koje potiču dobru komunikaciju i promišljanje. Vježbe su produktivne, a zabavne.",
+      "Ljudi ponekad pričaju različitim jezicima. Postoje igre koje pomažu da se to prevlada. Rad je izvan uobičajenog konteksta, daleko od stola i uobičajenih uloga.",
+      "Na kraju dana napravimo kratak zajednički osvrt. FUN je ulaz, prije sljedeće razine rada na timu.",
+      "Odaberite datum, a mi preuzimamo organizaciju prema vašim željama i broju sudionika. Cijenu formiramo prema odabranim prijedlozima i broju sudionika.",
+    ],
+    ukljuceno: [
+      "Igre koje potiču komunikaciju i promišljanje",
+      "Vježbe izvan uobičajenog radnog konteksta",
+      "Zajednički osvrt",
+      "Organizacija dana prema dogovorenim prijedlozima",
+    ],
+  },
   {
     slug: "analiza-tima",
     naziv: "Analiza tima i radionice",
@@ -81,22 +105,20 @@ export const PROGRAMI: Program[] = [
   {
     slug: "mini",
     naziv: "Mental Core MINI",
-    podnaslov: "Kratki trening u trajanju od 5 sati",
-    sazetak:
-      "Poludnevni trening s razgovorima, vježbama i pisanim izvješćem. Po želji uz coaching lidera na terenu.",
-    detalji: ["5 sati", "Do 20 osoba", "Opcija: coaching lidera"],
+    podnaslov: "Poludnevni teambuilding, 5 sati",
+    sazetak: "Poludnevni teambuilding s izazovima na terenu.",
+    detalji: ["5 sati", "Do 20 osoba", "Dodatak: coaching lidera"],
     cijenaOd: 1200,
     opis: [
-      "Kratki trening u trajanju od 5 sati, unutar ili izvan vašeg poslovnog kompleksa.",
-      "Može uključivati i coaching lidera na terenu. Coaching lidera je strukturiran proces razvoja lidera kroz razgovor, refleksiju i praktičan rad. Cilj mu je jačanje liderskih kompetencija, samosvijesti, komunikacije i sposobnosti vođenja ljudi. Ovdje ide brže od klasičnog coachinga, jer Helena ulazi u razgovor već poznajući tim i kako funkcionira pod pritiskom.",
+      "Poludnevni teambuilding s izazovima na terenu, unutar ili izvan vašeg poslovnog kompleksa.",
+      "Coaching lidera možete dodati. Ide brže od klasičnog, jer Helena ulazi u razgovor već poznajući tim, ne samo lidera.",
     ],
     foto: "dvoranskaVjezba",
     ukljuceno: [
-      "Razgovor s članovima organizacijske jedinice",
-      "Razgovor s voditeljem organizacijske jedinice",
-      "Vježbe unutar ili izvan poslovnog kompleksa",
-      "Zatvaranje aktivnosti uz feedback",
-      "Pisano izvješće za voditelja organizacijske jedinice, menadžera ili direktora",
+      "Zadaci na terenu, unutar ili izvan poslovnog kompleksa",
+      "Zajednički osvrt na kraju dana",
+      "Razgovor s voditeljem i članovima tima",
+      "Vrijeme da se dan zatvori zajedno",
     ],
     cjenik: [
       {
@@ -113,27 +135,24 @@ export const PROGRAMI: Program[] = [
     slug: "standard",
     preporuceno: true,
     naziv: "Mental Core STANDARD",
-    podnaslov: "Jednodnevni trening u trajanju od 8 do 10 sati",
+    podnaslov: "Jednodnevni teambuilding, 8 do 10 sati",
     sazetak:
-      "Cijeli dan terenskih i timskih vježbi, s raščlambom, feedbackom, vremenom za druženje i stručnim izvješćem.",
-    detalji: ["8 do 10 sati", "Do 40 osoba", "Opcija: analiza i coaching"],
+      "Cijeli dan zadataka na terenu, uz zajednički osvrt i vrijeme za druženje.",
+    detalji: ["8 do 10 sati", "Do 40 osoba", "Dodatak: analiza i coaching"],
     cijenaOd: 1800,
     opis: [
-      "Jednodnevni trening u trajanju od 8 do 10 sati.",
+      "Jednodnevni teambuilding u trajanju od 8 do 10 sati.",
       UKLJUCUJE_TERENSKI,
       DODATNO_ANALIZA_COACHING,
     ],
     foto: "teren",
     ukljuceno: [
+      "Zadaci na terenu",
+      "Teambuilding u trajanju od 8 do 10 sati",
+      "Zajednički osvrt nakon zadataka",
+      "Vrijeme za druženje i opuštanje",
       "Priprema i razgovor s voditeljem",
       "Razgovori s članovima tima",
-      "Dizajn programa prema potrebama tima",
-      "8 do 10 sati provedbe",
-      "Terenske i timske vježbe",
-      "Analiza i raščlamba vježbi",
-      "Feedback sudionicima",
-      "Vrijeme za druženje i opuštanje",
-      "Stručno pisano izvješće",
     ],
     cjenik: [
       {
@@ -185,49 +204,24 @@ export const PROGRAMI: Program[] = [
     detalji: ["Po dogovoru", "Po vašoj želji"],
     opis: [
       "Personalizirani paket složen po vašoj želji. Trajanje, broj sudionika, lokaciju i sadržaj programa dogovaramo zajedno s vama, prema onome što vaš tim treba.",
-      "Odabirete usluge koje vaš tim treba: analizu tima, coaching lidera, lokaciju, hranu i piće, prijevoz, pripremu s voditeljem, dizajn programa, terenske i timske vježbe, feedback, analizu vježbi, pisano izvješće te vrijeme za opuštanje i druženje.",
+      "Odabirete usluge koje vaš tim treba: zadatke na terenu, zajednički osvrt, lokaciju, hranu i piće, prijevoz, pripremu s voditeljem i vrijeme za opuštanje i druženje. Analizu tima i coaching lidera možete dodati.",
       "Cijenu paketa formiramo nakon što odaberete usluge i dogovorimo broj sudionika.",
     ],
     ukljuceno: [
-      "Analiza tima i coaching lidera prema odabranom opsegu",
+      "Zadaci na terenu",
+      "Zajednički osvrt",
+      "Vrijeme za opuštanje i druženje",
       "Odabir lokacije, hrane i pića",
       "Razgovor i priprema s voditeljem",
       "Dizajn programa prema potrebama vašeg tima",
-      "Terenske i timske vježbe",
-      "Feedback sa sudionicima na terenu",
-      "Analiza i raščlamba vježbi",
-      "Pisano izvješće nakon teambuildinga",
-      "Vrijeme za opuštanje i druženje",
       "Organizirani prijevoz za sudionike",
+      "Dodatak: analiza tima",
+      "Dodatak: coaching lidera",
     ],
     ukljucenoNaslov: "Usluge u ponudi",
     dodatneUsluge: true,
     foto: "planiranje",
-  },
-  {
-    slug: "fun",
-    naziv: "Mental Core FUN",
-    podnaslov: "Paket za dan po vašoj mjeri",
-    sazetak:
-      "Igre koje potiču komunikaciju i promišljanje. Vježbe su produktivne i zabavne, izvan uobičajenog radnog konteksta.",
-    detalji: [
-      "Igre za komunikaciju i promišljanje",
-      "Kratko izvješće",
-      "Poziv prije sljedeće razine rada",
-    ],
-    opis: [
-      "U Mental Core FUN-u su igre koje potiču dobru komunikaciju i promišljanje. Vježbe su produktivne, a zabavne.",
-      "Ljudi ponekad pričaju različitim jezicima. Postoje igre koje pomažu da se to prevlada. Rad je izvan uobičajenog konteksta, daleko od stola i uobičajenih uloga.",
-      "Dobivate kratko izvješće. FUN je poziv prije sljedeće razine rada na timu.",
-      "Odaberite datum, a mi preuzimamo organizaciju prema vašim željama i broju sudionika. Cijenu formiramo prema odabranim prijedlozima i broju sudionika.",
-    ],
-    ukljuceno: [
-      "Igre koje potiču komunikaciju i promišljanje",
-      "Vježbe izvan uobičajenog radnog konteksta",
-      "Kratko izvješće",
-      "Organizacija dana prema dogovorenim prijedlozima",
-    ],
-  },
+  }
 ];
 
 export function eur(iznos: number) {

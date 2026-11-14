@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { FaqSchema } from "@/components/structured-data";
 import { OG_IMAGE } from "@/lib/seo";
 import {
@@ -15,25 +15,6 @@ import { InstagramFeed } from "@/components/instagram-feed";
 import { ProgramKartice } from "@/components/program-kartice";
 import { OtvoriRazgovor, RazgovorObrazac } from "@/components/razgovor";
 import { INSTAGRAM_HANDLE, INSTAGRAM_URL } from "@/lib/kontakt";
-
-const SIMPTOMI = [
-  {
-    kljuc: "Tim dobro radi",
-    tekst: "dok je mirno, a pod rokom se raspada.",
-  },
-  {
-    kljuc: "Konflikti se ne rješavaju,",
-    tekst: "nego zaobilaze.",
-  },
-  {
-    kljuc: "Ljudi odlaze,",
-    tekst: "a razloge saznate tek na izlaznom razgovoru.",
-  },
-  {
-    kljuc: "Ne možete upravi pokazati",
-    tekst: "što ste dobili za prošlogodišnji budžet.",
-  },
-];
 
 const STUPOVI = [
   {
@@ -68,46 +49,61 @@ const KORACI = [
   },
   {
     broj: "03",
-    naslov: "Izvješće i preporuke",
+    naslov: "Zajednički osvrt",
     tekst:
-      "Pisano izvješće s uočenim obrascima i preporukama za daljnji rad. Dokument koji možete pokazati upravi.",
+      "Ono što se dogodi na terenu razložimo zajedno i prevedemo u ono što tim radi u uredu.",
   },
 ];
 
-const POKAZATELJI = [
+const DAN = [
   {
-    naslov: "Upitnik prije i poslije",
-    tekst:
-      "Pomaci u komunikaciji, razini povjerenja i usklađenosti s ciljevima, mjereni na istom uzorku.",
+    naslov: "Dolazak",
+    tekst: "Stižemo na teren, kratko se predstavimo i dogovorimo kako dan ide.",
   },
   {
-    naslov: "Poslovni pokazatelji",
+    naslov: "Prvi zadatak",
     tekst:
-      "Fluktuacija, apsentizam i angažiranost. Podaci koje ionako već pratite.",
+      "Mali izazov. Dovoljan da se vidi tko vodi, tko šuti i tko drži grupu na okupu.",
   },
   {
-    naslov: "Operativni pokazatelji",
+    naslov: "Ručak",
+    tekst: "Pauza bez programa. Ljudi pričaju o onome što se upravo dogodilo.",
+  },
+  {
+    naslov: "Glavni izazov",
     tekst:
-      "Brzina odlučivanja i završetka projekata u 90 dana nakon programa.",
+      "Duži zadatak na terenu. Tim mora donijeti odluku i izvesti je do kraja.",
+  },
+  {
+    naslov: "Završni krug",
+    tekst:
+      "Sjednemo zajedno. Što se vidjelo na terenu, i što od toga ostaje u uredu.",
   },
 ];
+
+const DAN_FOTO = ["povjerenje", "orijentacija", "teren", "koordinacija"] as const;
 
 export const metadata: Metadata = {
+  title: {
+    absolute: "Teambuilding i razvoj timova | Mental Core",
+  },
+  description:
+    "Teambuilding koji se pamti, i koji se vidi u uredu. Dan na terenu s psihologinjom i vojnim instruktorima.",
   openGraph: {
     type: "website",
     locale: "hr_HR",
     url: "./",
     siteName: "Mental Core",
-    title: "Mental Core | Razvoj timova i lidera",
+    title: "Teambuilding i razvoj timova | Mental Core",
     description:
-      "Timovi koji drže i pod pritiskom. Terenske vježbe, analiza dinamike i coaching lidera.",
+      "Teambuilding koji se pamti, i koji se vidi u uredu. Dan na terenu s psihologinjom i vojnim instruktorima.",
     images: [OG_IMAGE],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mental Core | Razvoj timova i lidera",
+    title: "Teambuilding i razvoj timova | Mental Core",
     description:
-      "Programi za timove koji moraju funkcionirati i kad nije sve pod kontrolom.",
+      "Dan na terenu koji tim pamti, i koji se vidi kad se vrate u ured.",
     images: [OG_IMAGE.url],
   },
 };
@@ -115,15 +111,19 @@ export const metadata: Metadata = {
 const PITANJA = [
   {
     q: "Po čemu se Mental Core razlikuje od klasičnog teambuildinga?",
-    a: "Klasični teambuilding fokusiran je isključivo na druženje i zabavu. Mental Core kombinira terensko iskustvo i realan stres s vođenom refleksijom, psihološkom analizom i pisanim izvješćem, stvarajući trajne promjene u funkcioniranju tima.",
+    a: "Kod nas ima zabave, ali ne samo zabave. Dan čine zadaci na terenu i zajednički osvrt, tako da se nešto od dana vidi i kad se vratite u ured.",
   },
   {
     q: "Za koga su namijenjeni Mental Core programi?",
     a: "Za timove i lidere koji se suočavaju s izazovima u komunikaciji, odgovornosti ili donošenju odluka pod pritiskom. Programi su prilagođeni timovima od 3 do 40+ osoba. Sjedište nam je u okolici Zagreba, najzgodnija nam je Zagrebačka županija, a otvoreni smo za rad diljem Hrvatske.",
   },
   {
-    q: "Što uključuje stručno izvješće nakon provedenog programa?",
-    a: "Nakon vježbi na terenu izrađujemo strukturirano pisano izvješće s uvidima o timskoj dinamici, raspodjeli odgovornosti i konkretnim preporukama za svakodnevni rad.",
+    q: "Kako mjerite učinak?",
+    a: "Usporedimo upitnik prije i poslije: komunikaciju, povjerenje i usklađenost s ciljevima. Uz to gledamo ono što tvrtka ionako prati, fluktuaciju, apsentizam i angažiranost, te brzinu odlučivanja u 90 dana nakon programa. Zamjena jednog stručnog zaposlenika košta tvrtku između 50 i 200 posto njegove godišnje plaće. Ako program zadrži jednu osobu, platio se sam.",
+  },
+  {
+    q: "Što ostane nakon dana?",
+    a: "Zajednički osvrt: što se vidjelo na terenu i što tim nosi u ured. Ako voditelj treba zapis, taj osvrt ide i na papir, s obrascima i preporukama, bez pojedinačnih izjava i imena.",
   },
   {
     q: "Koliko ljudi može sudjelovati?",
@@ -147,7 +147,7 @@ const PITANJA = [
   },
   {
     q: "Je li sve što se kaže na programu povjerljivo?",
-    a: "Da. Dolazimo iz posla u kojem se poslovne tajne čuvaju, a ne prepričavaju. Ono što nam povjerite, ostaje kod nas. To možemo garantirati. Izvješće za upravu sadrži obrasce i preporuke, nikada pojedinačne izjave ni imena. Fotografije, video i snimanje idu samo uz vaše odobrenje.",
+    a: "Da. Dolazimo iz posla u kojem se poslovne tajne čuvaju, a ne prepričavaju. Ono što nam povjerite, ostaje kod nas. To možemo garantirati. Zapis za voditelja, ako ga traži, sadrži obrasce i preporuke, nikada pojedinačne izjave ni imena. Fotografije, video i snimanje idu samo uz vaše odobrenje.",
   },
 ];
 
@@ -159,10 +159,13 @@ export default function Pocetna() {
       <section id="uvod" className="on-dark bg-brand">
         <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 md:py-24 lg:grid-cols-[1.15fr_1fr] lg:items-center lg:gap-16 lg:px-8">
           <div>
-            <Eyebrow tone="dark">Programi za poslovne subjekte</Eyebrow>
+            <Eyebrow tone="dark">Teambuilding i razvoj timova</Eyebrow>
             <h1 className="font-display mt-5 text-balance text-[clamp(2.15rem,1.2rem+4.2vw,3.75rem)] leading-[1.18] font-bold tracking-[0.01em] text-white">
-              Uspjeh je rezultat uspješnog funkcioniranja tima.
+              Teambuilding koji se pamti. I koji se vidi u uredu.
             </h1>
+            <p className="mt-5 max-w-xl text-lg leading-snug font-medium text-white/90">
+              Uspjeh je rezultat uspješnog funkcioniranja tima.
+            </p>
             <p className="lead mt-6 max-w-xl text-white">
               Vrijeme je da vaš tim postane više od grupe ljudi koji rade
               zajedno. Gradimo timove koji vjeruju jedni drugima, surađuju i
@@ -206,9 +209,9 @@ export default function Pocetna() {
         <div className="border-t border-white/15">
           <div className="mx-auto grid max-w-6xl px-5 sm:grid-cols-3 lg:px-8">
             {[
+              "Teren i izazovi",
               "Psihologinja i vojni instruktori",
-              "Analiza tima prije programa",
-              "Poslovne tajne ostaju kod nas",
+              "Dan koji tim pamti",
             ].map((item) => (
               <p
                 key={item}
@@ -221,8 +224,45 @@ export default function Pocetna() {
         </div>
       </section>
 
+      <Section tone="surface" id="dan">
+        <div className="grid items-start gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+          <div>
+            <Eyebrow>Teren</Eyebrow>
+            <SectionTitle className="mt-5">Kako izgleda dan s nama</SectionTitle>
+            <p className="lead mt-5 text-ink-muted">
+              Jedan dan, od dolaska do završnog kruga.
+            </p>
+            <ol className="mt-10">
+              {DAN.map((d) => (
+                <li
+                  key={d.naslov}
+                  className="relative border-l border-line pb-8 pl-8 last:pb-0"
+                >
+                  <span
+                    aria-hidden
+                    className="absolute top-1.5 left-0 size-2.5 -translate-x-1/2 bg-accent-clay"
+                  />
+                  <h3 className="text-xl font-bold text-brand-deep">{d.naslov}</h3>
+                  <p className="mt-1.5 leading-relaxed text-ink-muted">{d.tekst}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+          <div className="grid grid-cols-2 gap-3">
+            {DAN_FOTO.map((foto) => (
+              <Foto
+                key={foto}
+                foto={foto}
+                sizes="(min-width: 1024px) 22vw, 45vw"
+                className="max-md:aspect-[3/4] max-md:h-auto max-md:max-h-none"
+              />
+            ))}
+          </div>
+        </div>
+      </Section>
+
       {/* Problem */}
-      <Section tone="surface">
+      <Section tone="alt">
         <div className="grid gap-12 lg:grid-cols-[1fr_1fr] lg:gap-20">
           <div>
             <Eyebrow>Problem</Eyebrow>
@@ -232,37 +272,11 @@ export default function Pocetna() {
           </div>
           <div>
             <p className="lead text-ink">
-              Ljudi se dobro provedu. Vrate se u ured i sve ostane isto. Iste
-              šutnje na sastancima, iste nejasne uloge, isti ljudi koji nose sve
-              na sebi.
+              Ljudi se dobro provedu. Vrate se u ured i sve ostane isto.
             </p>
             <p className="mt-4 text-lg leading-relaxed text-ink">
-              Problem nije u zabavi. Problem je što zabava ne mijenja strukturu
-              tima.
+              Kod nas zabava dolazi iz zadataka koji ostaju u sjećanju.
             </p>
-            <p className="mt-4 text-lg leading-relaxed text-ink">
-              Kod nas razonoda nije ručak i piće. Dolazi iz zadataka koji
-              ostaju u sjećanju, i koji u isto vrijeme pokažu kako tim radi.
-            </p>
-            <ul className="mt-9 space-y-5">
-              {SIMPTOMI.map((s) => (
-                <li
-                  key={s.kljuc}
-                  className="flex gap-4 text-[0.95rem] leading-relaxed text-ink-muted"
-                >
-                  <Check
-                    size={18}
-                    className="mt-0.5 shrink-0 text-accent-clay"
-                    strokeWidth={2.5}
-                    aria-hidden
-                  />
-                  <span>
-                    <span className="font-semibold text-brand-deep">{s.kljuc}</span>{" "}
-                    {s.tekst}
-                  </span>
-                </li>
-              ))}
-            </ul>
           </div>
         </div>
       </Section>
@@ -344,8 +358,8 @@ export default function Pocetna() {
           <Eyebrow>Proces</Eyebrow>
           <SectionTitle className="mt-5">Tri koraka, ne jedan dan</SectionTitle>
           <p className="lead mt-5 text-ink-muted">
-            Teambuilding je sredina procesa, ne cijeli proces. Ono što ga čini
-            vrijednim je što se događa prije i poslije.
+            Dan na terenu je srce. Prije njega se dogovorimo što tim treba, a
+            poslije sjednemo na zajednički osvrt.
           </p>
         </div>
         <div className="mt-14 grid gap-10 md:grid-cols-3 md:gap-8">
@@ -396,29 +410,14 @@ export default function Pocetna() {
 
       {/* Mjerenje */}
       <Section tone="dark">
-        <div className="grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-20">
-          <div>
-            <Eyebrow tone="dark">Povrat investicije</Eyebrow>
-            <SectionTitle tone="dark" className="mt-5">
-              Kako znate da je vrijedilo
-            </SectionTitle>
-            <p className="lead mt-6 text-white">
-              Zamjena jednog stručnog zaposlenika košta tvrtku između 50 i 200
-              posto njegove godišnje plaće. Ako program zadrži jednu osobu,
-              platio se sam.
-            </p>
-            <p className="mt-4 text-lg leading-relaxed text-white">
-              Zato ne prodajemo dojam, nego mjerimo.
-            </p>
-          </div>
-          <div className="space-y-px">
-            {POKAZATELJI.map((p) => (
-              <div key={p.naslov} className="border-t border-white/15 py-6">
-                <h3 className="text-xl font-bold text-white">{p.naslov}</h3>
-                <p className="mt-2 leading-relaxed text-white">{p.tekst}</p>
-              </div>
-            ))}
-          </div>
+        <div className="max-w-2xl">
+          <Eyebrow tone="dark">Nakon dana</Eyebrow>
+          <SectionTitle tone="dark" className="mt-5">
+            Kako znate da je vrijedilo
+          </SectionTitle>
+          <p className="lead mt-6 text-white">
+            Ako program zadrži jednu osobu, platio se sam.
+          </p>
         </div>
       </Section>
 
@@ -434,9 +433,10 @@ export default function Pocetna() {
               <div className="border-l-2 border-accent-clay pl-5">
                 <h3 className="text-xl font-bold text-brand-deep">Helena</h3>
                 <p className="mt-1.5 leading-relaxed text-ink-muted">
-                  Psihologinja i coach. Bivša časnica OSRH. Poznaje vodstvo i
-                  hijerarhiju iznutra. Pomaže timovima i liderima izgraditi
-                  psihološku otpornost i otvorenu komunikaciju pod pritiskom.
+                  Psihologinja. Bivša časnica OSRH, s terena i iz vojske.
+                  Poznaje vodstvo i hijerarhiju iznutra. Coach je sljedeći
+                  korak: pomaže timovima i liderima izgraditi psihološku
+                  otpornost i otvorenu komunikaciju pod pritiskom.
                 </p>
               </div>
               <div className="border-l-2 border-accent-clay pl-5">
@@ -498,10 +498,8 @@ export default function Pocetna() {
           <Eyebrow>Granice</Eyebrow>
           <SectionTitle className="mt-5">Kad nismo pravi izbor</SectionTitle>
           <p className="lead mt-6 text-ink">
-            Ako tražite opuštanje, zabavni park i dan bez obveza, postoje bolje
-            agencije od nas. Naš program traži izlazak iz zone komfora i otvorenu
-            komunikaciju. To nekim timovima u početku ne odgovara. Recite nam to
-            unaprijed i iskreno ćemo vam reći ima li smisla.
+            Kod nas ima zabave, ali ne samo zabave. Ako želite isključivo
+            opušteni izlet, reći ćemo vam iskreno.
           </p>
         </div>
       </Section>

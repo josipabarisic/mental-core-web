@@ -12,6 +12,7 @@ const DOGADJAJ = "mentalcore:razgovor";
 const VELICINE = ["Do 10 ljudi", "10 – 25 ljudi", "25 – 50 ljudi", "50+ ljudi"];
 
 const FOKUSI = [
+  "Želimo dobar teambuilding i druženje",
   "Komunikacija u timu",
   "Preopterećenost i stres",
   "Novi lideri / promjene",

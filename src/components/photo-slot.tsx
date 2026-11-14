@@ -7,7 +7,7 @@ export const FOTO = {
   flipchart: { src: "helena-dinko-flipchart.jpg", w: 1600, h: 1065, alt: "Helena i Dinko rade s flipchartom tijekom radionice" },
   portretZajedno: { src: "helena-dinko-portret.jpg", w: 1480, h: 1600, alt: "Helena i Dinko, osnivači Mental Corea" },
   suradnja: { src: "helena-dinko-suradnja.jpg", w: 1065, h: 1600, alt: "Helena i Dinko zajedno pregledavaju bilješke" },
-  helena: { src: "helena-portret.jpg", w: 1065, h: 1600, alt: "Helena, psihologinja i coach" },
+  helena: { src: "helena-portret.jpg", w: 1065, h: 1600, alt: "Helena, psihologinja i bivša časnica" },
   dinko: { src: "dinko-portret.jpg", w: 1065, h: 1600, alt: "Dinko, vojni instruktor i operativni analitičar" },
   dvorana: { src: "helena-dinko-dvorana.jpg", w: 1600, h: 1065, alt: "Helena i Dinko u dvorani za edukaciju" },
   biljeske: { src: "analiza-tima-biljeske.jpg", w: 1065, h: 1600, alt: "Bilješke na podlozi za pisanje tijekom analize tima" },

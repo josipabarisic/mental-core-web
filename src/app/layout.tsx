@@ -28,13 +28,14 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://mentalcoreteam.com"),
   title: {
-    default: "Mental Core | Razvoj timova i lidera kroz iskustvo i analizu",
+    default: "Teambuilding i razvoj timova | Mental Core",
     template: "%s | Mental Core",
   },
   description:
-    "Programi za timove koji moraju funkcionirati i pod pritiskom. Analiza tima, teambuilding i coaching lidera.",
+    "Teambuilding i razvoj timova. Dan na terenu koji se pamti, i koji se vidi u uredu.",
   keywords: [
     "teambuilding hrvatska",
+    "teambuilding i razvoj timova",
     "razvoj timova i lidera",
     "analiza tima radionice",
     "coaching lidera zagreb",

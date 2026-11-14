@@ -13,7 +13,7 @@ export const OG_IMAGE = {
   url: "/og-image.png",
   width: 1200,
   height: 630,
-  alt: "Mental Core. Uspjeh je rezultat uspješnog funkcioniranja tima. Zatražite razgovor.",
+  alt: "Mental Core. Teambuilding koji se pamti. I koji se vidi u uredu.",
 };
 
 export const LOGO = {
@@ -35,7 +35,7 @@ export function jsonLd(data: unknown) {
 
 const OPISI: Record<string, string> = {
   standard:
-    "Jednodnevni trening od 8 do 10 sati s terenskim vježbama, feedbackom i izvješćem.",
+    "Jednodnevni teambuilding od 8 do 10 sati, sa zadacima na terenu i zajedničkim osvrtom.",
   maxi: "Dvodnevni program rada na terenu za dublju promjenu i timsku povezanost.",
   premium:
     "Personalizirani paket skrojen prema specifičnim izazovima tima i lidera.",
@@ -91,7 +91,7 @@ export function siteJsonLd() {
         },
         image: `${SITE_URL}${OG_IMAGE.url}`,
         description:
-          "Strukturirani razvoj timova, analiza dinamike, teambuilding treninzi pod realnim stresom i individualni coaching lidera.",
+          "Teambuilding i razvoj timova. Dan na terenu koji se pamti, i koji se vidi u uredu.",
         email: KONTAKT_MAIL,
         taxID: OIB,
         vatID: `HR${OIB}`,
@@ -99,10 +99,10 @@ export function siteJsonLd() {
         sameAs: [LINKEDIN_URL, INSTAGRAM_URL],
         founder: founders,
         knowsAbout: [
-          "Razvoj timova",
-          "Coaching lidera",
-          "Analiza timske dinamike",
           "Teambuilding",
+          "Teambuilding i razvoj timova",
+          "Razvoj timova",
+          "Zadaci na terenu",
           "Psihološka otpornost timova",
         ],
       },
@@ -120,7 +120,7 @@ export function siteJsonLd() {
           height: LOGO.height,
         },
         description:
-          "Strukturirani razvoj timova, analiza dinamike, teambuilding treninzi pod realnim stresom i individualni coaching lidera.",
+          "Teambuilding i razvoj timova. Dan na terenu koji se pamti, i koji se vidi u uredu.",
         email: KONTAKT_MAIL,
         address,
         parentOrganization: { "@id": organizationId },

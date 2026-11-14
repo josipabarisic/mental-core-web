@@ -18,8 +18,8 @@ export function SiteFooter() {
           <div>
             <Logo tone="dark" />
             <p className="mt-5 max-w-xs text-sm leading-relaxed">
-              Analiza tima, radionice i coaching lidera. Programi za timove koji
-              moraju funkcionirati i kad nije sve pod kontrolom.
+              Teambuilding i razvoj timova. Dan na terenu koji se pamti, i koji
+              se vidi u uredu.
             </p>
           </div>
 
@@ -106,7 +106,7 @@ export function SiteFooter() {
           <p>
             {TVRTKA}, {SJEDISTE}. OIB: {OIB}.
           </p>
-          <p>Mental Core. Razvoj timova i lidera.</p>
+          <p>Mental Core. Teambuilding i razvoj timova.</p>
         </div>
       </div>
     </footer>

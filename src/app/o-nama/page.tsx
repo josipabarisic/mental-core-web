@@ -7,7 +7,7 @@ import { Foto } from "@/components/photo-slot";
 export const metadata: Metadata = {
   title: "Helena i Dinko Maruščak",
   description:
-    "Psihologinja Helena Maruščak i Dinko Maruščak vode Mental Core. Analiza timske dinamike, terenski programi i coaching lidera, iz vojnog i psihološkog iskustva.",
+    "Helena i Dinko Maruščak vode Mental Core. Teambuilding na terenu, iz vojnog i psihološkog iskustva.",
   alternates: {
     canonical: "/o-nama",
   },
@@ -32,7 +32,7 @@ const METODA = [
   {
     naslov: "Prijenos u posao",
     tekst:
-      "Svaki uvid prevodimo u konkretno pravilo za svakodnevni rad. Ta pravila ulaze u pisano izvješće.",
+      "Svaki uvid prevodimo u konkretno pravilo za svakodnevni rad. Ta pravila ostanu u zajedničkom osvrtu.",
   },
 ];
 
@@ -112,30 +112,31 @@ export default function ONama() {
             <Foto foto="helena" pozicija="center 30%" />
             <h3 className="mt-7 text-2xl font-bold text-brand-deep">Helena</h3>
             <p className="mt-1.5 text-sm font-medium text-accent-clay-dark">
-              Osnivačica. Psihologinja i coach. Bivša časnica OSRH.
+              Osnivačica. Psihologinja. Bivša časnica OSRH.
             </p>
             <ul className="mt-5 space-y-2 text-[0.95rem] leading-relaxed text-ink-muted">
               <li>
+                Časnica Hrvatske vojske u obavještajnom sektoru. Na terenu je
+                vodila treninge komunikacije za taktičku razinu.
+              </li>
+              <li>
                 Kliničko i vojno iskustvo. Poznaje hijerarhiju i vodstvo s
                 različitih razina.
-              </li>
-              <li>NLP trenerica, edukantica gestalt psihoterapije.</li>
-              <li>
-                Časnica Hrvatske vojske u obavještajnom sektoru. Vodila
-                treninge komunikacije za taktičku razinu.
               </li>
               <li>
                 Prošla zarobljenički kamp i na njemu trenirala vlastitu
                 psihološku otpornost.
               </li>
+              <li>NLP trenerica, edukantica gestalt psihoterapije.</li>
             </ul>
             <blockquote className="mt-6 border-l-2 border-accent-clay pl-5 text-lg leading-snug text-brand-deep">
               Pomažem timovima i liderima izgraditi psihološku otpornost i
               otvorenu komunikaciju pod pritiskom.
             </blockquote>
             <p className="mt-5 leading-relaxed text-ink-muted">
-              Coaching lidera uz program ide brže od klasičnog. U razgovor
-              ulazi već imajući širu sliku tima, ne samo lidera.
+              Coach je sljedeći korak. Coaching lidera uz program ide brže od
+              klasičnog: u razgovor ulazi već imajući širu sliku tima, ne samo
+              lidera.
             </p>
           </article>
 
@@ -251,8 +252,9 @@ export default function ONama() {
             I to možemo garantirati.
           </p>
           <p className="mt-4 text-lg leading-relaxed text-ink">
-            Izvješće koje dobiva uprava sadrži uočene obrasce i preporuke za
-            daljnji rad. Ne sadrži pojedinačne izjave, imena ni ocjene ljudi.
+            Zajednički osvrt, i zapis za voditelja ako ga traži, sadrži
+            uočene obrasce i preporuke za daljnji rad. Ne sadrži pojedinačne
+            izjave, imena ni ocjene ljudi.
             Fotografije, video i snimanje idu samo uz vaše odobrenje. Ne
             snimamo ako to niste htjeli.
           </p>

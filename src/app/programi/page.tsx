@@ -7,7 +7,7 @@ import { ProgramKartice } from "@/components/program-kartice";
 export const metadata: Metadata = {
   title: "Programi za timove i lidere | STANDARD, MAXI, PREMIUM",
   description:
-    "Odaberite program prilagođen vašem timu: jednodnevni terenski treninzi, dvodnevni formati, dubinska analiza timske dinamike ili personalizirani programi.",
+    "Odaberite teambuilding za vaš tim: od dana po vašoj mjeri do zadataka na terenu, uz zajednički osvrt.",
   alternates: {
     canonical: "/programi",
   },
