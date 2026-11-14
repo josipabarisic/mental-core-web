@@ -1,3 +1,5 @@
+"use client";
+
 import { createContext, use } from "react";
 import { cn } from "@/lib/utils";
 import { Otkrij } from "@/components/pokret";
