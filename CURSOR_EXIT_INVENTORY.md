@@ -1,28 +1,38 @@
-# Cursor exit inventory (2026-11-24)
+# Cursor exit inventory (Josipa Barisić)
 
-Josipa asked to push everything important to GitHub before deleting Cursor.
+Datum: 2026-11-24
 
-## Already safe on GitHub (main / recent pushes)
-- https://github.com/josipabarisic/mental-core-web (public, pushed today)
-- https://github.com/josipabarisic/ivan-ramljak (private, created today)
-- https://github.com/josipabarisic/josipabarisic-com (private Next.js personal site, pushed today; branch `faza-2` also present)
-- https://github.com/josipabarisic/norie-journal (private; many `cursor/*` branches already on GitHub)
-- https://github.com/josipabarisic/norie-brand-site
-- https://github.com/josipabarisic/ugc-website (+ branch `sinsay-lamp-post`)
-- https://github.com/josipabarisic/norie-brand-os
-- https://github.com/josipabarisic/norie-creative-studio
-- https://github.com/josipabarisic/norie-studio
-- https://github.com/josipabarisic/noriewebjournal
+## Sigurno na GitHubu (source of truth)
 
-## Was Origin-only (risk if Cursor is deleted)
-- Origin native repo `josipabarisic/josipabarisic-com` branch `cursor/josipa-site-5a64`
-  Tip: dde0df8604e9db70220a743e0cdf28680ed2e3b1
-  Astro Majstorica / Josipa brand site (Oct 2025), including `source/biljeske.pdf`
-  Being mirrored to GitHub as `archive/majstorica-astro-oct2025` and/or `cursor/josipa-site-5a64`.
+Inbound Origin mirrors = GitHub je glavni. Brisanje Cursora ih ne briše.
 
-## Not a GitHub gap
-- Origin mirrors of the GitHub repos above are inbound copies; GitHub is source of truth.
-- `genesis` is not accessible / not a current Origin repo.
+| Repo | Status |
+|------|--------|
+| mental-core-web | GitHub main + grane; inventory na `backup/cursor-exit-inventory-8ff1` |
+| josipabarisic-com (Next.js) | GitHub main `dead1e2…`, faza-2 |
+| ivan-ramljak | GitHub main |
+| norie-journal | GitHub main + mnogo `cursor/*` grana |
+| norie-brand-site | GitHub (Origin inbound mirror) |
+| norie-brand-os | GitHub |
+| norie-creative-studio | GitHub |
+| norie-studio | GitHub |
+| ugc-website | GitHub |
+| noriewebjournal | GitHub |
 
-## Note
-Chat history and unpublished Cloud Agent drafts that were never committed are not recoverable from git. Anything committed to GitHub survives deleting Cursor.
+## Jedini Origin-only rizik: Majstorica Astro
+
+Origin-native repo `josipabarisic/josipabarisic-com` (NIJE GitHub mirror).
+Grana: `cursor/josipa-site-5a64` tip `dde0df8604e9db70220a743e0cdf28680ed2e3b1`
+
+Sadrži: Astro site, `public/images/*.jpg`, `source/biljeske.pdf` (~8MB).
+
+### Backup na GitHubu (josipabarisic/josipabarisic-com)
+
+- `archive/majstorica-astro-oct2025` — djelomične bilješke (agent treba zamijeniti punim stablom)
+- `archive/majstorica-astro-sources-8ff1` — puni tekstualni source (bez JPG/PDF), u tijeku
+- Cilj push agenta: grane `cursor/josipa-site-5a64` + `archive/majstorica-astro-oct2025` s punim stablom (JPG + PDF)
+
+## Što uraditi prije brisanja Cursora
+
+1. Provjeri da na GitHubu postoji `cursor/josipa-site-5a64` s JPG i `biljeske.pdf`
+2. Ostali repoji su već na GitHubu — Cursor ih ne treba
