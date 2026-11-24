@@ -1,6 +1,6 @@
-# Mental Core, skica weba
+# Mental Core
 
-Skica web stranice za Mental Core, B2B brend za razvoj timova i lidera na hrvatskom tržištu. Stranice: Početna, Programi sa stranicom za svaki program, Upitnik o timu, O nama i Kontakt.
+B2B brend za razvoj timova i lidera na hrvatskom tržištu. Stranice: Početna, Programi sa stranicom za svaki program, Upitnik o timu, O nama i Kontakt.
 
 Objavljeno na https://mentalcoreteam.com. Podaci tvrtke i kontakti su još rezervirana mjesta.
 
